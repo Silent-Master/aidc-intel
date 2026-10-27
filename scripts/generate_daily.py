@@ -100,6 +100,43 @@ def generate_with_gemini(target_date: str, api_key: str):
         return json.loads(text)
 
 
+def generate_with_deepseek(target_date: str, api_key: str):
+    """Generate briefing using DeepSeek API."""
+    import urllib.request
+
+    system_prompt_path = os.path.join(PROMPTS_DIR, "AIDC_SYSTEM_PROMPT.md")
+    with open(system_prompt_path, "r", encoding="utf-8") as f:
+        system_prompt = f.read()
+
+    user_prompt = f"""请基于全球 AI 数据中心 (AIDC) 硬件底座（供电配电、光铜互连、算力机柜与板材、液冷温控）过去 24 小时的最新资讯，编写 {target_date} 的《AIDC 供应链情报早报》。
+必须严格遵守 System Prompt 中的铁律约束（严禁证券买卖建议、强制标注【厂商口径】、量化去水化），并完整输出符合 JSON Schema 规范的 JSON 数据。请务必只输出合法的 JSON 文本，不要带有 Markdown 代码块。"""
+
+    url = "https://api.deepseek.com/chat/completions"
+    payload = {
+        "model": "deepseek-chat",
+        "messages": [
+            {"role": "system", "content": system_prompt},
+            {"role": "user", "content": user_prompt}
+        ],
+        "response_format": {"type": "json_object"},
+        "temperature": 0.2
+    }
+
+    req = urllib.request.Request(
+        url,
+        data=json.dumps(payload).encode("utf-8"),
+        headers={
+            "Content-Type": "application/json",
+            "Authorization": f"Bearer {api_key}"
+        }
+    )
+
+    with urllib.request.urlopen(req, timeout=90) as response:
+        result = json.loads(response.read().decode("utf-8"))
+        text = result["choices"][0]["message"]["content"]
+        return json.loads(text)
+
+
 def update_index_and_series(target_date: str):
     """Ensure index.json contains target_date and update series.json."""
     index_file = os.path.join(DATA_DIR, "index.json")
@@ -153,16 +190,28 @@ def main():
 
     data_zh, data_en = None, None
 
-    if provider == "gemini" or (provider == "auto" and api_key and os.environ.get("GEMINI_API_KEY")):
+    gemini_key = os.environ.get("GEMINI_API_KEY")
+    deepseek_key = os.environ.get("DEEPSEEK_API_KEY")
+    openai_key = os.environ.get("OPENAI_API_KEY")
+
+    if provider == "gemini" or (provider == "auto" and gemini_key):
         try:
-            print("[*] Calling Gemini API for structured AIDC generation...")
-            data_zh = generate_with_gemini(target_date, api_key)
-            data_en = data_zh  # or translate
+            print("[*] Calling Google Gemini API for structured AIDC generation...")
+            data_zh = generate_with_gemini(target_date, gemini_key or api_key)
+            data_en = data_zh
         except Exception as e:
             print(f"[!] Gemini call failed ({e}), falling back to offline synthesis.")
             data_zh, data_en = generate_offline(target_date)
+    elif provider == "deepseek" or (provider == "auto" and deepseek_key):
+        try:
+            print("[*] Calling DeepSeek API for structured AIDC generation...")
+            data_zh = generate_with_deepseek(target_date, deepseek_key or api_key)
+            data_en = data_zh
+        except Exception as e:
+            print(f"[!] DeepSeek call failed ({e}), falling back to offline synthesis.")
+            data_zh, data_en = generate_offline(target_date)
     else:
-        print("[*] Using offline synthesis pipeline...")
+        print("[*] No LLM API key detected or offline requested, running baseline synthesis engine...")
         data_zh, data_en = generate_offline(target_date)
 
     with open(zh_path, "w", encoding="utf-8") as f:
