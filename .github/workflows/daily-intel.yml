@@ -1,0 +1,68 @@
+name: Daily AIDC Supply Chain Intelligence Pipeline
+
+on:
+  schedule:
+    # Run daily at 00:30 UTC (08:30 CST)
+    - cron: '30 0 * * *'
+  workflow_dispatch:
+    inputs:
+      target_date:
+        description: 'Target briefing date (YYYY-MM-DD)'
+        required: false
+        default: ''
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: 'pages'
+  cancel-in-progress: false
+
+jobs:
+  build-and-generate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+
+      - name: Run AIDC daily generator
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: |
+          DATE_ARG=""
+          if [ -n "${{ github.event.inputs.target_date }}" ]; then
+            DATE_ARG="--date ${{ github.event.inputs.target_date }}"
+          fi
+          python scripts/generate_daily.py $DATE_ARG --provider auto
+
+      - name: Commit and push generated briefing
+        run: |
+          git config --local user.name "github-actions[bot]"
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/ anchors.ics feed.xml sitemap.xml
+          git diff --quiet && git diff --staged --quiet || (git commit -m "chore(data): automated daily AIDC briefing update [skip ci]" && git push)
+
+      - name: Upload artifact for GitHub Pages
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
+
+  deploy-pages:
+    needs: build-and-generate
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

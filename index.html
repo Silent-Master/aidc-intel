@@ -1,0 +1,1187 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>AIDC 智算基础设施与硬件供应链情报中心</title>
+<meta name="description" content="AI 数据中心 (AIDC) 物理基建与硬件供应链每日情报：算力机柜、供电配电、高速光铜互连、液冷温控、木桶短板与齐套预警。每天 08:30 更新。">
+<link rel="canonical" href="https://nohho.github.io/aidc-intel/">
+<link rel="alternate" type="application/rss+xml" title="AIDC 智算中心供应链情报" href="feed.xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="AIDC 供应链情报中心">
+<meta property="og:url" content="https://nohho.github.io/aidc-intel/">
+<meta property="og:title" content="AIDC 智算基础设施与硬件供应链情报">
+<meta property="og:description" content="AI 数据中心物理基建、NVL72整机柜、54V高压直流、800G/1.6T光模块、高速铜缆、液冷CDU供应链每日情报与齐套短板追踪">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230f172a'/%3E%3Cpath d='M16 44 L32 16 L48 44 Z' fill='none' stroke='%2306b6d4' stroke-width='4' stroke-linejoin='round'/%3E%3Ccircle cx='32' cy='28' r='4' fill='%2338bdf8'/%3E%3Ccircle cx='24' cy='42' r='4' fill='%2310b981'/%3E%3Ccircle cx='40' cy='42' r='4' fill='%236366f1'/%3E%3C/svg%3E">
+<style>
+:root {
+  --bg: #090d16;
+  --panel: #0f172a;
+  --card: #141e33;
+  --card-hover: #192742;
+  --line: #1e293b;
+  --line-strong: #334155;
+  --ink: #f1f5f9;
+  --ink-dim: #94a3b8;
+  --mut: #64748b;
+  --cyan: #06b6d4;
+  --cyan-glow: rgba(6, 182, 212, 0.15);
+  --blue: #3b82f6;
+  --indigo: #6366f1;
+  --emerald: #10b981;
+  --amber: #f59e0b;
+  --rose: #ef4444;
+  --purple: #a855f7;
+  --badge-bg: #1e293b;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  font-size: 14.5px;
+  line-height: 1.7;
+}
+
+/* Header Banner */
+header.top {
+  background: linear-gradient(135deg, #0b1528 0%, #0d1e3d 50%, #081122 100%);
+  border-bottom: 1px solid var(--line);
+  padding: 24px 20px 18px;
+  position: relative;
+  overflow: hidden;
+}
+header.top::before {
+  content: "";
+  position: absolute;
+  top: -40px; right: -40px;
+  width: 240px; height: 240px;
+  background: radial-gradient(circle, rgba(6, 182, 212, 0.18) 0%, transparent 70%);
+  pointer-events: none;
+}
+.header-wrap { max-width: 1200px; margin: 0 auto; }
+.top-title-row { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+.top-title { font-size: 22px; font-weight: 800; letter-spacing: 0.5px; color: #fff; display: flex; align-items: center; gap: 10px; }
+.top-title span.logo-badge {
+  background: linear-gradient(135deg, var(--cyan), var(--blue));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.live-pill {
+  font-size: 11px;
+  background: rgba(16, 185, 129, 0.15);
+  color: #34d399;
+  border: 1px solid rgba(16, 185, 129, 0.4);
+  border-radius: 12px;
+  padding: 2px 9px;
+  font-weight: 700;
+  vertical-align: middle;
+}
+.issue-badge {
+  font-size: 11px;
+  background: rgba(59, 130, 246, 0.15);
+  color: #93c5fd;
+  border: 1px solid rgba(59, 130, 246, 0.35);
+  border-radius: 12px;
+  padding: 2px 9px;
+  font-weight: 700;
+}
+.top-sub { font-size: 13px; color: var(--ink-dim); margin-top: 6px; }
+
+/* Headline ticker */
+.headline-bar {
+  margin-top: 14px;
+  background: rgba(15, 23, 42, 0.75);
+  border: 1px solid rgba(6, 182, 212, 0.25);
+  border-radius: var(--radius-md);
+  padding: 10px 14px;
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: #e2e8f0;
+}
+.headline-bar b { color: #38bdf8; margin-right: 6px; }
+
+/* Date Pills & Quick Links */
+.date-actions-bar {
+  margin-top: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.dpills {
+  display: flex;
+  gap: 7px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+.dpill {
+  flex: none;
+  font-size: 12px;
+  color: #94a3b8;
+  border: 1px solid var(--line);
+  background: rgba(30, 41, 59, 0.5);
+  border-radius: 16px;
+  padding: 5px 12px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.dpill:hover { color: #fff; border-color: var(--cyan); }
+.dpill.on {
+  background: var(--cyan);
+  color: #041019;
+  font-weight: 700;
+  border-color: var(--cyan);
+  box-shadow: 0 0 10px rgba(6, 182, 212, 0.4);
+}
+.hdlinks { display: flex; gap: 14px; align-items: center; }
+.hdlinks a, .hdlinks button {
+  background: none; border: none;
+  color: var(--ink-dim);
+  font-size: 12px;
+  cursor: pointer;
+  text-decoration: none;
+  display: flex; align-items: center; gap: 4px;
+  transition: color 0.15s;
+}
+.hdlinks a:hover, .hdlinks button:hover { color: var(--cyan); }
+
+/* Alert strip */
+.alert-strip {
+  display: none;
+  background: linear-gradient(90deg, #991b1b, #b91c1c);
+  color: #fef2f2;
+  font-size: 13.5px;
+  font-weight: 600;
+  padding: 10px 16px;
+  text-align: center;
+}
+.alert-strip.show { display: block; }
+.alert-strip a { color: #fff; text-decoration: underline; margin-left: 6px; }
+
+/* Navigation Rail (Desktop) & Sticky Nav (Mobile) */
+nav.secnav {
+  display: flex;
+  gap: 8px;
+  padding: 10px 16px;
+  background: #0d1527;
+  border-bottom: 1px solid var(--line);
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  overflow-x: auto;
+  backdrop-filter: blur(10px);
+}
+nav.secnav a {
+  flex: none;
+  font-size: 12.5px;
+  color: var(--ink-dim);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 5px 11px;
+  text-decoration: none;
+  background: rgba(15, 23, 42, 0.8);
+  display: flex; align-items: center; gap: 5px;
+  transition: all 0.15s ease;
+}
+nav.secnav a:hover { color: var(--cyan); border-color: var(--cyan); }
+nav.secnav a.on { background: rgba(6, 182, 212, 0.15); border-color: var(--cyan); color: var(--cyan); font-weight: 700; }
+.railsearch { display: none; }
+
+/* Desktop 2-Column Layout with Sidebar Rail */
+@media(min-width: 1080px) {
+  body { padding-left: 260px; }
+  nav.secnav {
+    position: fixed;
+    left: 0; top: 0; bottom: 0;
+    width: 260px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 4px;
+    padding: 24px 16px;
+    overflow-y: auto;
+    background: #0a101f;
+    border-bottom: none;
+    border-right: 1px solid var(--line);
+  }
+  .railsearch {
+    display: block;
+    margin-bottom: 12px;
+  }
+  .railsearch input {
+    width: 100%;
+    padding: 8px 12px;
+    background: #111a2e;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-sm);
+    color: #fff;
+    font-size: 12.5px;
+    outline: none;
+  }
+  .railsearch input:focus { border-color: var(--cyan); }
+  .rail-section-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    color: var(--mut);
+    letter-spacing: 1px;
+    margin: 12px 6px 4px;
+    font-weight: 700;
+  }
+  nav.secnav a {
+    border-radius: var(--radius-sm);
+    padding: 8px 12px;
+    border: none;
+    background: transparent;
+    font-size: 13px;
+  }
+  nav.secnav a:hover { background: rgba(30, 41, 59, 0.5); }
+  nav.secnav a.on { background: rgba(6, 182, 212, 0.12); color: var(--cyan); }
+}
+
+/* Main Content Area */
+main {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 24px 20px 80px;
+}
+.sec-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 24px 22px;
+  margin-bottom: 26px;
+  transition: border-color 0.2s;
+}
+.sec-card:hover { border-color: rgba(6, 182, 212, 0.3); }
+
+.sec-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 14px;
+  margin-bottom: 18px;
+}
+.sec-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.sec-title .sec-num {
+  font-size: 12px;
+  background: rgba(6, 182, 212, 0.15);
+  color: var(--cyan);
+  padding: 2px 7px;
+  border-radius: 4px;
+  font-weight: 800;
+}
+.sec-sub { font-size: 12px; color: var(--mut); }
+
+/* s1: CapEx cards */
+.capex-grid { display: grid; grid-template-columns: 1fr; gap: 14px; }
+@media(min-width: 768px) { .capex-grid { grid-template-columns: repeat(3, 1fr); } }
+.capex-item {
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.capex-item h4 { font-size: 14px; color: #38bdf8; margin-bottom: 8px; line-height: 1.5; }
+.capex-item p { font-size: 13px; color: var(--ink-dim); line-height: 1.6; margin-bottom: 10px; }
+.capex-impact {
+  font-size: 12px;
+  background: rgba(30, 41, 59, 0.6);
+  border-left: 3px solid var(--cyan);
+  padding: 6px 10px;
+  color: #cbd5e1;
+  border-radius: 0 4px 4px 0;
+}
+
+/* s2: Headline Teardown */
+.headline-event {
+  background: rgba(15, 23, 42, 0.7);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  margin-bottom: 16px;
+}
+.hl-header { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; }
+.hl-title { font-size: 16px; font-weight: 700; color: #fff; }
+.hl-badges { display: flex; gap: 6px; }
+.badge {
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-weight: 700;
+}
+.badge-danger { background: rgba(239, 68, 68, 0.2); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.4); }
+.badge-warning { background: rgba(245, 158, 11, 0.2); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.4); }
+.badge-success { background: rgba(16, 185, 129, 0.2); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.4); }
+.hl-metrics {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin: 10px 0 14px;
+}
+.metric-pill {
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 6px;
+  padding: 4px 10px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #38bdf8;
+}
+.teardown-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  margin-top: 14px;
+}
+@media(min-width: 768px) { .teardown-grid { grid-template-columns: 1fr 1fr; } }
+.td-col {
+  background: #0d1526;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 12px 14px;
+  font-size: 12.5px;
+}
+.td-col h5 { color: var(--cyan); margin-bottom: 6px; font-size: 12.5px; text-transform: uppercase; letter-spacing: 0.5px; }
+
+/* s3: Bottlenecks */
+.bottleneck-card {
+  background: rgba(15, 23, 42, 0.6);
+  border-left: 4px solid var(--amber);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  padding: 14px 16px;
+  margin-bottom: 12px;
+  border-top: 1px solid var(--line);
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.bn-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; flex-wrap: wrap; gap: 6px; }
+.bn-title { font-size: 14.5px; font-weight: 700; color: #fff; }
+.bn-lead { font-size: 12px; color: #fbbf24; background: rgba(245, 158, 11, 0.15); padding: 2px 8px; border-radius: 4px; font-weight: 600; }
+.bn-actor { font-size: 12px; color: var(--mut); margin-top: 4px; }
+
+/* s4: Cross industry */
+.cross-grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
+@media(min-width: 768px) { .cross-grid { grid-template-columns: repeat(3, 1fr); } }
+.cross-box {
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 14px;
+}
+.cross-box h4 { font-size: 13.5px; color: #a78bfa; margin-bottom: 6px; }
+.cross-box p { font-size: 12.5px; color: var(--ink-dim); margin-bottom: 8px; }
+.cross-mag { font-size: 11.5px; color: #cbd5e1; background: #1e293b; padding: 4px 8px; border-radius: 4px; }
+
+/* s5: Supplier updates */
+.filter-tabs { display: flex; gap: 6px; margin-bottom: 14px; overflow-x: auto; padding-bottom: 4px; }
+.filter-tab {
+  background: rgba(30, 41, 59, 0.5);
+  border: 1px solid var(--line);
+  color: var(--ink-dim);
+  border-radius: 14px;
+  padding: 4px 12px;
+  font-size: 12px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.filter-tab.on { background: var(--blue); color: #fff; border-color: var(--blue); }
+.supplier-grid { display: grid; grid-template-columns: 1fr; gap: 10px; }
+@media(min-width: 768px) { .supplier-grid { grid-template-columns: repeat(2, 1fr); } }
+.sup-card {
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 12px 14px;
+}
+.sup-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
+.sup-co { font-weight: 700; color: #fff; font-size: 13.5px; }
+.sup-tag { font-size: 11px; padding: 2px 7px; border-radius: 4px; background: rgba(59, 130, 246, 0.15); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.3); }
+
+/* s6: Alerts */
+.alert-card {
+  background: rgba(15, 23, 42, 0.7);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--line);
+  padding: 16px;
+  margin-bottom: 12px;
+}
+.alert-card.high { border-left: 5px solid var(--rose); }
+.alert-card.medium { border-left: 5px solid var(--amber); }
+.alert-card.opportunity { border-left: 5px solid var(--emerald); }
+.alert-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; flex-wrap: wrap; gap: 8px; }
+.alert-mat { font-size: 15px; font-weight: 700; color: #fff; }
+.alert-action { background: #0f172a; border-radius: var(--radius-sm); padding: 10px 12px; margin-top: 8px; font-size: 12.5px; color: #cbd5e1; }
+.alert-meta { font-size: 12px; color: var(--mut); margin-top: 6px; display: flex; gap: 14px; }
+
+/* s7: Timeline */
+.timeline-list { display: flex; flex-direction: column; gap: 10px; }
+.tl-item {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  background: rgba(15, 23, 42, 0.5);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 12px 14px;
+}
+.tl-date {
+  font-family: monospace;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--cyan);
+  background: rgba(6, 182, 212, 0.1);
+  padding: 4px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+.tl-body h5 { color: #fff; font-size: 13.5px; margin-bottom: 4px; }
+.tl-body p { font-size: 12.5px; color: var(--ink-dim); }
+
+/* s8: BOM Mapping */
+.bom-table-wrap { overflow-x: auto; }
+table.bom-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+table.bom-table th {
+  text-align: left;
+  background: #0b1322;
+  color: var(--ink-dim);
+  padding: 10px 12px;
+  border-bottom: 2px solid var(--line);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+table.bom-table td {
+  padding: 11px 12px;
+  border-bottom: 1px solid var(--line);
+  color: var(--ink);
+}
+table.bom-table tr:hover td { background: rgba(30, 41, 59, 0.4); }
+.status-pill {
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.status-tight { background: rgba(239, 68, 68, 0.2); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.4); }
+.status-balance { background: rgba(245, 158, 11, 0.2); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.4); }
+.status-loose { background: rgba(16, 185, 129, 0.2); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.4); }
+
+/* Sparklines box */
+.sparkbox {
+  background: #0d1526;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 14px;
+  margin-top: 14px;
+}
+.spark-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(30, 41, 59, 0.7);
+  font-size: 12px;
+}
+.spark-row:last-child { border-bottom: none; }
+.spark-name { width: 140px; color: var(--ink-dim); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.spark-val { font-weight: 700; color: #fff; min-width: 90px; text-align: right; }
+.spark-svg { width: 80px; height: 24px; }
+
+/* Modal */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(4px);
+  z-index: 100;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.modal-box {
+  background: #0f172a;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-lg);
+  max-width: 480px;
+  width: 100%;
+  padding: 24px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+}
+.modal-title { font-size: 17px; font-weight: 700; color: #fff; margin-bottom: 8px; }
+.modal-desc { font-size: 13px; color: var(--ink-dim); margin-bottom: 14px; line-height: 1.6; }
+.modal-input {
+  width: 100%; padding: 10px 12px;
+  background: #090d16;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  color: #38bdf8;
+  font-size: 12px;
+  font-family: monospace;
+  margin-bottom: 14px;
+}
+.modal-actions { display: flex; gap: 10px; margin-bottom: 14px; }
+.btn-primary {
+  flex: 1; padding: 10px;
+  background: var(--cyan);
+  color: #041019;
+  border: none; border-radius: var(--radius-sm);
+  font-weight: 700; cursor: pointer; font-size: 13px;
+}
+.btn-secondary {
+  flex: 1; padding: 10px;
+  background: rgba(6, 182, 212, 0.15);
+  color: var(--cyan);
+  border: 1px solid var(--cyan);
+  border-radius: var(--radius-sm);
+  text-decoration: none; text-align: center; font-size: 13px; font-weight: 600;
+}
+.btn-close {
+  width: 100%; padding: 9px;
+  background: transparent;
+  color: var(--ink-dim);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  cursor: pointer; font-size: 12.5px;
+}
+.btn-close:hover { color: #fff; }
+
+/* Footer */
+footer {
+  border-top: 1px solid var(--line);
+  padding: 30px 20px;
+  text-align: center;
+  font-size: 12px;
+  color: var(--mut);
+  line-height: 1.8;
+}
+footer a { color: var(--ink-dim); text-decoration: none; }
+footer a:hover { color: var(--cyan); }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="header-wrap">
+    <div class="top-title-row">
+      <div class="top-title">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        <span class="logo-badge">AIDC</span> 智算基础设施与硬件供应链情报
+        <span class="live-pill" id="live_status">LIVE 08:30</span>
+        <span class="issue-badge" id="issue_pill">Issue #1</span>
+      </div>
+      <div class="hdlinks">
+        <button onclick="showCalModal()"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg><span id="txt_sub_cal">日历订阅 (.ics)</span></button>
+        <a href="feed.xml" target="_blank"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/></svg>RSS</a>
+        <button onclick="toggleLang()"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span id="lang_btn">EN</span></button>
+        <a href="https://github.com/Silent-Master/HVAC" target="_blank" id="gh_link"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>GitHub</a>
+      </div>
+    </div>
+    <div class="top-sub" id="top_subtitle">
+      AI 数据中心物理基建 · 算力机柜 · 供电配电 · 高速互连 · 液冷温控 · 每天 08:30 更新
+    </div>
+    <div class="headline-bar" id="headline_text">
+      <b>[今日焦点]</b> 正在加载今日最新情报...
+    </div>
+    <div class="date-actions-bar">
+      <div class="dpills" id="dpills"></div>
+    </div>
+  </div>
+</header>
+
+<div class="alert-strip" id="alert_strip">
+  ⚠️ <b>齐套风险警报：</b>今日检测到 1 项高危卡脖子短板物料交期拉长，请采购与寻源团队注意。<a href="#s6">查看应对建议 →</a>
+</div>
+
+<nav class="secnav" id="secnav">
+  <div class="railsearch">
+    <input type="text" id="rail_input" placeholder="在今日情报中检索物料/厂商..." oninput="filterIntel(this.value)">
+  </div>
+  <div class="rail-section-label" id="lbl_morning_sections">早报六段</div>
+  <a href="#s1" class="on"><span class="rn">#s1</span> <span class="r-text" id="rn_s1">基建动态</span></a>
+  <a href="#s2"><span class="rn">#s2</span> <span class="r-text" id="rn_s2">头条拆解</span></a>
+  <a href="#s3"><span class="rn">#s3</span> <span class="r-text" id="rn_s3">大厂短板</span></a>
+  <a href="#s4"><span class="rn">#s4</span> <span class="r-text" id="rn_s4">跨行业传导</span></a>
+  <a href="#s5"><span class="rn">#s5</span> <span class="r-text" id="rn_s5">供应商动态</span></a>
+  <a href="#s6"><span class="rn">#s6</span> <span class="r-text" id="rn_s6">齐套预警</span></a>
+  <div class="rail-section-label" id="lbl_tracking_panels">决策看板</div>
+  <a href="#s7"><span class="rn">#s7</span> <span class="r-text" id="rn_s7">时间锚点</span></a>
+  <a href="#s8"><span class="rn">#s8</span> <span class="r-text" id="rn_s8">黄金 BOM</span></a>
+
+  <!-- Sidebar Live Sparklines -->
+  <div class="sparkbox" id="side_sparkbox">
+    <div style="font-weight:700;font-size:12px;color:var(--cyan);margin-bottom:6px;display:flex;align-items:center;gap:4px">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/></svg>
+      <span id="side_spark_title">核心物料交期追踪</span>
+    </div>
+    <div id="spark_rows"></div>
+  </div>
+</nav>
+
+<main id="main">
+  <!-- #s1 CapEx & Infra -->
+  <section class="sec-card" id="s1">
+    <div class="sec-head">
+      <div class="sec-title"><span class="sec-num">#s1</span> <span id="s1_title">算力基建与 CapEx 动态</span></div>
+      <div class="sec-sub" id="s1_sub">北美/亚太 CSP 资本开支指引 · 电网排队 · 绿电核能 PPA · 能效法规</div>
+    </div>
+    <div class="capex-grid" id="s1_grid"></div>
+  </section>
+
+  <!-- #s2 Headlines -->
+  <section class="sec-card" id="s2">
+    <div class="sec-head">
+      <div class="sec-title"><span class="sec-num">#s2</span> <span id="s2_title">核心头条事件深度拆解</span></div>
+      <div class="sec-sub" id="s2_sub">事件还原 · BOM 冲击路径 · 短期与中期交付推演</div>
+    </div>
+    <div id="s2_container"></div>
+  </section>
+
+  <!-- #s3 Bottlenecks -->
+  <section class="sec-card" id="s3">
+    <div class="sec-head">
+      <div class="sec-title"><span class="sec-num">#s3</span> <span id="s3_title">大厂锁单与卡脖子木桶短板</span></div>
+      <div class="sec-sub" id="s3_sub">CSP 产能包产虹吸 · 发泡芯线 · Low-Dk石英布 · 变压器 120周交期</div>
+    </div>
+    <div id="s3_container"></div>
+  </section>
+
+  <!-- #s4 Cross-Industry -->
+  <section class="sec-card" id="s4">
+    <div class="sec-head">
+      <div class="sec-title"><span class="sec-num">#s4</span> <span id="s4_title">跨行业传导效应</span></div>
+      <div class="sec-sub" id="s4_sub">公用事业电网改造 · 燃气轮机 · 铜/白银大宗 · PFAS环保法案</div>
+    </div>
+    <div class="cross-grid" id="s4_grid"></div>
+  </section>
+
+  <!-- #s5 Supplier Dynamics -->
+  <section class="sec-card" id="s5">
+    <div class="sec-head">
+      <div class="sec-title"><span class="sec-num">#s5</span> <span id="s5_title">四大硬件底座供应商动态</span></div>
+      <div class="sec-sub" id="s5_sub">供电配电 · 光铜互连 · 机柜/ODM/PCB · 智算液冷温控</div>
+    </div>
+    <div class="filter-tabs" id="supplier_tabs">
+      <button class="filter-tab on" onclick="filterSupplier('all', this)">全部四大底座</button>
+      <button class="filter-tab" onclick="filterSupplier('供电与配电', this)">供电与配电</button>
+      <button class="filter-tab" onclick="filterSupplier('光互连与铜连接', this)">光互连与铜连接</button>
+      <button class="filter-tab" onclick="filterSupplier('算力机柜/ODM/PCB', this)">算力机柜/ODM/PCB</button>
+      <button class="filter-tab" onclick="filterSupplier('智算液冷与温控', this)">智算液冷与温控</button>
+    </div>
+    <div class="supplier-grid" id="s5_grid"></div>
+  </section>
+
+  <!-- #s6 Kitting Alerts -->
+  <section class="sec-card" id="s6">
+    <div class="sec-head">
+      <div class="sec-title"><span class="sec-num">#s6</span> <span id="s6_title">齐套预警与寻源建议</span></div>
+      <div class="sec-sub" id="s6_sub">交期周数变化 · 采购锁单策略 · 二供资格承认窗口</div>
+    </div>
+    <div id="s6_container"></div>
+  </section>
+
+  <!-- #s7 Time Anchors -->
+  <section class="sec-card" id="s7">
+    <div class="sec-head">
+      <div class="sec-title"><span class="sec-num">#s7</span> <span id="s7_title">事件时间线与时间锚点</span></div>
+      <div class="sec-sub" id="s7_sub">提前 1 天 09:00 提醒 · 财报日 · 芯片流片 · 展会 · 新厂投产</div>
+    </div>
+    <div class="timeline-list" id="s7_list"></div>
+  </section>
+
+  <!-- #s8 BOM Mapping -->
+  <section class="sec-card" id="s8">
+    <div class="sec-head">
+      <div class="sec-title"><span class="sec-num">#s8</span> <span id="s8_title">AIDC 黄金 BOM 供需看板</span></div>
+      <div class="sec-sub" id="s8_sub">9 大物理底座核心节点供需态势与交期趋势</div>
+    </div>
+    <div class="bom-table-wrap">
+      <table class="bom-table" id="bom_table">
+        <thead>
+          <tr>
+            <th>BOM 核心物料节点</th>
+            <th>所属子系统</th>
+            <th>供需状态</th>
+            <th>交期趋势</th>
+            <th>典型交期</th>
+            <th>今日异动要点</th>
+          </tr>
+        </thead>
+        <tbody id="bom_tbody"></tbody>
+      </table>
+    </div>
+  </section>
+</main>
+
+<!-- Calendar Subscription Modal -->
+<div class="modal-overlay" id="cal_modal" onclick="if(event.target===this)closeCalModal()">
+  <div class="modal-box">
+    <div class="modal-title">订阅 AIDC 时间锚点日历</div>
+    <div class="modal-desc">
+      包含全球 CSP 财报电话会、下一代算力芯片/机柜量产出货节点、OCP/GTC 行业峰会及新厂爬坡事件。自动在事件前 1 天 09:00 触发系统提醒。
+    </div>
+    <input type="text" class="modal-input" readonly id="cal_url" value="https://nohho.github.io/aidc-intel/anchors.ics" onclick="this.select()">
+    <div class="modal-actions">
+      <button class="btn-primary" onclick="copyCalUrl()">复制订阅 URL</button>
+      <a class="btn-secondary" href="webcal://nohho.github.io/aidc-intel/anchors.ics">一键添加至系统日历</a>
+    </div>
+    <div style="font-size:12px;color:var(--mut);line-height:1.6;margin-bottom:12px">
+      • <b>iPhone/Mac</b>：点击「一键添加」即可通过日历 App 订阅。<br>
+      • <b>Outlook / Google Calendar</b>：添加日历 → 从 URL 订阅 → 粘贴上方链接。
+    </div>
+    <button class="btn-close" onclick="closeCalModal()">关闭</button>
+  </div>
+</div>
+
+<footer>
+  <p><b>AIDC 智算基础设施与硬件供应链情报中心</b> · 每日 08:30 (CST) 准时发布</p>
+  <p>面向算力机柜架构、硬件采购（Sourcing）、供应链计划（Supply Planning）及数据中心基础设施工程团队</p>
+  <p style="margin-top:6px;color:#475569">
+    数据已标注【厂商口径】与审计信源 · 仅供物理供应链与研发寻源参考 · 严禁任何证券投资建议
+  </p>
+</footer>
+
+<script>
+let CUR_DATA = null;
+let CUR_DATE = "2026-10-27";
+let LANG = "zh";
+let ALL_DAYS = [];
+
+const I18N = {
+  zh: {
+    live: "LIVE 08:30",
+    issue: "第 {n} 期",
+    sub_cal: "日历订阅 (.ics)",
+    lang_btn: "EN",
+    subtitle: "AI 数据中心物理基建 · 算力机柜 · 供电配电 · 高速互连 · 液冷温控 · 每天 08:30 更新",
+    s1: "算力基建与 CapEx 动态",
+    s1_sub: "北美/亚太 CSP 资本开支指引 · 电网排队 · 绿电核能 PPA · 能效法规",
+    s2: "核心头条事件深度拆解",
+    s2_sub: "事件还原 · BOM 冲击路径 · 短期与中期交付推演",
+    s3: "大厂锁单与卡脖子木桶短板",
+    s3_sub: "CSP 产能包产虹吸 · 发泡芯线 · Low-Dk石英布 · 变压器 120周交期",
+    s4: "跨行业传导效应",
+    s4_sub: "公用事业电网改造 · 燃气轮机 · 铜/白银大宗 · PFAS环保法案",
+    s5: "四大硬件底座供应商动态",
+    s5_sub: "供电配电 · 光铜互连 · 机柜/ODM/PCB · 智算液冷温控",
+    s6: "齐套预警与寻源建议",
+    s6_sub: "交期周数变化 · 采购锁单策略 · 二供资格承认窗口",
+    s7: "事件时间线与时间锚点",
+    s7_sub: "提前 1 天 09:00 提醒 · 财报日 · 芯片流片 · 展会 · 新厂投产",
+    s8: "AIDC 黄金 BOM 供需看板",
+    s8_sub: "9 大物理底座核心节点供需态势与交期趋势",
+    spark_title: "核心物料交期追踪"
+  },
+  en: {
+    live: "LIVE 08:30",
+    issue: "Issue #{n}",
+    sub_cal: "Calendar (.ics)",
+    lang_btn: "中文",
+    subtitle: "AI Data Center Physical Infrastructure · Server Racks · Power · Interconnect · Liquid Cooling · Updated Daily 08:30",
+    s1: "CapEx & Infrastructure Dynamics",
+    s1_sub: "Hyperscaler CapEx Guidance · Power Queue · Clean Energy PPAs · PUE Standards",
+    s2: "Headline Event Teardowns",
+    s2_sub: "Fact Summary · BOM Transmission · Short & Mid-Term Delivery Forecasts",
+    s3: "Bottlenecks & Hyperscaler Siphoning",
+    s3_sub: "Hyperscaler LTA Commitments · Foamed Dielectrics · Low-Dk Cloth · Transformer 120W Lead Time",
+    s4: "Cross-Industry Transmission",
+    s4_sub: "Grid Upgrades · Gas Turbines · Copper/Silver Commodities · PFAS Directives",
+    s5: "Supplier Dynamics Across 4 Pillars",
+    s5_sub: "Power & Distribution · Optical/Copper Interconnect · Rack/ODM/PCB · Liquid Cooling",
+    s6: "Kitting Alerts & Sourcing Actions",
+    s6_sub: "Lead Time Shift · Safety Stock Strategy · Secondary Source Qualification",
+    s7: "Event Timeline & Time Anchors",
+    s7_sub: "1-Day Prior Alert · Earnings · Tape-out · Trade Expos · Ramp Milestones",
+    s8: "AIDC Golden BOM Matrix",
+    s8_sub: "Supply Status & Lead Time Trends Across 9 Physical Nodes",
+    spark_title: "Core Material Lead Times"
+  }
+};
+
+function esc(s) {
+  if (!s) return "";
+  return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+}
+
+function initLang() {
+  const m = location.hash.match(/lang=(en|zh)/);
+  if (m) LANG = m[1];
+}
+
+function toggleLang() {
+  LANG = (LANG === "zh") ? "en" : "zh";
+  const m = location.hash.match(/date=(\d{4}-\d{2}-\d{2})/);
+  const curD = m ? m[1] : CUR_DATE;
+  location.hash = `#date=${curD}&lang=${LANG}`;
+  applyLang();
+  loadDate(curD);
+}
+
+function applyLang() {
+  const t = I18N[LANG];
+  document.getElementById("live_status").textContent = t.live;
+  document.getElementById("txt_sub_cal").textContent = t.sub_cal;
+  document.getElementById("lang_btn").textContent = t.lang_btn;
+  document.getElementById("top_subtitle").textContent = t.subtitle;
+  document.getElementById("s1_title").textContent = t.s1;
+  document.getElementById("s1_sub").textContent = t.s1_sub;
+  document.getElementById("s2_title").textContent = t.s2;
+  document.getElementById("s2_sub").textContent = t.s2_sub;
+  document.getElementById("s3_title").textContent = t.s3;
+  document.getElementById("s3_sub").textContent = t.s3_sub;
+  document.getElementById("s4_title").textContent = t.s4;
+  document.getElementById("s4_sub").textContent = t.s4_sub;
+  document.getElementById("s5_title").textContent = t.s5;
+  document.getElementById("s5_sub").textContent = t.s5_sub;
+  document.getElementById("s6_title").textContent = t.s6;
+  document.getElementById("s6_sub").textContent = t.s6_sub;
+  document.getElementById("s7_title").textContent = t.s7;
+  document.getElementById("s7_sub").textContent = t.s7_sub;
+  document.getElementById("s8_title").textContent = t.s8;
+  document.getElementById("s8_sub").textContent = t.s8_sub;
+  document.getElementById("side_spark_title").textContent = t.spark_title;
+}
+
+async function loadDate(dateStr) {
+  CUR_DATE = dateStr;
+  const fileName = (LANG === "en") ? `data/${dateStr}-en.json` : `data/${dateStr}.json`;
+  try {
+    const res = await fetch(fileName);
+    if (!res.ok) throw new Error("HTTP " + res.status);
+    CUR_DATA = await res.json();
+    renderAll();
+    
+    // update url
+    history.replaceState(null, "", `#date=${dateStr}&lang=${LANG}`);
+    
+    // highlight date pills
+    document.querySelectorAll(".dpill").forEach(p => {
+      p.classList.toggle("on", p.dataset.date === dateStr);
+    });
+
+    // issue pill
+    const idx = ALL_DAYS.indexOf(dateStr);
+    if (idx >= 0) {
+      document.getElementById("issue_pill").textContent = (LANG === "en") ? `Issue #${idx + 1}` : `第 ${idx + 1} 期`;
+    }
+  } catch(e) {
+    console.error("Failed loading date:", e);
+    // Fallback to default
+    if (fileName.includes("-en")) {
+      const fallback = await fetch(`data/${dateStr}.json`);
+      if (fallback.ok) {
+        CUR_DATA = await fallback.json();
+        renderAll();
+      }
+    }
+  }
+}
+
+function renderAll() {
+  if (!CUR_DATA) return;
+  const d = CUR_DATA;
+  const r = d.daily_report || {};
+
+  // Headline
+  document.getElementById("headline_text").innerHTML = `<b>[${LANG==='en'?'Top Focus':'今日焦点'}]</b> ${esc(r.headline || '')}`;
+
+  // Alert bar
+  const alerts = d.s6_alerts || [];
+  const highAlerts = alerts.filter(a => a.risk_level === 'HIGH');
+  const alertStrip = document.getElementById("alert_strip");
+  if (highAlerts.length > 0) {
+    alertStrip.classList.add("show");
+    alertStrip.innerHTML = `⚠️ <b>${LANG==='en'?'Critical Kitting Bottleneck:':'齐套短板警报：'}</b> ${esc(highAlerts[0].material)} · ${esc(highAlerts[0].lead_time_status)} <a href="#s6">${LANG==='en'?'View Sourcing Actions →':'查看应对建议 →'}</a>`;
+  } else {
+    alertStrip.classList.remove("show");
+  }
+
+  // s1: CapEx
+  const s1Grid = document.getElementById("s1_grid");
+  s1Grid.innerHTML = (d.s1_capex_dynamics || []).map(item => `
+    <div class="capex-item">
+      <div>
+        <h4>${esc(item.title)}</h4>
+        <p>${esc(item.fact)}</p>
+      </div>
+      <div>
+        <div class="capex-impact"><b>传导影响：</b>${esc(item.impact)}</div>
+        <div style="font-size:11px;color:var(--mut);margin-top:6px;text-align:right">出处: ${esc(item.source)}</div>
+      </div>
+    </div>
+  `).join("");
+
+  // s2: Headlines
+  const s2Cont = document.getElementById("s2_container");
+  s2Cont.innerHTML = (d.s2_headlines || []).map(h => `
+    <div class="headline-event">
+      <div class="hl-header">
+        <div class="hl-title">${esc(h.title)}</div>
+        <div class="hl-badges">
+          <span class="badge ${h.severity==='HIGH'?'badge-danger':'badge-warning'}">${esc(h.severity)}</span>
+          <span class="badge" style="background:#1e293b;color:#38bdf8">热度: ${h.heat}°</span>
+        </div>
+      </div>
+      <p style="font-size:13.5px;color:#cbd5e1;line-height:1.6">${esc(h.summary)}</p>
+      <div class="hl-metrics">
+        ${(h.numbers || []).map(num => `<span class="metric-pill">📌 ${esc(num)}</span>`).join("")}
+      </div>
+      <div class="teardown-grid">
+        <div class="td-col">
+          <h5>⚡ BOM 冲击路径 (Affected Subsystems)</h5>
+          <ul style="padding-left:16px;color:var(--ink-dim);line-height:1.7">
+            ${(h.bom_impact_path || []).map(p => `<li>${esc(p)}</li>`).join("")}
+          </ul>
+        </div>
+        <div class="td-col">
+          <h5>📦 交付推演 (Delivery Forecast)</h5>
+          <div style="margin-bottom:6px"><b style="color:#f59e0b">短期 (1~3月)：</b>${esc((h.delivery_forecast||{}).short_term)}</div>
+          <div><b style="color:#38bdf8">中期 (6月+)：</b>${esc((h.delivery_forecast||{}).mid_term)}</div>
+        </div>
+      </div>
+    </div>
+  `).join("");
+
+  // s3: Bottlenecks
+  const s3Cont = document.getElementById("s3_container");
+  s3Cont.innerHTML = (d.s3_bottlenecks || []).map(b => `
+    <div class="bottleneck-card">
+      <div class="bn-head">
+        <div class="bn-title">【${esc(b.category)}】${esc(b.bottleneck_item)}</div>
+        <div class="bn-lead">行业交期: ${esc(b.lead_time_weeks)}</div>
+      </div>
+      <p style="font-size:13px;color:#cbd5e1;line-height:1.6">${esc(b.analysis)}</p>
+      <div class="bn-actor">🔒 <b>锁单/挤压主体：</b>${esc(b.siphoning_actor)}</div>
+    </div>
+  `).join("");
+
+  // s4: Cross-industry
+  const s4Grid = document.getElementById("s4_grid");
+  s4Grid.innerHTML = (d.s4_cross_industry || []).map(c => `
+    <div class="cross-box">
+      <h4>${esc(c.upstream_sector)}</h4>
+      <p>${esc(c.transmission_logic)}</p>
+      <div class="cross-mag"><b>传导影响量级：</b>${esc(c.impact_magnitude)}</div>
+    </div>
+  `).join("");
+
+  // s5: Suppliers
+  renderSuppliers('all');
+
+  // s6: Alerts
+  const s6Cont = document.getElementById("s6_container");
+  s6Cont.innerHTML = (d.s6_alerts || []).map(a => `
+    <div class="alert-card ${a.risk_level.toLowerCase()}">
+      <div class="alert-head">
+        <div class="alert-mat">${a.risk_level==='HIGH'?'🔴':'🟡'} ${esc(a.material)}</div>
+        <div>
+          <span class="badge ${a.risk_level==='HIGH'?'badge-danger':'badge-warning'}">${esc(a.risk_level)}</span>
+          <span style="font-size:12px;color:#cbd5e1;margin-left:8px">交期状态: <b>${esc(a.lead_time_status)}</b></span>
+        </div>
+      </div>
+      <div class="alert-action">
+        <b>寻源应对建议：</b>${esc(a.action_recommendation)}
+      </div>
+      <div class="alert-meta">
+        <span>紧迫度: <b style="color:#f59e0b">${esc(a.urgency)}</b></span>
+        <span>建议锁定窗口/期限: <b>${esc(a.deadline)}</b></span>
+      </div>
+    </div>
+  `).join("");
+
+  // s7: Timeline
+  const s7List = document.getElementById("s7_list");
+  s7List.innerHTML = (d.s7_timeline_ics || []).map(t => `
+    <div class="tl-item">
+      <div class="tl-date">${esc(t.date)}</div>
+      <div class="tl-body">
+        <h5>${esc(t.event_title)} <span style="font-size:11px;color:var(--cyan);font-weight:normal;margin-left:6px">[${esc(t.entity)}]</span></h5>
+        <p>${esc(t.reminder_note)}</p>
+      </div>
+    </div>
+  `).join("");
+
+  // s8: BOM
+  const bomTbody = document.getElementById("bom_tbody");
+  bomTbody.innerHTML = (d.s8_bom_mapping || []).map(b => {
+    let pClass = "status-balance";
+    if (b.supply_status === "极度紧缺") pClass = "status-tight";
+    if (b.supply_status === "供给宽松") pClass = "status-loose";
+    let trendIco = "→";
+    let trendCol = "#cbd5e1";
+    if (b.lead_time_trend === "UP") { trendIco = "↑ 拉长"; trendCol = "#f87171"; }
+    if (b.lead_time_trend === "DOWN") { trendIco = "↓ 缩短"; trendCol = "#34d399"; }
+    return `
+      <tr>
+        <td><b>${esc(b.bom_node)}</b></td>
+        <td style="color:var(--ink-dim)">${esc(b.category)}</td>
+        <td><span class="status-pill ${pClass}">${esc(b.supply_status)}</span></td>
+        <td style="font-weight:700;color:${trendCol}">${trendIco}</td>
+        <td style="font-family:monospace;font-weight:600">${esc(b.typical_lead_time)}</td>
+        <td style="font-size:12.5px;color:#cbd5e1">${esc(b.daily_note)}</td>
+      </tr>
+    `;
+  }).join("");
+}
+
+function renderSuppliers(filterSub) {
+  if (!CUR_DATA) return;
+  const sups = CUR_DATA.s5_suppliers || [];
+  const filtered = (filterSub === 'all') ? sups : sups.filter(s => s.subsystem === filterSub);
+  const s5Grid = document.getElementById("s5_grid");
+  s5Grid.innerHTML = filtered.map(s => `
+    <div class="sup-card">
+      <div class="sup-row">
+        <div class="sup-co">${esc(s.company)}</div>
+        <div>
+          <span class="sup-tag">${esc(s.tag)}</span>
+          <span style="font-size:11px;color:var(--mut);margin-left:6px">${esc(s.subsystem)}</span>
+        </div>
+      </div>
+      <p style="font-size:12.5px;color:var(--ink-dim);line-height:1.5">${esc(s.detail)}</p>
+      ${s.source ? `<div style="font-size:11px;color:var(--mut);margin-top:6px;text-align:right">来源: ${esc(s.source)}</div>` : ''}
+    </div>
+  `).join("");
+}
+
+function filterSupplier(subsystem, btn) {
+  document.querySelectorAll("#supplier_tabs .filter-tab").forEach(t => t.classList.remove("on"));
+  btn.classList.add("on");
+  renderSuppliers(subsystem);
+}
+
+function filterIntel(query) {
+  query = (query || "").toLowerCase().trim();
+  if (!query) {
+    document.querySelectorAll(".sec-card").forEach(s => s.style.display = "");
+    return;
+  }
+  // Simple in-page highlight/filter
+  document.querySelectorAll(".capex-item, .headline-event, .bottleneck-card, .cross-box, .sup-card, .alert-card, .tl-item").forEach(el => {
+    const text = el.textContent.toLowerCase();
+    el.style.display = text.includes(query) ? "" : "none";
+  });
+}
+
+async function loadSparklines() {
+  try {
+    const res = await fetch("data/series.json");
+    if (!res.ok) return;
+    const series = await res.json();
+    const rows = series.slice(0, 5).map(s => {
+      const pts = s.points || [];
+      if (pts.length < 2) return "";
+      const last = pts[pts.length - 1];
+      const prev = pts[pts.length - 2];
+      const diff = last.value - prev.value;
+      const col = diff > 0 ? "#f87171" : (diff < 0 ? "#34d399" : "#cbd5e1");
+      const sign = diff > 0 ? "+" : "";
+      
+      // build mini SVG sparkline
+      const vals = pts.map(p => p.value);
+      const min = Math.min(...vals);
+      const max = Math.max(...vals);
+      const range = (max - min) || 1;
+      const w = 70, h = 20;
+      const coords = pts.map((p, i) => {
+        const x = (i / (pts.length - 1)) * w;
+        const y = h - ((p.value - min) / range) * (h - 4) - 2;
+        return `${x.toFixed(1)},${y.toFixed(1)}`;
+      }).join(" ");
+
+      return `
+        <div class="spark-row">
+          <span class="spark-name" title="${esc(s.name)}">${esc(s.name)}</span>
+          <svg class="spark-svg" viewBox="0 0 ${w} ${h}">
+            <polyline fill="none" stroke="${col}" stroke-width="1.8" points="${coords}" />
+          </svg>
+          <span class="spark-val">
+            ${last.value} <span style="font-size:10px;color:var(--mut)">${s.unit.split(' ')[0]}</span>
+          </span>
+        </div>
+      `;
+    }).join("");
+    document.getElementById("spark_rows").innerHTML = rows;
+  } catch(e) {
+    console.warn("Sparklines error:", e);
+  }
+}
+
+function showCalModal() { document.getElementById("cal_modal").style.display = "flex"; }
+function closeCalModal() { document.getElementById("cal_modal").style.display = "none"; }
+function copyCalUrl() {
+  const el = document.getElementById("cal_url");
+  el.select();
+  navigator.clipboard.writeText(el.value).then(() => {
+    alert("日历订阅链接已复制到剪贴板！\n可直接在 iPhone 日历、Mac 日历或 Outlook 中粘贴订阅。");
+  });
+}
+
+// Spy on scroll to highlight nav rail
+window.addEventListener("scroll", () => {
+  const sections = ["s1", "s2", "s3", "s4", "s5", "s6", "s7", "s8"];
+  let cur = sections[0];
+  const scrollPos = window.scrollY + 120;
+  for (let s of sections) {
+    const el = document.getElementById(s);
+    if (el && el.offsetTop <= scrollPos) {
+      cur = s;
+    }
+  }
+  document.querySelectorAll("nav.secnav a").forEach(a => {
+    a.classList.toggle("on", a.getAttribute("href") === `#${cur}`);
+  });
+});
+
+async function boot() {
+  initLang();
+  applyLang();
+  try {
+    const res = await fetch("data/index.json");
+    if (!res.ok) throw new Error("HTTP " + res.status);
+    const idx = await res.json();
+    ALL_DAYS = idx.days || [];
+    const latest = idx.latest || ALL_DAYS[ALL_DAYS.length - 1];
+
+    // render pills (last 14 days)
+    const recent = ALL_DAYS.slice(-14).reverse();
+    const pillsHtml = recent.map(d => `
+      <button class="dpill" data-date="${esc(d)}" onclick="loadDate('${esc(d)}')">${esc(d.slice(5))}</button>
+    `).join("");
+    document.getElementById("dpills").innerHTML = pillsHtml;
+
+    // check hash
+    const m = location.hash.match(/date=(\d{4}-\d{2}-\d{2})/);
+    const target = (m && ALL_DAYS.includes(m[1])) ? m[1] : latest;
+    await loadDate(target);
+    await loadSparklines();
+  } catch(e) {
+    console.error("Boot failure:", e);
+  }
+}
+
+boot();
+</script>
+</body>
+</html>

@@ -1,0 +1,179 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "AIDCDailyBriefing",
+  "type": "object",
+  "required": [
+    "meta",
+    "daily_report",
+    "s1_capex_dynamics",
+    "s2_headlines",
+    "s3_bottlenecks",
+    "s4_cross_industry",
+    "s5_suppliers",
+    "s6_alerts",
+    "s7_timeline_ics",
+    "s8_bom_mapping"
+  ],
+  "properties": {
+    "meta": {
+      "type": "object",
+      "required": ["date", "schema_version", "source_briefing"],
+      "properties": {
+        "date": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+        "schema_version": { "type": "string" },
+        "source_briefing": { "type": "string" },
+        "note": { "type": "string" }
+      }
+    },
+    "daily_report": {
+      "type": "object",
+      "required": ["date", "title", "headline", "hotspot_count", "warning_count"],
+      "properties": {
+        "date": { "type": "string" },
+        "title": { "type": "string" },
+        "headline": { "type": "string" },
+        "hotspot_count": { "type": "integer" },
+        "warning_count": { "type": "integer" }
+      }
+    },
+    "s1_capex_dynamics": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["title", "fact", "impact", "source", "date"],
+        "properties": {
+          "title": { "type": "string" },
+          "fact": { "type": "string" },
+          "impact": { "type": "string" },
+          "source": { "type": "string" },
+          "date": { "type": "string" }
+        }
+      }
+    },
+    "s2_headlines": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "title", "severity", "heat", "summary", "numbers", "event_summary", "bom_impact_path", "delivery_forecast", "sources"],
+        "properties": {
+          "id": { "type": "string" },
+          "title": { "type": "string" },
+          "severity": { "type": "string", "enum": ["HIGH", "MEDIUM", "LOW"] },
+          "heat": { "type": "integer", "minimum": 0, "maximum": 100 },
+          "summary": { "type": "string" },
+          "numbers": { "type": "array", "items": { "type": "string" } },
+          "event_summary": { "type": "string" },
+          "bom_impact_path": { "type": "array", "items": { "type": "string" } },
+          "delivery_forecast": {
+            "type": "object",
+            "required": ["short_term", "mid_term"],
+            "properties": {
+              "short_term": { "type": "string" },
+              "mid_term": { "type": "string" }
+            }
+          },
+          "sources": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["outlet"],
+              "properties": {
+                "outlet": { "type": "string" },
+                "date": { "type": "string" },
+                "url": { "type": "string" },
+                "first_party": { "type": "boolean" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "s3_bottlenecks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["category", "bottleneck_item", "analysis", "siphoning_actor", "lead_time_weeks"],
+        "properties": {
+          "category": { "type": "string", "enum": ["供电与基建瓶颈", "光铜互连瓶颈", "算力机柜与板材瓶颈", "液冷温控瓶颈"] },
+          "bottleneck_item": { "type": "string" },
+          "analysis": { "type": "string" },
+          "siphoning_actor": { "type": "string" },
+          "lead_time_weeks": { "type": "string" },
+          "source": { "type": "string" }
+        }
+      }
+    },
+    "s4_cross_industry": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["upstream_sector", "transmission_logic", "impact_magnitude", "source"],
+        "properties": {
+          "upstream_sector": { "type": "string" },
+          "transmission_logic": { "type": "string" },
+          "impact_magnitude": { "type": "string" },
+          "source": { "type": "string" },
+          "date": { "type": "string" }
+        }
+      }
+    },
+    "s5_suppliers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["subsystem", "company", "tag", "detail"],
+        "properties": {
+          "subsystem": { "type": "string", "enum": ["供电与配电", "光互连与铜连接", "算力机柜/ODM/PCB", "智算液冷与温控"] },
+          "company": { "type": "string" },
+          "tag": { "type": "string", "enum": ["扩产/投产", "良率/交期", "财报/指引", "新品/进AVL", "并购/合作"] },
+          "detail": { "type": "string" },
+          "source": { "type": "string" }
+        }
+      }
+    },
+    "s6_alerts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "risk_level", "material", "lead_time_status", "action_recommendation", "urgency", "deadline"],
+        "properties": {
+          "id": { "type": "string" },
+          "risk_level": { "type": "string", "enum": ["HIGH", "MEDIUM", "OPPORTUNITY"] },
+          "material": { "type": "string" },
+          "lead_time_status": { "type": "string" },
+          "action_recommendation": { "type": "string" },
+          "urgency": { "type": "string", "enum": ["高", "中", "低"] },
+          "deadline": { "type": "string" }
+        }
+      }
+    },
+    "s7_timeline_ics": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["date", "event_title", "entity", "reminder_note"],
+        "properties": {
+          "date": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+          "event_title": { "type": "string" },
+          "entity": { "type": "string" },
+          "reminder_note": { "type": "string" }
+        }
+      }
+    },
+    "s8_bom_mapping": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["bom_node", "category", "supply_status", "lead_time_trend", "typical_lead_time", "daily_note"],
+        "properties": {
+          "bom_node": { "type": "string" },
+          "category": { "type": "string" },
+          "supply_status": { "type": "string", "enum": ["极度紧缺", "紧平衡", "供给宽松"] },
+          "lead_time_trend": { "type": "string", "enum": ["UP", "FLAT", "DOWN"] },
+          "typical_lead_time": { "type": "string" },
+          "daily_note": { "type": "string" }
+        }
+      }
+    }
+  }
+}

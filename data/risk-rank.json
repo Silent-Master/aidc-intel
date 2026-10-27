@@ -1,0 +1,89 @@
+{
+  "updated_at": "2026-10-27",
+  "ranks": [
+    {
+      "rank": 1,
+      "material": "主网级电力变压器与取向硅钢 (GOES)",
+      "material_en": "Substation Transformers & Grain-Oriented Electrical Steel",
+      "subsystem": "供电与配电",
+      "risk_score": 96,
+      "status": "极度紧缺",
+      "lead_time": "110~130 周",
+      "trend": "UP",
+      "key_risk": "欧美电网并网排队与换代潮与 AI 数据中心抢装共振，取向硅钢全球总产能锁单至 2028 年底",
+      "sourcing_action": "至少提前 24 个月下达不可撤销 PO 并支付定金，推进模块化箱变与中压直降方案验证"
+    },
+    {
+      "rank": 2,
+      "material": "Low-Dk / Low-Df 石英/玻纤布 (日东纺配额)",
+      "material_en": "Low-Dk/Low-Df Quartz/Glass Cloth (Nittobo Quota)",
+      "subsystem": "算力机柜/ODM/PCB",
+      "risk_score": 92,
+      "status": "极度紧缺",
+      "lead_time": "40~52 周",
+      "trend": "UP",
+      "key_risk": "NVL72 架构对 M8 级覆铜板消耗激增，日东纺 (Nittobo) 独供高端石英纤维纱，现货溢价突破 30%",
+      "sourcing_action": "推动生益科技、台丰 (TUC) 第二代低介电玻纤布二供验证，严控打样损耗"
+    },
+    {
+      "rank": 3,
+      "material": "224G/112G 高速直连发泡芯线 (AEC/DAC)",
+      "material_en": "224G/112G Foamed Dielectric Cores for AEC/DAC Cables",
+      "subsystem": "光互连与铜连接",
+      "risk_score": 89,
+      "status": "极度紧缺",
+      "lead_time": "36~48 周",
+      "trend": "UP",
+      "key_risk": "机柜内铜连接互连密度倍增，超细无气泡物理发泡挤出工艺良率仅 65%~70%，安费诺产能基本打满",
+      "sourcing_action": "向立讯精密、沃尔核材、兆龙互连追加二供资质审核，锁定发泡氟树脂原料"
+    },
+    {
+      "rank": 4,
+      "material": "200G/通道 EML 激光器芯片与 CW 连续光源",
+      "material_en": "200G/Lane EML Laser Diodes & CW High-Power Light Sources",
+      "subsystem": "光互连与铜连接",
+      "risk_score": 85,
+      "status": "紧平衡",
+      "lead_time": "32~44 周",
+      "trend": "UP",
+      "key_risk": "1.6T 光模块需求爆发，磷化铟 (InP) 外延片扩产周期长达 18 个月，Coherent 与 Lumentum 配额制供应",
+      "sourcing_action": "加快硅光 + 薄膜铌酸锂方案研发，优先向通过 CSP 认证的封测代工厂 (Fabrinet) 锁定产能"
+    },
+    {
+      "rank": 5,
+      "material": "大功率液冷双冗余屏蔽泵与钎焊板换 (BPHE)",
+      "material_en": "High-Head Canned Motor Pumps & Brazed Plate Heat Exchangers",
+      "subsystem": "智算液冷与温控",
+      "risk_score": 82,
+      "status": "紧平衡",
+      "lead_time": "34~46 周",
+      "trend": "UP",
+      "key_risk": "AI 液冷 CDU 需求虹吸传统商用中央空调与工业流体产线，丹佛斯、阿法拉伐耐压不锈钢板换交付周期拉长",
+      "sourcing_action": "导入国内三花智控、同飞股份、高澜股份成熟板换备件，扩大安全库存至 16 周"
+    },
+    {
+      "rank": 6,
+      "material": "UQD 无滴漏盲插快速接头 (316L精密件)",
+      "material_en": "Universal Quick Disconnect (UQD) Couplings & EPDM Seals",
+      "subsystem": "智算液冷与温控",
+      "risk_score": 78,
+      "status": "紧平衡",
+      "lead_time": "26~38 周",
+      "trend": "FLAT",
+      "key_risk": "万次插拔无泄漏测试严苛，耐水乙二醇特种三元乙丙密封圈耐腐蚀寿命认证周期长",
+      "sourcing_action": "要求模组厂同时出具史陶比尔与丹佛斯双料号兼容设计，避免单一供方断供"
+    },
+    {
+      "rank": 7,
+      "material": "服务器 54V/48V 钛金级高压直流电源 (PSU)",
+      "material_en": "Server 54V/48V Titanium High-Voltage DC (HVDC) PSU",
+      "subsystem": "供电与配电",
+      "risk_score": 75,
+      "status": "紧平衡",
+      "lead_time": "28~40 周",
+      "trend": "FLAT",
+      "key_risk": "SiC/GaN 功率器件交期趋缓，但 12kW~18kW 超大功率机架级电源集成测试工位紧俏",
+      "sourcing_action": "分散订单至台达、光宝、麦格米特，统一母线排接口物理规范"
+    }
+  ]
+}

@@ -1,0 +1,155 @@
+{
+  "version": "1.0",
+  "name": "AIDC Physical Infrastructure & Hardware Supply Chain Taxonomy",
+  "subsystems": [
+    {
+      "id": "power_grid",
+      "name": "供电、配电与备用电源",
+      "name_en": "Power, Distribution & Backup Energy",
+      "criticality": "CRITICAL",
+      "components": [
+        {
+          "node_id": "transformer_switchgear",
+          "name": "电力变压器与高压开关柜",
+          "name_en": "Substation Transformers & Medium/High-Voltage Switchgear",
+          "tier": "Tier-1 Infrastructure",
+          "tier2_inputs": ["取向硅钢 (GOES)", "电磁绝缘油", "六氟化硫/真空灭弧室", "铜排/母线"],
+          "typical_lead_time_weeks": "80-130",
+          "key_suppliers": ["Vertiv", "Eaton", "Schneider Electric", "Siemens", "ABB", "金盘科技", "伊戈尔", "特变电工"]
+        },
+        {
+          "node_id": "genset_turbine",
+          "name": "大功率柴油发电机组与微燃机",
+          "name_en": "Diesel Generators & Gas Turbines",
+          "tier": "Tier-1 Backup",
+          "tier2_inputs": ["重型柴油发动机", "电喷共轨系统", "涡轮增压器", "高压发电机端"],
+          "typical_lead_time_weeks": "52-85",
+          "key_suppliers": ["Cummins", "Caterpillar", "Rolls-Royce Power Systems (MTU)", "Kohler", "潍柴重机"]
+        },
+        {
+          "node_id": "server_psu_hvdc",
+          "name": "服务器钛金电源(PSU)与高压直流(HVDC)",
+          "name_en": "Server PSU & High Voltage DC (HVDC)",
+          "tier": "Tier-1 Power Supply",
+          "tier2_inputs": ["SiC/GaN 功率器件", "磁性元件/高频变压器", "固态电容/高压滤波电容", "MCU控制芯片"],
+          "typical_lead_time_weeks": "28-44",
+          "key_suppliers": ["Delta Electronics (台达)", "Lite-On (光宝)", "Vertiv", "麦格米特", "欧陆通", "Bel Power"]
+        },
+        {
+          "node_id": "bbu_ultracap",
+          "name": "机柜级BBU与超级电容后备系统",
+          "name_en": "Rack-level Battery Backup Unit (BBU) & Ultracapacitors",
+          "tier": "Tier-2 Power Buffer",
+          "tier2_inputs": ["高倍率磷酸铁锂/三元电芯", "BMS电池管理系统", "高压隔膜", "双电层电容器材料"],
+          "typical_lead_time_weeks": "24-38",
+          "key_suppliers": ["宁德时代", "亿纬锂能", "新宙邦", "Maxwell (利达)", "松下", "维科技术"]
+        }
+      ]
+    },
+    {
+      "id": "optical_copper",
+      "name": "光互连与高速铜连接",
+      "name_en": "Optical & High-Speed Copper Interconnect",
+      "criticality": "CRITICAL",
+      "components": [
+        {
+          "node_id": "optical_transceiver_800g_16t",
+          "name": "800G/1.6T 光模块与核心光芯片",
+          "name_en": "800G/1.6T Optical Transceivers & Lasers (EML/CW/InP/CPO)",
+          "tier": "Tier-1 Network",
+          "tier2_inputs": ["磷化铟 (InP) 衬底", "100G/200G EML 激光器芯片", "CW 大功率连续光源", "DSP/LPO芯片", "硅光调制器"],
+          "typical_lead_time_weeks": "36-54",
+          "key_suppliers": ["中际旭创 (Innolight)", "新易盛 (Eoptolink)", "Coherent (高意)", "Lumentum", "Fabrinet", "天孚通信"]
+        },
+        {
+          "node_id": "highspeed_cable_dac_aec",
+          "name": "AEC/DAC 高速直连铜缆与超低损耗线缆",
+          "name_en": "High-Speed DAC / AEC Copper Cables (224G/112G)",
+          "tier": "Tier-1 Interconnect",
+          "tier2_inputs": ["高精度发泡绝缘芯线", "高纯度镀银铜线", "Retimer/Redriver 驱动芯片", "精密高频屏蔽铝箔"],
+          "typical_lead_time_weeks": "30-48",
+          "key_suppliers": ["Amphenol (安费诺)", "TE Connectivity", "Molex", "Credo", "立讯精密", "沃尔核材", "安费诺三环"]
+        },
+        {
+          "node_id": "fiber_connectors_mpo",
+          "name": "MPO/MTP 高密度光纤连接器与精密陶瓷插芯",
+          "name_en": "MPO/MTP Multi-Fiber Connectors & MT Ferrules",
+          "tier": "Tier-2 Passive Component",
+          "tier2_inputs": ["高精度 PPS 树脂", "氧化锆陶瓷毛坯", "超声压电抛光膜", "石英光纤预制棒"],
+          "typical_lead_time_weeks": "20-34",
+          "key_suppliers": ["US Conec", "Senko Advanced Components", "太辰光", "天孚通信", "富士康精密"]
+        }
+      ]
+    },
+    {
+      "id": "rack_pcb_odm",
+      "name": "算力机柜、PCB 高频材料与整机 ODM",
+      "name_en": "Compute Rack, Advanced PCB/CCL & Server ODM",
+      "criticality": "HIGH",
+      "components": [
+        {
+          "node_id": "ai_server_rack_odm",
+          "name": "AI 高密算力整机柜组装 (NVL72/NVL36 等)",
+          "name_en": "AI Compute Rack Assembly & Integration (NVL72/NVL36)",
+          "tier": "Tier-0 System Integration",
+          "tier2_inputs": ["定制高刚性冷轧钢机架", "54V 铜排 Busbar", "机柜配电单元 (ePDU)", "高可靠性锁紧滑轨"],
+          "typical_lead_time_weeks": "26-42",
+          "key_suppliers": ["工业富联 (Foxconn/FII)", "广达 (Quanta/QCT)", "纬颖 (Wiwynn)", "超微 (Supermicro)", "英业达 (Inventec)"]
+        },
+        {
+          "node_id": "hlc_hdi_pcb",
+          "name": "高多层板 (HLC, 28-40+层) 与高阶 HDI 主板",
+          "name_en": "High-Layer Count (HLC) & High-Density Interconnect (HDI) PCBs",
+          "tier": "Tier-1 Hardware",
+          "tier2_inputs": ["高频高速覆铜板 (CCL)", "超低轮廓电解铜箔 (HVLP)", "感光阻焊干膜", "激光微孔钻头"],
+          "typical_lead_time_weeks": "22-36",
+          "key_suppliers": ["沪电股份 (WUS)", "胜宏科技", "生益电子", "金像电子", "Tripod (健鼎)", "欣兴电子 (Unimicron)"]
+        },
+        {
+          "node_id": "ccl_low_dk_glass",
+          "name": "M7/M8/M9 高频高速覆铜板与 Low-Dk 玻纤布",
+          "name_en": "Low-Dk / Low-Df Glass Fabric & M8-Grade Copper Clad Laminates (CCL)",
+          "tier": "Tier-2 Raw Material",
+          "tier2_inputs": ["日东纺 Low-Dk 玻璃纤维", "PPO/聚苯醚特种树脂", "特种球形硅微粉", "HVLP-2 级铜箔"],
+          "typical_lead_time_weeks": "32-50",
+          "key_suppliers": ["台光电子 (EMC)", "生益科技 (Shengyi)", "台丰 (TUC)", "松下电工 (Megtron 8)", "日东纺 (Nittobo)"]
+        }
+      ]
+    },
+    {
+      "id": "liquid_cooling_thermal",
+      "name": "智算液冷与热管理系统",
+      "name_en": "Direct-to-Chip Liquid Cooling & Thermal Infrastructure",
+      "criticality": "HIGH",
+      "components": [
+        {
+          "node_id": "cdu_system",
+          "name": "液冷 CDU (冷却液分配单元, In-Row/Floor-mount)",
+          "name_en": "Coolant Distribution Unit (CDU) Systems",
+          "tier": "Tier-1 Thermal",
+          "tier2_inputs": ["高扬程双冗余屏蔽水泵", "不锈钢钎焊板式换热器 (BPHE)", "高精度比例调节阀", "脱气消泡罐与水质监控传感器"],
+          "typical_lead_time_weeks": "28-46",
+          "key_suppliers": ["Vertiv", "Boyd Corporation", "CoolIT Systems", "nVent", "英维克 (Envicool)", "高澜股份", "Cooler Master"]
+        },
+        {
+          "node_id": "cold_plate_loop",
+          "name": "超细微通道 GPU/CPU 液冷冷板",
+          "name_en": "Micro-Channel Cold Plates & Secondary Loops",
+          "tier": "Tier-1 Thermal",
+          "tier2_inputs": ["高纯无氧铜 (OFC)", "真空钎焊/摩擦焊工艺", "高导热相变界面材料 (PCM)", "高耐压不锈钢波纹管"],
+          "typical_lead_time_weeks": "18-32",
+          "key_suppliers": ["奇鋐 (AVC)", "双鸿 (Auras)", "Boyd", "CoolIT", "英维克", "飞荣达", "领益智造"]
+        },
+        {
+          "node_id": "uqd_quick_disconnect",
+          "name": "无滴漏快接头 (UQD) 与分水歧管 (Manifold)",
+          "name_en": "Universal Quick Disconnect (UQD) & Stainless Steel Manifolds",
+          "tier": "Tier-2 Hydraulic Component",
+          "tier2_inputs": ["316L 不锈钢精密车削件", "耐化学水乙二醇三元乙丙密封圈 (EPDM)", "特种弹簧与锁紧钢珠"],
+          "typical_lead_time_weeks": "24-40",
+          "key_suppliers": ["Danfoss (丹佛斯)", "Staubli (史陶比尔)", "CPC (Colder Products)", "Parker Hannifin", "三花智控", "中航光电"]
+        }
+      ]
+    }
+  ]
+}
