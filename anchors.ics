@@ -8,7 +8,7 @@ X-WR-TIMEZONE:Asia/Shanghai
 X-WR-CALDESC:每天早报发布后自动更新，汇聚 AIDC 财报、芯片量产、新机柜出货、行业峰会等确定性时间锚点
 BEGIN:VEVENT
 UID:aidc-20261028-0@aidc-intel
-DTSTAMP:20261029T061930Z
+DTSTAMP:20261030T061852Z
 DTSTART;VALUE=DATE:20261028
 SUMMARY:[AIDC锚点] 维谛技术 (Vertiv) 2026 Q3 财报电话会与液冷在手订单披露
 DESCRIPTION:【关联主体】Vertiv (供电配电与热管理)\n【关注要点】重点关注其 CDU 订单出货比 (Book-to-Bill) 与 2027 年模块化供电系统排产指引。
@@ -22,7 +22,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:aidc-20261029-1@aidc-intel
-DTSTAMP:20261029T061930Z
+DTSTAMP:20261030T061852Z
 DTSTART;VALUE=DATE:20261029
 SUMMARY:[AIDC锚点] 伊顿 (Eaton) 投资者日：北美电网扩容与变压器扩产进度
 DESCRIPTION:【关联主体】Eaton (电气与中高压配电)\n【关注要点】关注其德克萨斯变压器新厂二期爬坡节点及大客户长协锁单期限。
@@ -36,7 +36,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:aidc-20261105-2@aidc-intel
-DTSTAMP:20261029T061930Z
+DTSTAMP:20261030T061852Z
 DTSTART;VALUE=DATE:20261105
 SUMMARY:[AIDC锚点] OCP 全球技术峰会：下一代 NVL 机架电源母线与液冷接口新标准发布
 DESCRIPTION:【关联主体】OCP Foundation / 头部 ODM\n【关注要点】关注 54V 母排物理尺寸与 UQD06 更大通径快接头规范确立，评估模具改造成本。
@@ -50,7 +50,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:aidc-20261112-3@aidc-intel
-DTSTAMP:20261029T061930Z
+DTSTAMP:20261030T061852Z
 DTSTART;VALUE=DATE:20261112
 SUMMARY:[AIDC锚点] 日东纺 (Nittobo) 投资者说明会：石英纱产线扩产达产时间表
 DESCRIPTION:【关联主体】日东纺 (Low-Dk 玻纤上游)\n【关注要点】核实其福岛工厂石英纤维二期投产时点，判断 2027 年上半年覆铜板现货缺口收窄趋势。
@@ -64,7 +64,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:aidc-20261120-4@aidc-intel
-DTSTAMP:20261029T061930Z
+DTSTAMP:20261030T061852Z
 DTSTART;VALUE=DATE:20261120
 SUMMARY:[AIDC锚点] 北美云巨头 2027 财年硬件集采招标技术澄清截止日
 DESCRIPTION:【关联主体】Microsoft / AWS 采购中心\n【关注要点】针对供电电源、高速铜缆及液冷冷板的 Tier-2 合格料号提交最后答辩。
@@ -78,7 +78,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:aidc-20261028-5@aidc-intel
-DTSTAMP:20261029T061930Z
+DTSTAMP:20261030T061852Z
 DTSTART;VALUE=DATE:20261028
 SUMMARY:[AIDC锚点] 维谛技术 (Vertiv) 2026 Q3 财报电话会与液冷在手订单披露
 DESCRIPTION:【关联主体】Vertiv (供电配电与热管理)\n【关注要点】重点关注其 CDU 订单出货比 (Book-to-Bill) 与 2027 年模块化供电系统排产指引。
@@ -92,7 +92,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:aidc-20261029-6@aidc-intel
-DTSTAMP:20261029T061930Z
+DTSTAMP:20261030T061852Z
 DTSTART;VALUE=DATE:20261029
 SUMMARY:[AIDC锚点] 伊顿 (Eaton) 投资者日：北美电网扩容与变压器扩产进度
 DESCRIPTION:【关联主体】Eaton (电气与中高压配电)\n【关注要点】关注其德克萨斯变压器新厂二期爬坡节点及大客户长协锁单期限。
@@ -106,7 +106,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:aidc-20261105-7@aidc-intel
-DTSTAMP:20261029T061930Z
+DTSTAMP:20261030T061852Z
 DTSTART;VALUE=DATE:20261105
 SUMMARY:[AIDC锚点] OCP 全球技术峰会：下一代 NVL 机架电源母线与液冷接口新标准发布
 DESCRIPTION:【关联主体】OCP Foundation / 头部 ODM\n【关注要点】关注 54V 母排物理尺寸与 UQD06 更大通径快接头规范确立，评估模具改造成本。
@@ -120,7 +120,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:aidc-20261112-8@aidc-intel
-DTSTAMP:20261029T061930Z
+DTSTAMP:20261030T061852Z
 DTSTART;VALUE=DATE:20261112
 SUMMARY:[AIDC锚点] 日东纺 (Nittobo) 投资者说明会：石英纱产线扩产达产时间表
 DESCRIPTION:【关联主体】日东纺 (Low-Dk 玻纤上游)\n【关注要点】核实其福岛工厂石英纤维二期投产时点，判断 2027 年上半年覆铜板现货缺口收窄趋势。
@@ -134,7 +134,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:aidc-20261120-9@aidc-intel
-DTSTAMP:20261029T061930Z
+DTSTAMP:20261030T061852Z
 DTSTART;VALUE=DATE:20261120
 SUMMARY:[AIDC锚点] 北美云巨头 2027 财年硬件集采招标技术澄清截止日
 DESCRIPTION:【关联主体】Microsoft / AWS 采购中心\n【关注要点】针对供电电源、高速铜缆及液冷冷板的 Tier-2 合格料号提交最后答辩。
@@ -148,7 +148,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:aidc-20261028-10@aidc-intel
-DTSTAMP:20261029T061930Z
+DTSTAMP:20261030T061852Z
 DTSTART;VALUE=DATE:20261028
 SUMMARY:[AIDC锚点] 维谛技术 (Vertiv) 2026 Q3 财报电话会与液冷在手订单披露
 DESCRIPTION:【关联主体】Vertiv (供电配电与热管理)\n【关注要点】重点关注其 CDU 订单出货比 (Book-to-Bill) 与 2027 年模块化供电系统排产指引。
@@ -162,7 +162,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:aidc-20261029-11@aidc-intel
-DTSTAMP:20261029T061930Z
+DTSTAMP:20261030T061852Z
 DTSTART;VALUE=DATE:20261029
 SUMMARY:[AIDC锚点] 伊顿 (Eaton) 投资者日：北美电网扩容与变压器扩产进度
 DESCRIPTION:【关联主体】Eaton (电气与中高压配电)\n【关注要点】关注其德克萨斯变压器新厂二期爬坡节点及大客户长协锁单期限。
@@ -176,7 +176,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:aidc-20261105-12@aidc-intel
-DTSTAMP:20261029T061930Z
+DTSTAMP:20261030T061852Z
 DTSTART;VALUE=DATE:20261105
 SUMMARY:[AIDC锚点] OCP 全球技术峰会：下一代 NVL 机架电源母线与液冷接口新标准发布
 DESCRIPTION:【关联主体】OCP Foundation / 头部 ODM\n【关注要点】关注 54V 母排物理尺寸与 UQD06 更大通径快接头规范确立，评估模具改造成本。
@@ -190,7 +190,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:aidc-20261112-13@aidc-intel
-DTSTAMP:20261029T061930Z
+DTSTAMP:20261030T061852Z
 DTSTART;VALUE=DATE:20261112
 SUMMARY:[AIDC锚点] 日东纺 (Nittobo) 投资者说明会：石英纱产线扩产达产时间表
 DESCRIPTION:【关联主体】日东纺 (Low-Dk 玻纤上游)\n【关注要点】核实其福岛工厂石英纤维二期投产时点，判断 2027 年上半年覆铜板现货缺口收窄趋势。
@@ -204,7 +204,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:aidc-20261120-14@aidc-intel
-DTSTAMP:20261029T061930Z
+DTSTAMP:20261030T061852Z
 DTSTART;VALUE=DATE:20261120
 SUMMARY:[AIDC锚点] 北美云巨头 2027 财年硬件集采招标技术澄清截止日
 DESCRIPTION:【关联主体】Microsoft / AWS 采购中心\n【关注要点】针对供电电源、高速铜缆及液冷冷板的 Tier-2 合格料号提交最后答辩。
@@ -218,7 +218,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:aidc-20261028-15@aidc-intel
-DTSTAMP:20261029T061930Z
+DTSTAMP:20261030T061852Z
 DTSTART;VALUE=DATE:20261028
 SUMMARY:[AIDC锚点] 维谛技术 (Vertiv) 2026 Q3 财报电话会与液冷在手订单披露
 DESCRIPTION:【关联主体】Vertiv (供电配电与热管理)\n【关注要点】重点关注其 CDU 订单出货比 (Book-to-Bill) 与 2027 年模块化供电系统排产指引。
@@ -232,7 +232,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:aidc-20261029-16@aidc-intel
-DTSTAMP:20261029T061930Z
+DTSTAMP:20261030T061852Z
 DTSTART;VALUE=DATE:20261029
 SUMMARY:[AIDC锚点] 伊顿 (Eaton) 投资者日：北美电网扩容与变压器扩产进度
 DESCRIPTION:【关联主体】Eaton (电气与中高压配电)\n【关注要点】关注其德克萨斯变压器新厂二期爬坡节点及大客户长协锁单期限。
@@ -246,7 +246,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:aidc-20261105-17@aidc-intel
-DTSTAMP:20261029T061930Z
+DTSTAMP:20261030T061852Z
 DTSTART;VALUE=DATE:20261105
 SUMMARY:[AIDC锚点] OCP 全球技术峰会：下一代 NVL 机架电源母线与液冷接口新标准发布
 DESCRIPTION:【关联主体】OCP Foundation / 头部 ODM\n【关注要点】关注 54V 母排物理尺寸与 UQD06 更大通径快接头规范确立，评估模具改造成本。
@@ -260,7 +260,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:aidc-20261112-18@aidc-intel
-DTSTAMP:20261029T061930Z
+DTSTAMP:20261030T061852Z
 DTSTART;VALUE=DATE:20261112
 SUMMARY:[AIDC锚点] 日东纺 (Nittobo) 投资者说明会：石英纱产线扩产达产时间表
 DESCRIPTION:【关联主体】日东纺 (Low-Dk 玻纤上游)\n【关注要点】核实其福岛工厂石英纤维二期投产时点，判断 2027 年上半年覆铜板现货缺口收窄趋势。
@@ -274,7 +274,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:aidc-20261120-19@aidc-intel
-DTSTAMP:20261029T061930Z
+DTSTAMP:20261030T061852Z
 DTSTART;VALUE=DATE:20261120
 SUMMARY:[AIDC锚点] 北美云巨头 2027 财年硬件集采招标技术澄清截止日
 DESCRIPTION:【关联主体】Microsoft / AWS 采购中心\n【关注要点】针对供电电源、高速铜缆及液冷冷板的 Tier-2 合格料号提交最后答辩。
@@ -288,7 +288,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:aidc-20261028-20@aidc-intel
-DTSTAMP:20261029T061930Z
+DTSTAMP:20261030T061852Z
 DTSTART;VALUE=DATE:20261028
 SUMMARY:[AIDC锚点] 维谛技术 (Vertiv) 2026 Q3 财报电话会与液冷在手订单披露
 DESCRIPTION:【关联主体】Vertiv (供电配电与热管理)\n【关注要点】重点关注其 CDU 订单出货比 (Book-to-Bill) 与 2027 年模块化供电系统排产指引。
@@ -302,7 +302,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:aidc-20261029-21@aidc-intel
-DTSTAMP:20261029T061930Z
+DTSTAMP:20261030T061852Z
 DTSTART;VALUE=DATE:20261029
 SUMMARY:[AIDC锚点] 伊顿 (Eaton) 投资者日：北美电网扩容与变压器扩产进度
 DESCRIPTION:【关联主体】Eaton (电气与中高压配电)\n【关注要点】关注其德克萨斯变压器新厂二期爬坡节点及大客户长协锁单期限。
@@ -316,7 +316,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:aidc-20261105-22@aidc-intel
-DTSTAMP:20261029T061930Z
+DTSTAMP:20261030T061852Z
 DTSTART;VALUE=DATE:20261105
 SUMMARY:[AIDC锚点] OCP 全球技术峰会：下一代 NVL 机架电源母线与液冷接口新标准发布
 DESCRIPTION:【关联主体】OCP Foundation / 头部 ODM\n【关注要点】关注 54V 母排物理尺寸与 UQD06 更大通径快接头规范确立，评估模具改造成本。
@@ -330,7 +330,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:aidc-20261112-23@aidc-intel
-DTSTAMP:20261029T061930Z
+DTSTAMP:20261030T061852Z
 DTSTART;VALUE=DATE:20261112
 SUMMARY:[AIDC锚点] 日东纺 (Nittobo) 投资者说明会：石英纱产线扩产达产时间表
 DESCRIPTION:【关联主体】日东纺 (Low-Dk 玻纤上游)\n【关注要点】核实其福岛工厂石英纤维二期投产时点，判断 2027 年上半年覆铜板现货缺口收窄趋势。
@@ -344,7 +344,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:aidc-20261120-24@aidc-intel
-DTSTAMP:20261029T061930Z
+DTSTAMP:20261030T061852Z
 DTSTART;VALUE=DATE:20261120
 SUMMARY:[AIDC锚点] 北美云巨头 2027 财年硬件集采招标技术澄清截止日
 DESCRIPTION:【关联主体】Microsoft / AWS 采购中心\n【关注要点】针对供电电源、高速铜缆及液冷冷板的 Tier-2 合格料号提交最后答辩。
@@ -358,7 +358,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:aidc-20261028-25@aidc-intel
-DTSTAMP:20261029T061930Z
+DTSTAMP:20261030T061852Z
 DTSTART;VALUE=DATE:20261028
 SUMMARY:[AIDC锚点] 维谛技术 (Vertiv) 2026 Q3 财报电话会与液冷在手订单披露
 DESCRIPTION:【关联主体】Vertiv (供电配电与热管理)\n【关注要点】重点关注其 CDU 订单出货比 (Book-to-Bill) 与 2027 年模块化供电系统排产指引。
@@ -372,7 +372,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:aidc-20261029-26@aidc-intel
-DTSTAMP:20261029T061930Z
+DTSTAMP:20261030T061852Z
 DTSTART;VALUE=DATE:20261029
 SUMMARY:[AIDC锚点] 伊顿 (Eaton) 投资者日：北美电网扩容与变压器扩产进度
 DESCRIPTION:【关联主体】Eaton (电气与中高压配电)\n【关注要点】关注其德克萨斯变压器新厂二期爬坡节点及大客户长协锁单期限。
@@ -386,7 +386,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:aidc-20261105-27@aidc-intel
-DTSTAMP:20261029T061930Z
+DTSTAMP:20261030T061852Z
 DTSTART;VALUE=DATE:20261105
 SUMMARY:[AIDC锚点] OCP 全球技术峰会：下一代 NVL 机架电源母线与液冷接口新标准发布
 DESCRIPTION:【关联主体】OCP Foundation / 头部 ODM\n【关注要点】关注 54V 母排物理尺寸与 UQD06 更大通径快接头规范确立，评估模具改造成本。
@@ -400,7 +400,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:aidc-20261112-28@aidc-intel
-DTSTAMP:20261029T061930Z
+DTSTAMP:20261030T061852Z
 DTSTART;VALUE=DATE:20261112
 SUMMARY:[AIDC锚点] 日东纺 (Nittobo) 投资者说明会：石英纱产线扩产达产时间表
 DESCRIPTION:【关联主体】日东纺 (Low-Dk 玻纤上游)\n【关注要点】核实其福岛工厂石英纤维二期投产时点，判断 2027 年上半年覆铜板现货缺口收窄趋势。
@@ -414,7 +414,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:aidc-20261120-29@aidc-intel
-DTSTAMP:20261029T061930Z
+DTSTAMP:20261030T061852Z
 DTSTART;VALUE=DATE:20261120
 SUMMARY:[AIDC锚点] 北美云巨头 2027 财年硬件集采招标技术澄清截止日
 DESCRIPTION:【关联主体】Microsoft / AWS 采购中心\n【关注要点】针对供电电源、高速铜缆及液冷冷板的 Tier-2 合格料号提交最后答辩。
@@ -428,7 +428,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:aidc-20261028-30@aidc-intel
-DTSTAMP:20261029T061930Z
+DTSTAMP:20261030T061852Z
 DTSTART;VALUE=DATE:20261028
 SUMMARY:[AIDC锚点] 维谛技术 (Vertiv) 2026 Q3 财报电话会与液冷在手订单披露
 DESCRIPTION:【关联主体】Vertiv (供电配电与热管理)\n【关注要点】重点关注其 CDU 订单出货比 (Book-to-Bill) 与 2027 年模块化供电系统排产指引。
@@ -442,7 +442,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:aidc-20261029-31@aidc-intel
-DTSTAMP:20261029T061930Z
+DTSTAMP:20261030T061852Z
 DTSTART;VALUE=DATE:20261029
 SUMMARY:[AIDC锚点] 伊顿 (Eaton) 投资者日：北美电网扩容与变压器扩产进度
 DESCRIPTION:【关联主体】Eaton (电气与中高压配电)\n【关注要点】关注其德克萨斯变压器新厂二期爬坡节点及大客户长协锁单期限。
@@ -456,7 +456,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:aidc-20261105-32@aidc-intel
-DTSTAMP:20261029T061930Z
+DTSTAMP:20261030T061852Z
 DTSTART;VALUE=DATE:20261105
 SUMMARY:[AIDC锚点] OCP 全球技术峰会：下一代 NVL 机架电源母线与液冷接口新标准发布
 DESCRIPTION:【关联主体】OCP Foundation / 头部 ODM\n【关注要点】关注 54V 母排物理尺寸与 UQD06 更大通径快接头规范确立，评估模具改造成本。
@@ -470,7 +470,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:aidc-20261112-33@aidc-intel
-DTSTAMP:20261029T061930Z
+DTSTAMP:20261030T061852Z
 DTSTART;VALUE=DATE:20261112
 SUMMARY:[AIDC锚点] 日东纺 (Nittobo) 投资者说明会：石英纱产线扩产达产时间表
 DESCRIPTION:【关联主体】日东纺 (Low-Dk 玻纤上游)\n【关注要点】核实其福岛工厂石英纤维二期投产时点，判断 2027 年上半年覆铜板现货缺口收窄趋势。
@@ -484,7 +484,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:aidc-20261120-34@aidc-intel
-DTSTAMP:20261029T061930Z
+DTSTAMP:20261030T061852Z
 DTSTART;VALUE=DATE:20261120
 SUMMARY:[AIDC锚点] 北美云巨头 2027 财年硬件集采招标技术澄清截止日
 DESCRIPTION:【关联主体】Microsoft / AWS 采购中心\n【关注要点】针对供电电源、高速铜缆及液冷冷板的 Tier-2 合格料号提交最后答辩。
@@ -498,7 +498,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:aidc-20261028-35@aidc-intel
-DTSTAMP:20261029T061930Z
+DTSTAMP:20261030T061852Z
 DTSTART;VALUE=DATE:20261028
 SUMMARY:[AIDC锚点] 维谛技术 (Vertiv) 2026 Q3 财报电话会与液冷在手订单披露
 DESCRIPTION:【关联主体】Vertiv (供电配电与热管理)\n【关注要点】重点关注其 CDU 订单出货比 (Book-to-Bill) 与 2027 年模块化供电系统排产指引。
@@ -512,7 +512,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:aidc-20261029-36@aidc-intel
-DTSTAMP:20261029T061930Z
+DTSTAMP:20261030T061852Z
 DTSTART;VALUE=DATE:20261029
 SUMMARY:[AIDC锚点] 伊顿 (Eaton) 投资者日：北美电网扩容与变压器扩产进度
 DESCRIPTION:【关联主体】Eaton (电气与中高压配电)\n【关注要点】关注其德克萨斯变压器新厂二期爬坡节点及大客户长协锁单期限。
@@ -526,7 +526,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:aidc-20261105-37@aidc-intel
-DTSTAMP:20261029T061930Z
+DTSTAMP:20261030T061852Z
 DTSTART;VALUE=DATE:20261105
 SUMMARY:[AIDC锚点] OCP 全球技术峰会：下一代 NVL 机架电源母线与液冷接口新标准发布
 DESCRIPTION:【关联主体】OCP Foundation / 头部 ODM\n【关注要点】关注 54V 母排物理尺寸与 UQD06 更大通径快接头规范确立，评估模具改造成本。
@@ -540,7 +540,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:aidc-20261112-38@aidc-intel
-DTSTAMP:20261029T061930Z
+DTSTAMP:20261030T061852Z
 DTSTART;VALUE=DATE:20261112
 SUMMARY:[AIDC锚点] 日东纺 (Nittobo) 投资者说明会：石英纱产线扩产达产时间表
 DESCRIPTION:【关联主体】日东纺 (Low-Dk 玻纤上游)\n【关注要点】核实其福岛工厂石英纤维二期投产时点，判断 2027 年上半年覆铜板现货缺口收窄趋势。
@@ -554,7 +554,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:aidc-20261120-39@aidc-intel
-DTSTAMP:20261029T061930Z
+DTSTAMP:20261030T061852Z
 DTSTART;VALUE=DATE:20261120
 SUMMARY:[AIDC锚点] 北美云巨头 2027 财年硬件集采招标技术澄清截止日
 DESCRIPTION:【关联主体】Microsoft / AWS 采购中心\n【关注要点】针对供电电源、高速铜缆及液冷冷板的 Tier-2 合格料号提交最后答辩。
@@ -568,7 +568,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:aidc-20261028-40@aidc-intel
-DTSTAMP:20261029T061930Z
+DTSTAMP:20261030T061852Z
 DTSTART;VALUE=DATE:20261028
 SUMMARY:[AIDC锚点] 维谛技术 (Vertiv) 2026 Q3 财报电话会与液冷在手订单披露
 DESCRIPTION:【关联主体】Vertiv (供电配电与热管理)\n【关注要点】重点关注其 CDU 订单出货比 (Book-to-Bill) 与 2027 年模块化供电系统排产指引。
@@ -582,7 +582,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:aidc-20261029-41@aidc-intel
-DTSTAMP:20261029T061930Z
+DTSTAMP:20261030T061852Z
 DTSTART;VALUE=DATE:20261029
 SUMMARY:[AIDC锚点] 伊顿 (Eaton) 投资者日：北美电网扩容与变压器扩产进度
 DESCRIPTION:【关联主体】Eaton (电气与中高压配电)\n【关注要点】关注其德克萨斯变压器新厂二期爬坡节点及大客户长协锁单期限。
@@ -596,7 +596,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:aidc-20261105-42@aidc-intel
-DTSTAMP:20261029T061930Z
+DTSTAMP:20261030T061852Z
 DTSTART;VALUE=DATE:20261105
 SUMMARY:[AIDC锚点] OCP 全球技术峰会：下一代 NVL 机架电源母线与液冷接口新标准发布
 DESCRIPTION:【关联主体】OCP Foundation / 头部 ODM\n【关注要点】关注 54V 母排物理尺寸与 UQD06 更大通径快接头规范确立，评估模具改造成本。
@@ -610,7 +610,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:aidc-20261112-43@aidc-intel
-DTSTAMP:20261029T061930Z
+DTSTAMP:20261030T061852Z
 DTSTART;VALUE=DATE:20261112
 SUMMARY:[AIDC锚点] 日东纺 (Nittobo) 投资者说明会：石英纱产线扩产达产时间表
 DESCRIPTION:【关联主体】日东纺 (Low-Dk 玻纤上游)\n【关注要点】核实其福岛工厂石英纤维二期投产时点，判断 2027 年上半年覆铜板现货缺口收窄趋势。
@@ -624,7 +624,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:aidc-20261120-44@aidc-intel
-DTSTAMP:20261029T061930Z
+DTSTAMP:20261030T061852Z
 DTSTART;VALUE=DATE:20261120
 SUMMARY:[AIDC锚点] 北美云巨头 2027 财年硬件集采招标技术澄清截止日
 DESCRIPTION:【关联主体】Microsoft / AWS 采购中心\n【关注要点】针对供电电源、高速铜缆及液冷冷板的 Tier-2 合格料号提交最后答辩。
@@ -638,7 +638,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:aidc-20261028-45@aidc-intel
-DTSTAMP:20261029T061930Z
+DTSTAMP:20261030T061852Z
 DTSTART;VALUE=DATE:20261028
 SUMMARY:[AIDC锚点] 维谛技术 (Vertiv) 2026 Q3 财报电话会与液冷在手订单披露
 DESCRIPTION:【关联主体】Vertiv (供电配电与热管理)\n【关注要点】重点关注其 CDU 订单出货比 (Book-to-Bill) 与 2027 年模块化供电系统排产指引。
@@ -652,7 +652,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:aidc-20261029-46@aidc-intel
-DTSTAMP:20261029T061930Z
+DTSTAMP:20261030T061852Z
 DTSTART;VALUE=DATE:20261029
 SUMMARY:[AIDC锚点] 伊顿 (Eaton) 投资者日：北美电网扩容与变压器扩产进度
 DESCRIPTION:【关联主体】Eaton (电气与中高压配电)\n【关注要点】关注其德克萨斯变压器新厂二期爬坡节点及大客户长协锁单期限。
@@ -666,7 +666,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:aidc-20261105-47@aidc-intel
-DTSTAMP:20261029T061930Z
+DTSTAMP:20261030T061852Z
 DTSTART;VALUE=DATE:20261105
 SUMMARY:[AIDC锚点] OCP 全球技术峰会：下一代 NVL 机架电源母线与液冷接口新标准发布
 DESCRIPTION:【关联主体】OCP Foundation / 头部 ODM\n【关注要点】关注 54V 母排物理尺寸与 UQD06 更大通径快接头规范确立，评估模具改造成本。
@@ -680,7 +680,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:aidc-20261112-48@aidc-intel
-DTSTAMP:20261029T061930Z
+DTSTAMP:20261030T061852Z
 DTSTART;VALUE=DATE:20261112
 SUMMARY:[AIDC锚点] 日东纺 (Nittobo) 投资者说明会：石英纱产线扩产达产时间表
 DESCRIPTION:【关联主体】日东纺 (Low-Dk 玻纤上游)\n【关注要点】核实其福岛工厂石英纤维二期投产时点，判断 2027 年上半年覆铜板现货缺口收窄趋势。
@@ -694,7 +694,77 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:aidc-20261120-49@aidc-intel
-DTSTAMP:20261029T061930Z
+DTSTAMP:20261030T061852Z
+DTSTART;VALUE=DATE:20261120
+SUMMARY:[AIDC锚点] 北美云巨头 2027 财年硬件集采招标技术澄清截止日
+DESCRIPTION:【关联主体】Microsoft / AWS 采购中心\n【关注要点】针对供电电源、高速铜缆及液冷冷板的 Tier-2 合格料号提交最后答辩。
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+TRIGGER:-PT15H
+ACTION:DISPLAY
+DESCRIPTION:提前1天提醒：北美云巨头 2027 财年硬件集采招标技术澄清截止日
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:aidc-20261028-50@aidc-intel
+DTSTAMP:20261030T061852Z
+DTSTART;VALUE=DATE:20261028
+SUMMARY:[AIDC锚点] 维谛技术 (Vertiv) 2026 Q3 财报电话会与液冷在手订单披露
+DESCRIPTION:【关联主体】Vertiv (供电配电与热管理)\n【关注要点】重点关注其 CDU 订单出货比 (Book-to-Bill) 与 2027 年模块化供电系统排产指引。
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+TRIGGER:-PT15H
+ACTION:DISPLAY
+DESCRIPTION:提前1天提醒：维谛技术 (Vertiv) 2026 Q3 财报电话会与液冷在手订单披露
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:aidc-20261029-51@aidc-intel
+DTSTAMP:20261030T061852Z
+DTSTART;VALUE=DATE:20261029
+SUMMARY:[AIDC锚点] 伊顿 (Eaton) 投资者日：北美电网扩容与变压器扩产进度
+DESCRIPTION:【关联主体】Eaton (电气与中高压配电)\n【关注要点】关注其德克萨斯变压器新厂二期爬坡节点及大客户长协锁单期限。
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+TRIGGER:-PT15H
+ACTION:DISPLAY
+DESCRIPTION:提前1天提醒：伊顿 (Eaton) 投资者日：北美电网扩容与变压器扩产进度
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:aidc-20261105-52@aidc-intel
+DTSTAMP:20261030T061852Z
+DTSTART;VALUE=DATE:20261105
+SUMMARY:[AIDC锚点] OCP 全球技术峰会：下一代 NVL 机架电源母线与液冷接口新标准发布
+DESCRIPTION:【关联主体】OCP Foundation / 头部 ODM\n【关注要点】关注 54V 母排物理尺寸与 UQD06 更大通径快接头规范确立，评估模具改造成本。
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+TRIGGER:-PT15H
+ACTION:DISPLAY
+DESCRIPTION:提前1天提醒：OCP 全球技术峰会：下一代 NVL 机架电源母线与液冷接口新标准发布
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:aidc-20261112-53@aidc-intel
+DTSTAMP:20261030T061852Z
+DTSTART;VALUE=DATE:20261112
+SUMMARY:[AIDC锚点] 日东纺 (Nittobo) 投资者说明会：石英纱产线扩产达产时间表
+DESCRIPTION:【关联主体】日东纺 (Low-Dk 玻纤上游)\n【关注要点】核实其福岛工厂石英纤维二期投产时点，判断 2027 年上半年覆铜板现货缺口收窄趋势。
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+TRIGGER:-PT15H
+ACTION:DISPLAY
+DESCRIPTION:提前1天提醒：日东纺 (Nittobo) 投资者说明会：石英纱产线扩产达产时间表
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:aidc-20261120-54@aidc-intel
+DTSTAMP:20261030T061852Z
 DTSTART;VALUE=DATE:20261120
 SUMMARY:[AIDC锚点] 北美云巨头 2027 财年硬件集采招标技术澄清截止日
 DESCRIPTION:【关联主体】Microsoft / AWS 采购中心\n【关注要点】针对供电电源、高速铜缆及液冷冷板的 Tier-2 合格料号提交最后答辩。

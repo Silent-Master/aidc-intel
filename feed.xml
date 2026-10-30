@@ -5,8 +5,15 @@
     <link>https://nohho.github.io/aidc-intel/</link>
     <description>AI 数据中心物理基建、算力机柜、供电配电、高速互连、液冷温控每日供应链情报。面向采购、供应链管理及硬件工程团队。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 29 Oct 2026 06:19:30 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 30 Oct 2026 06:18:52 GMT</lastBuildDate>
     <atom:link href="https://nohho.github.io/aidc-intel/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>【AIDC情报 2026-10-30】变压器交期突破120周大关！日东纺Low-Dk石英布现货溢价达31.8% · 北美四大CSP 2027年CapEx上修至3200亿美元 · 维谛Vertiv Q3财报前瞻与液冷CDU订单积压追踪</title>
+      <link>https://nohho.github.io/aidc-intel/#date=2026-10-30</link>
+      <guid isPermaLink="true">https://nohho.github.io/aidc-intel/#date=2026-10-30</guid>
+      <description>&lt;p&gt;&lt;strong&gt;头条快讯：&lt;/strong&gt;变压器交期突破120周大关！日东纺Low-Dk石英布现货溢价达31.8% · 北美四大CSP 2027年CapEx上修至3200亿美元 · 维谛Vertiv Q3财报前瞻与液冷CDU订单积压追踪&lt;/p&gt;&lt;h4&gt;核心头条拆解：&lt;/h4&gt;&lt;p&gt;&lt;strong&gt;重型电网变压器全球平均交期突破 120 周，取向硅钢 (GOES) 产能锁单至 2028 年底&lt;/strong&gt;&lt;br&gt;根据伍德麦肯兹 (Wood Mackenzie) 与北美电力可靠性委员会 (NERC) 联合行业报告，500kV 及以上大型升压变压器与数据中心专用箱式变压器加权平均交货周期已拉长至 120~128 周（近 2.5 年）。取向硅钢核心供应商（如日铁、JFE、宝钢股份）高牌号产能已被全美及欧洲电网升级项目与 CSP 数据中心联合锁单至 2028 年底。&lt;/p&gt;&lt;p&gt;&lt;strong&gt;日东纺 (Nittobo) Low-Dk 石英纤维纱配额告急，M8 级高频高速覆铜板现货溢价突破 30%&lt;/strong&gt;&lt;br&gt;全球 AI 服务器整机柜（如 NVL72 计算板、交换机板）大规模出货催化 M8/M9 等级覆铜板需求暴增。全球唯一能大批量供应极低介电常数 (Low-Dk/Low-Df) 石英玻璃纤维纱的日本日东纺（Nittobo），四季度配额已被台光电子（EMC）与生益科技锁定逾 85%，二线 PCB 厂商现货采购溢价达 31.8%。&lt;/p&gt;&lt;h4&gt;齐套预警与采购建议：&lt;/h4&gt;&lt;ul&gt;&lt;li&gt;[HIGH] 主网升压与箱式电力变压器 (500kV/110kV/10kV): 对 2027~2028 年规划投运的智算机房，必须立刻以工程定金形式锁定主变压器与中压开关柜排期；同步推进箱式预制舱变电站与干式变压器二供选型。 (交期: 加权交期达 120 周，新订单交付排期已越过 2028 年 Q3)&lt;/li&gt;&lt;li&gt;[HIGH] Low-Dk / Low-Df 电子级石英玻纤布 (M8/M9 PCB底材): 研发与硬件工程团队应放宽材料承认书 (BOM Approved List)，加速生益科技与宏和科技替代料号在算力主板边缘走线层的评估测试。 (交期: 日东纺配额锁定率达 90%，二供现货溢价达 31.8%，交期拉长至 46 周)&lt;/li&gt;&lt;li&gt;[MEDIUM] 224G 发泡芯线与高速直连 DAC/AEC 铜缆: 在单机柜跳线方案中评估采用立讯精密、沃尔核材自研高阻抗控制铜缆进行分流，建立至少 12 周的安全缓冲库存 (Safety Stock)。 (交期: 行业标准交期 38 周，安费诺与 Credo 产能偏紧)&lt;/li&gt;&lt;li&gt;[MEDIUM] 液冷 CDU 不锈钢钎焊板式换热器 (BPHE): 向国内换热器龙头（三花、同飞、高澜）释放长协预测 (Rolling Forecast)，锁定不锈钢板片冲压与真空钎焊炉工位排期。 (交期: 丹佛斯、阿法拉伐交期达 42 周，现货提货周期较去年同期拉长 40%)&lt;/li&gt;&lt;/ul&gt;</description>
+      <pubDate>Fri, 30 Oct 2026 00:30:00 GMT</pubDate>
+    </item>
     <item>
       <title>【AIDC情报 2026-10-29】变压器交期突破120周大关！日东纺Low-Dk石英布现货溢价达31.8% · 北美四大CSP 2027年CapEx上修至3200亿美元 · 维谛Vertiv Q3财报前瞻与液冷CDU订单积压追踪</title>
       <link>https://nohho.github.io/aidc-intel/#date=2026-10-29</link>
