@@ -97,13 +97,15 @@ def generate_with_gemini(target_date: str, api_key: str):
 
     for m in candidate_models:
         url = f"https://generativelanguage.googleapis.com/v1beta/models/{m}:generateContent?key={api_key}"
+        # Set thinkingBudget to 0 to prevent Flash models from stalling on extended thinking tokens
         payload = {
             "contents": [
                 {"role": "user", "parts": [{"text": f"{system_prompt}\n\n---\n\n{user_prompt}"}]}
             ],
             "generationConfig": {
                 "responseMimeType": "application/json",
-                "temperature": 0.2
+                "temperature": 0.2,
+                "thinkingConfig": {"thinkingBudget": 0}
             }
         }
         req = urllib.request.Request(
@@ -112,8 +114,8 @@ def generate_with_gemini(target_date: str, api_key: str):
             headers={"Content-Type": "application/json"}
         )
         try:
-            print(f"[*] Attempting generation with Gemini model {m}...")
-            with urllib.request.urlopen(req, timeout=90) as response:
+            print(f"[*] Attempting generation with Gemini model {m} (thinkingBudget=0)...")
+            with urllib.request.urlopen(req, timeout=120) as response:
                 result = json.loads(response.read().decode("utf-8"))
                 text = result["candidates"][0]["content"]["parts"][0]["text"]
                 print(f"[+] Successfully generated briefing with {m}!")
@@ -121,6 +123,18 @@ def generate_with_gemini(target_date: str, api_key: str):
         except urllib.error.HTTPError as e:
             err_body = e.read().decode("utf-8", errors="ignore")
             print(f"[!] Model {m} failed (HTTP {e.code}): {err_body[:120]}")
+            # If 400 because thinkingConfig is not supported, retry without thinkingConfig
+            if e.code == 400 and "thinking" in err_body.lower():
+                try:
+                    payload["generationConfig"].pop("thinkingConfig", None)
+                    req2 = urllib.request.Request(url, data=json.dumps(payload).encode("utf-8"), headers={"Content-Type": "application/json"})
+                    with urllib.request.urlopen(req2, timeout=120) as resp2:
+                        res2 = json.loads(resp2.read().decode("utf-8"))
+                        text2 = res2["candidates"][0]["content"]["parts"][0]["text"]
+                        print(f"[+] Successfully generated briefing with {m} (standard config)!")
+                        return json.loads(text2)
+                except Exception as ex2:
+                    print(f"[!] Retry without thinkingConfig failed for {m}: {ex2}")
             last_err = e
         except Exception as e:
             print(f"[!] Model {m} error: {e}")

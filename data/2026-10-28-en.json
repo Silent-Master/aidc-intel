@@ -165,7 +165,7 @@
         {
           "outlet": "公司官方自愿性信息披露",
           "date": "2026-10-26",
-          "url": "http://www.cninfo.com.cn/",
+          "url": "http://www.cninfo.com.cn/new/index",
           "first_party": true
         }
       ]
@@ -236,7 +236,7 @@
       "tag": "[扩产/投产]",
       "detail": "江西高安微光学与高速光器件封装基地三期投产，FA光纤阵列及平行光组件月产能提升 40%，有效满足 1.6T 引擎配套需求。",
       "source": "巨潮资讯网官方公告",
-      "source_url": "http://www.cninfo.com.cn/",
+      "source_url": "http://www.cninfo.com.cn/new/index",
       "related_tickers": [
         "300394 天孚通信"
       ]

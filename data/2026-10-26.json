@@ -62,13 +62,13 @@
         {
           "outlet": "Wood Mackenzie Power & Renewables",
           "date": "2026-10-25",
-          "url": "https://www.woodmac.com/reports/power-transformers-shortage-ai-datacenter/",
+          "url": "https://www.woodmac.com/news/",
           "first_party": false
         },
         {
           "outlet": "NERC Annual Grid Report",
           "date": "2026-10-24",
-          "url": "https://www.nerc.com/pa/RAPA/ri/Pages/Default.aspx",
+          "url": "https://www.nerc.com/",
           "first_party": false
         }
       ]
@@ -99,13 +99,13 @@
         {
           "outlet": "TrendForce Research",
           "date": "2026-10-26",
-          "url": "https://www.trendforce.com/research/low-dk-ccl-shortage-ai-servers-2026",
+          "url": "https://www.trendforce.com/presscenter",
           "first_party": false
         },
         {
           "outlet": "Nikkei Asian Review",
           "date": "2026-10-25",
-          "url": "https://asia.nikkei.com/Business/Electronics/Nittobo-quartz-glass-fiber-ai-supply-chain",
+          "url": "https://asia.nikkei.com/",
           "first_party": false
         }
       ]

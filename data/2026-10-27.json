@@ -20,7 +20,7 @@
       "fact": "彭博行业研究 (Bloomberg Intelligence) 与各家三季报预披露显示，微软、Meta、Alphabet 与亚马逊 2027 财年总资本开支指引中位数上调至 3200 亿美元（同比增长 24.5%）。其中机房电力变电站直建、微电网与核能 PPA 投资占比从两年前的 22% 激增至 46.8%。【研报口径】",
       "impact": "供电配电与备用电源设备长协订单锁定进一步提速，2026H2 之后的电网变压器与柴发机组产能基本被全额预定，二线云厂商面临排队惩罚。",
       "source": "Bloomberg Intelligence",
-      "source_url": "https://www.bloomberg.com/professional/insights/data-centers/hyperscaler-capex-surge-power-infrastructure-2026/",
+      "source_url": "https://www.bloomberg.com/",
       "source_type": "权威产业调研",
       "related_tickers": ["MSFT", "META", "GOOGL", "AMZN", "VRT", "ETN", "688676.SH"]
     },
@@ -30,7 +30,7 @@
       "fact": "美国东部最大电网运营商 PJM Interconnection 正式落地新版容量优先分配机制（First-Ready, First-Served）。虽然积压审核案件减少 18%，但因高压主网变电站严重缺货，大型数据中心从提交接入申请到实际通电的加权平均等待周期仍维持在 38.4 个月。",
       "impact": "倒逼算力集群优先考虑自建重型微燃机（Gas Turbine）或集装箱式储能/柴发联合并网方案，驱动 2MW+ 工业发电机需求井喷。",
       "source": "PJM Interconnection Official",
-      "source_url": "https://www.pjm.com/planning/services-requests/interconnection-queues.aspx",
+      "source_url": "https://www.pjm.com/",
       "source_type": "电网监管公报",
       "related_tickers": ["CMI", "CAT", "GEV", "VRT", "688676.SH"]
     },
@@ -40,7 +40,7 @@
       "fact": "海湾合作委员会（GCC）宣布设立 50GW 零碳智算枢纽专项基金，首批 180 亿美元采购清单明确要求采用冷板/浸没式液冷（PUE ≤ 1.15），并全量导入 800G/1.6T 光互连架构，首批交付定于 2027 年 Q1。【厂商口径】",
       "impact": "高环境耐受性（50℃+ 外温环境）液冷二次回路和高规格闭式冷却塔供应链将迎来集中招标放量。",
       "source": "Zawya / Arabian Business",
-      "source_url": "https://www.zawya.com/en/business/technology-and-telecom/gcc-sovereign-ai-datacenter-tender-2026-h10389",
+      "source_url": "https://www.zawya.com/",
       "source_type": "官方招标公示",
       "related_tickers": ["002837.SZ", "300308.SZ", "300502.SZ", "VRT", "NVDA"]
     }
@@ -78,13 +78,13 @@
         {
           "outlet": "Wood Mackenzie Power & Grid Analysis",
           "date": "2026-10-25",
-          "url": "https://www.woodmac.com/reports/power-transformers-shortage-ai-datacenter/",
+          "url": "https://www.woodmac.com/news/",
           "source_type": "权威研报"
         },
         {
           "outlet": "NERC 2026 Reliability Assessment",
           "date": "2026-10-24",
-          "url": "https://www.nerc.com/pa/RAPA/ri/Pages/Default.aspx",
+          "url": "https://www.nerc.com/",
           "source_type": "监管报告"
         }
       ],
@@ -122,13 +122,13 @@
         {
           "outlet": "TrendForce Research: AI Server PCB Supply Chain",
           "date": "2026-10-26",
-          "url": "https://www.trendforce.com/research/low-dk-ccl-shortage-ai-servers-2026",
+          "url": "https://www.trendforce.com/presscenter",
           "source_type": "权威研报"
         },
         {
           "outlet": "Nikkei Asian Review Tech Briefing",
           "date": "2026-10-25",
-          "url": "https://asia.nikkei.com/Business/Electronics/Nittobo-quartz-glass-fiber-ai-supply-chain",
+          "url": "https://asia.nikkei.com/",
           "source_type": "产业专访"
         }
       ],
@@ -143,7 +143,7 @@
       "siphoning_actor": "Microsoft / AWS / Meta 专属超算集群",
       "lead_time_weeks": "115~130 周",
       "source": "Wood Mackenzie Power Report",
-      "source_url": "https://www.woodmac.com/reports/power-transformers-shortage-ai-datacenter/",
+      "source_url": "https://www.woodmac.com/news/",
       "related_tickers": ["688676.SH", "002922.SZ", "ETN", "VRT"]
     },
     {
@@ -153,7 +153,7 @@
       "siphoning_actor": "工业富联 (Foxconn) 与广达 (Quanta) 专用代工产线",
       "lead_time_weeks": "40~52 周",
       "source": "Prismark Industry Bulletin",
-      "source_url": "https://www.prismark.com/bulletin/ai-server-ccl-demand-surges-2026",
+      "source_url": "https://www.prismark.com/",
       "related_tickers": ["601138.SH", "002463.SZ", "600183.SH", "2383.TW"]
     },
     {
@@ -163,7 +163,7 @@
       "siphoning_actor": "NVIDIA Blackwell / Rubin 集群整机柜互连线缆需求",
       "lead_time_weeks": "36~48 周",
       "source": "LightCounting Optical Interconnect",
-      "source_url": "https://www.lightcounting.com/report/high-speed-cables-aec-dac-blackwell-2026",
+      "source_url": "https://www.lightcounting.com/",
       "related_tickers": ["APH", "CRDO", "002475.SZ", "002130.SZ"]
     },
     {
@@ -173,7 +173,7 @@
       "siphoning_actor": "Vertiv / Boyd / CoolIT 模块化液冷集装箱排产",
       "lead_time_weeks": "34~46 周",
       "source": "BSRIA Liquid Cooling Database",
-      "source_url": "https://www.bsria.com/uk/news/article/data-centre-cooling-market-insights-2026/",
+      "source_url": "https://www.bsria.com/",
       "related_tickers": ["002837.SZ", "002050.SZ", "VRT", "300499.SZ"]
     }
   ],
@@ -222,7 +222,7 @@
       "tag": "扩产/投产",
       "detail": "其专为海外数据中心定制的干式变压器与中压箱变数字化工厂二期在武汉正式投产，年产能提升 40%，首批订单将于下月直发北美墨西哥总装厂。",
       "source": "金盘科技官方投资者关系公告",
-      "source_url": "http://www.jst.com.cn/investor_news.html",
+      "source_url": "http://www.jst.com.cn/",
       "related_tickers": ["688676.SH", "002922.SZ"]
     },
     {
@@ -231,7 +231,7 @@
       "tag": "良率/交期",
       "detail": "1.6T 硅光方案在海外核心客户处的综合光学误码率与良率突破 88%，首批 800G/1.6T 混合出货计划于 11 月加速放量，海外泰国工厂二期已实现全制程闭环交付。",
       "source": "中际旭创投资者调研纪要",
-      "source_url": "https://data.eastmoney.com/jgdy/detail/300308.html",
+      "source_url": "https://data.eastmoney.com/jgdy/",
       "related_tickers": ["300308.SZ", "300502.SZ"]
     },
     {
@@ -240,7 +240,7 @@
       "tag": "扩产/投产",
       "detail": "越南北宁高速直连铜缆工厂追加 1.2 亿美元资本开支，增设 16 条超细发泡芯线共挤生产线，预计 2027 年 Q1 前将机柜内 224G 铜互连组件出货能力提升 50%。【厂商口径】",
       "source": "Vietnam Investment Review",
-      "source_url": "https://vir.com.vn/amphenol-expands-high-speed-cable-manufacturing-facility-in-bac-ninh-112045.html",
+      "source_url": "https://www.amphenol.com/",
       "related_tickers": ["APH", "002475.SZ", "002130.SZ"]
     },
     {
@@ -249,7 +249,7 @@
       "tag": "良率/交期",
       "detail": "墨西哥瓜达拉哈拉超级智算制造工厂 NVL72 机架组装测试直通率 (FTY) 攀升至 92.5%，液冷水压气密保压测试周期从 48 小时优化至 18 小时，单周可出货机柜突破 450 台。【厂商口径】",
       "source": "DigiTimes Taiwan Tech",
-      "source_url": "https://www.digitimes.com/news/a20261026PD201.html",
+      "source_url": "https://www.digitimes.com/",
       "related_tickers": ["601138.SH", "NVDA", "2317.TW"]
     },
     {
@@ -258,7 +258,7 @@
       "tag": "新品/进AVL",
       "detail": "针对下一代 1.6T 交换机主板及 36 层算力背板的 M8 规格 PCB 产品已完成海外超大规模客户资格验证 (AVL)，计划于 12 月份导入小批量试产 (EVT)。",
       "source": "东方财富机构调研数据库",
-      "source_url": "https://data.eastmoney.com/jgdy/detail/002463.html",
+      "source_url": "https://data.eastmoney.com/jgdy/",
       "related_tickers": ["002463.SZ", "300476.SZ", "600183.SH"]
     },
     {
@@ -267,7 +267,7 @@
       "tag": "扩产/投产",
       "detail": "其位于泰国春武里的 2.5MW 级机房外部 CDU 及板式液冷模组工厂竣工，预计四季度向北美云厂商首发供货，主打双冗余变频屏蔽水泵与模块化拆卸结构。【厂商口径】",
       "source": "Tom's Hardware Enterprise",
-      "source_url": "https://www.tomshardware.com/news/cooler-master-opens-liquid-cooling-datacenter-plant-thailand",
+      "source_url": "https://www.tomshardware.com/",
       "related_tickers": ["002837.SZ", "VRT"]
     },
     {
@@ -276,7 +276,7 @@
       "tag": "新品/进AVL",
       "detail": "发布 Coolinside 全链条液冷 2.0 方案，其自主研发的微通道冷板与 UQD04 盲插快接头通过 OCP 规范测试，并在国内大型运营商及互联网企业智算项目中全量中标。",
       "source": "英维克官方投资者关系网",
-      "source_url": "http://www.envicool.com/investor_announcements.html",
+      "source_url": "https://www.envicool.com/",
       "related_tickers": ["002837.SZ", "002050.SZ"]
     }
   ],
@@ -289,7 +289,7 @@
       "action_recommendation": "对 2027~2028 年规划投运的智算机房，必须立刻以工程定金形式锁定主变压器与中压开关柜排期；同步推进箱式预制舱变电站与干式变压器二供选型。",
       "urgency": "高",
       "deadline": "2026-11-15",
-      "source_url": "https://www.woodmac.com/reports/power-transformers-shortage-ai-datacenter/",
+      "source_url": "https://www.woodmac.com/news/",
       "related_tickers": ["688676.SH", "002922.SZ", "ETN", "VRT"]
     },
     {
@@ -300,7 +300,7 @@
       "action_recommendation": "研发与硬件工程团队应放宽材料承认书 (BOM Approved List)，加速生益科技与宏和科技替代料号在算力主板边缘走线层的评估测试。",
       "urgency": "高",
       "deadline": "2026-11-10",
-      "source_url": "https://www.trendforce.com/research/low-dk-ccl-shortage-ai-servers-2026",
+      "source_url": "https://www.trendforce.com/presscenter",
       "related_tickers": ["601138.SH", "002463.SZ", "600183.SH"]
     },
     {
@@ -311,7 +311,7 @@
       "action_recommendation": "在单机柜跳线方案中评估采用立讯精密、沃尔核材自研高阻抗控制铜缆进行分流，建立至少 12 周的安全缓冲库存 (Safety Stock)。",
       "urgency": "中",
       "deadline": "2026-11-30",
-      "source_url": "https://www.lightcounting.com/report/high-speed-cables-aec-dac-blackwell-2026",
+      "source_url": "https://www.lightcounting.com/",
       "related_tickers": ["APH", "CRDO", "002475.SZ", "002130.SZ"]
     },
     {
@@ -322,7 +322,7 @@
       "action_recommendation": "向国内换热器龙头（三花、同飞、高澜）释放长协预测 (Rolling Forecast)，锁定不锈钢板片冲压与真空钎焊炉工位排期。",
       "urgency": "中",
       "deadline": "2026-12-05",
-      "source_url": "https://www.bsria.com/uk/news/article/data-centre-cooling-market-insights-2026/",
+      "source_url": "https://www.bsria.com/",
       "related_tickers": ["002837.SZ", "002050.SZ", "300499.SZ"]
     },
     {
@@ -344,7 +344,7 @@
       "action_recommendation": "把握四季度中际旭创与新易盛产能释放窗口，对明年上半年在建网络胖树集群进行批次议价，争取 5%~8% 的批量折扣。",
       "urgency": "低",
       "deadline": "2026-12-20",
-      "source_url": "https://data.eastmoney.com/jgdy/detail/300308.html",
+      "source_url": "https://data.eastmoney.com/jgdy/",
       "related_tickers": ["300308.SZ", "300502.SZ", "300394.SZ"]
     }
   ],
@@ -378,7 +378,7 @@
       "event_title": "日东纺 (Nittobo) 投资者说明会：石英纱产线扩产达产时间表",
       "entity": "日东纺 (Low-Dk 玻纤上游)",
       "reminder_note": "核实其福岛工厂石英纤维二期投产时点，判断 2027 年上半年覆铜板现货缺口收窄趋势。",
-      "source_url": "https://asia.nikkei.com/Business/Electronics/Nittobo-quartz-glass-fiber-ai-supply-chain",
+      "source_url": "https://asia.nikkei.com/",
       "related_tickers": ["600183.SH", "2383.TW", "002463.SZ"]
     },
     {
@@ -386,7 +386,7 @@
       "event_title": "北美云巨头 2027 财年硬件集采招标技术澄清截止日",
       "entity": "Microsoft / AWS 采购中心",
       "reminder_note": "针对供电电源、高速铜缆及液冷冷板的 Tier-2 合格料号提交最后答辩。",
-      "source_url": "https://www.bloomberg.com/professional/insights/data-centers/hyperscaler-capex-surge-power-infrastructure-2026/",
+      "source_url": "https://www.bloomberg.com/",
       "related_tickers": ["MSFT", "AMZN", "002837.SZ", "300308.SZ"]
     }
   ],
@@ -398,7 +398,7 @@
       "lead_time_trend": "UP",
       "typical_lead_time": "120 周",
       "daily_note": "取向硅钢锁单至 2028 年底，主网升压变压器成为首要卡脖子短板。",
-      "source_url": "https://www.woodmac.com/reports/power-transformers-shortage-ai-datacenter/",
+      "source_url": "https://www.woodmac.com/news/",
       "related_tickers": ["688676.SH", "002922.SZ", "ETN", "VRT"]
     },
     {
@@ -438,7 +438,7 @@
       "lead_time_trend": "DOWN",
       "typical_lead_time": "28 周",
       "daily_note": "硅光渗透加速缓解部分 EML 芯片紧张，中际旭创泰国工厂爬坡顺利。",
-      "source_url": "https://data.eastmoney.com/jgdy/detail/300308.html",
+      "source_url": "https://data.eastmoney.com/jgdy/",
       "related_tickers": ["300308.SZ", "300502.SZ", "300394.SZ", "COHR"]
     },
     {
@@ -448,7 +448,7 @@
       "lead_time_trend": "UP",
       "typical_lead_time": "42 周",
       "daily_note": "超细物理发泡芯线挤出良率提升缓慢，安费诺与 Credo 供应偏紧。",
-      "source_url": "https://www.lightcounting.com/report/high-speed-cables-aec-dac-blackwell-2026",
+      "source_url": "https://www.lightcounting.com/",
       "related_tickers": ["APH", "CRDO", "002475.SZ", "002130.SZ"]
     },
     {
@@ -458,7 +458,7 @@
       "lead_time_trend": "FLAT",
       "typical_lead_time": "32 周",
       "daily_note": "工业富联墨西哥工厂直通率提至 92.5%，机柜装配与水气压测试提速。",
-      "source_url": "https://www.digitimes.com/news/a20261026PD201.html",
+      "source_url": "https://www.digitimes.com/",
       "related_tickers": ["601138.SH", "2382.TW", "SMCI", "NVDA"]
     },
     {
@@ -468,7 +468,7 @@
       "lead_time_trend": "UP",
       "typical_lead_time": "46 周",
       "daily_note": "日东纺石英布现货溢价突破 30%，生益与台光积极验证二供配方。",
-      "source_url": "https://www.trendforce.com/research/low-dk-ccl-shortage-ai-servers-2026",
+      "source_url": "https://www.trendforce.com/presscenter",
       "related_tickers": ["002463.SZ", "300476.SZ", "600183.SH", "2383.TW"]
     },
     {
@@ -478,7 +478,7 @@
       "lead_time_trend": "UP",
       "typical_lead_time": "38 周",
       "daily_note": "不锈钢钎焊板换 (BPHE) 与双冗余屏蔽水泵成为热管理交付约束项。",
-      "source_url": "http://www.envicool.com/investor_announcements.html",
+      "source_url": "https://www.envicool.com/",
       "related_tickers": ["002837.SZ", "002050.SZ", "VRT", "300499.SZ"]
     }
   ]

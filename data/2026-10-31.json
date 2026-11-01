@@ -161,7 +161,7 @@
         {
           "outlet": "沃尔核材投资者关系活动纪要",
           "date": "2026-10-29",
-          "url": "http://www.cninfo.com.cn/",
+          "url": "http://www.cninfo.com.cn/new/index",
           "first_party": true
         }
       ]
@@ -242,7 +242,7 @@
       "tag": "[财报/指引]",
       "detail": "三季度海外高频升压升流变压器出口同比增长 85%，马来西亚巴生港新工厂顺利试产，规避关税壁垒并就近配套东南亚数据中心。",
       "source": "巨潮资讯网官方公告",
-      "source_url": "http://www.cninfo.com.cn/",
+      "source_url": "http://www.cninfo.com.cn/new/index",
       "related_tickers": [
         "002922 伊戈尔"
       ]
@@ -253,7 +253,7 @@
       "tag": "[新品/进AVL]",
       "detail": "新一代针对液冷机房的全自动智能除气与水质在线净化除垢单元通过中国移动算力中心采购入围标准。",
       "source": "公司官方动态",
-      "source_url": "http://www.cninfo.com.cn/",
+      "source_url": "http://www.cninfo.com.cn/new/index",
       "related_tickers": [
         "300499 高澜股份"
       ]

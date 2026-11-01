@@ -163,7 +163,7 @@
         {
           "outlet": "公司官方投资者关系交流纪要",
           "date": "2026-10-28",
-          "url": "http://www.cninfo.com.cn/",
+          "url": "http://www.cninfo.com.cn/new/index",
           "first_party": true
         }
       ]
@@ -243,7 +243,7 @@
       "tag": "[财报/指引]",
       "detail": "前三季度 AI 服务器营业收入同比剧增超 150%，云服务商客户定制算力机柜出货占比跃升至 45%，毛利水平环比持续改善。",
       "source": "公司官方三季报",
-      "source_url": "http://www.cninfo.com.cn/",
+      "source_url": "http://www.cninfo.com.cn/new/index",
       "related_tickers": [
         "601138 工业富联"
       ]
@@ -265,7 +265,7 @@
       "tag": "[新品/进AVL]",
       "detail": "新一代针对 AI 算力机架的 5.5kW 超高能效服务器电源 (CRPS) 获得北美头部芯片厂商参考设计推荐，导入全球核心供应链。",
       "source": "深交所官方公告",
-      "source_url": "http://www.cninfo.com.cn/",
+      "source_url": "http://www.cninfo.com.cn/new/index",
       "related_tickers": [
         "002851 麦格米特"
       ]
