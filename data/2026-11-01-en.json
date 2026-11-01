@@ -3,12 +3,12 @@
     "date": "2026-11-01",
     "schema_version": "v1.2",
     "source_briefing": "briefs/2026-11-01-aidc-hardware-morning-briefing.md",
-    "note": "Top 4 North American CSPs revised 2027 CapEx upward to $320B; Substation transformer lead times breached 120 weeks; Nittobo Low-Dk quartz cloth spot premium hit 31.8%; Liquid cooling CDU brazed plate heat exchanger second-sourcing qualification window opened."
+    "note": "Microsoft & Blackstone  fund focuses on power & liquid cooling infra; U.S. customs intensifies origin audits; heavy backup power lead times reach 80 weeks."
   },
   "daily_report": {
     "date": "2026-11-01",
     "title": "AIDC Physical Infrastructure & Hardware Supply Chain Daily",
-    "headline": "Transformer Lead Times Breach 120 Weeks! Nittobo Low-Dk Spot Premium Reaches 31.8% · Top 4 North American CSPs Revise 2027 CapEx to $320B · Vertiv Q3 Earnings Preview & Liquid CDU Backlog Tracking",
+    "headline": "Microsoft & Blackstone Launch  AI Infra Fund · Strict U.S. Scrutiny on Southeast Asia Origin Audits · 2.5MW Gas Turbines & Gensets Lead Time Hits 80 Weeks · Vertiv Liquid Cooling Backlog Reaches .5B",
     "hotspot_count": 2,
     "warning_count": 6,
     "portfolio_summary": "Today's Portfolio Exposure Highlights: [Compute Racks & High-Layer PCBs] Gross margin headwind from Low-Dk glass spot premium (+31.8%) affecting Foxconn, WUS, Shengyi; [Optical Interconnect] Silicon photonics yield surpasses 88%, opening volume rebate window (Positive for Innolight, Eoptolink); [Liquid Cooling] Long lead times on brazed plate heat exchangers accelerate secondary vendor approvals (Positive for Envicool, Sanhua); [Power Infrastructure] Substation transformer shortage deepens, benefiting overseas export leaders (Jinpan, Eaton, Vertiv)."

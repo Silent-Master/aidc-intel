@@ -1478,7 +1478,7 @@ async function loadDate(dateStr) {
   CUR_DATE = dateStr;
   const fileName = (LANG === "en") ? `data/${dateStr}-en.json` : `data/${dateStr}.json`;
   try {
-    const res = await fetch(fileName);
+    const res = await fetch(fileName + "?_t=" + Date.now());
     if (!res.ok) throw new Error("HTTP " + res.status);
     CUR_DATA = await res.json();
     renderAll();
@@ -1496,7 +1496,7 @@ async function loadDate(dateStr) {
   } catch(e) {
     console.error("Failed loading date:", e);
     if (fileName.includes("-en")) {
-      const fallback = await fetch(`data/${dateStr}.json`);
+      const fallback = await fetch(`data/${dateStr}.json?_t=` + Date.now());
       if (fallback.ok) {
         CUR_DATA = await fallback.json();
         renderAll();
@@ -1822,7 +1822,7 @@ function setDockActive(el) {
 
 async function loadSparklines() {
   try {
-    const res = await fetch("data/series.json");
+    const res = await fetch("data/series.json?_t=" + Date.now());
     if (!res.ok) return;
     const series = await res.json();
     const rows = series.slice(0, 5).map(s => {
@@ -1904,7 +1904,7 @@ async function boot() {
   initLang();
   applyLang();
   try {
-    const res = await fetch("data/index.json");
+    const res = await fetch("data/index.json?_t=" + Date.now());
     if (!res.ok) throw new Error("HTTP " + res.status);
     const idx = await res.json();
     ALL_DAYS = idx.days || [];

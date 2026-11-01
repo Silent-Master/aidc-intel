@@ -36,11 +36,25 @@ def load_schema():
 
 
 def generate_offline(target_date: str) -> tuple[dict, dict]:
-    """Generate high-density, realistic AIDC supply chain brief in offline mode."""
-    # Load previous day as base template if available
-    index_file = os.path.join(DATA_DIR, "index.json")
-    base_file = os.path.join(DATA_DIR, "2026-10-27.json")
-    base_en_file = os.path.join(DATA_DIR, "2026-10-27-en.json")
+    """Generate high-density, realistic AIDC supply chain brief in offline mode with diverse day profiles."""
+    zh_target = os.path.join(DATA_DIR, f"{target_date}.json")
+    en_target = os.path.join(DATA_DIR, f"{target_date}-en.json")
+    if os.path.exists(zh_target) and os.path.exists(en_target):
+        with open(zh_target, "r", encoding="utf-8") as f:
+            d_zh = json.load(f)
+        with open(en_target, "r", encoding="utf-8") as f:
+            d_en = json.load(f)
+        return d_zh, d_en
+
+    # Rotate through rich distinct template pool based on day number
+    templates = ["2026-10-27.json", "2026-10-28.json", "2026-10-29.json", "2026-10-30.json", "2026-10-31.json"]
+    try:
+        day_num = int(target_date.split("-")[-1])
+    except Exception:
+        day_num = 0
+    chosen_tpl = templates[day_num % len(templates)]
+    base_file = os.path.join(DATA_DIR, chosen_tpl)
+    base_en_file = os.path.join(DATA_DIR, chosen_tpl.replace(".json", "-en.json"))
     
     with open(base_file, "r", encoding="utf-8") as f:
         data_zh = json.load(f)
@@ -56,17 +70,18 @@ def generate_offline(target_date: str) -> tuple[dict, dict]:
     data_en["meta"]["source_briefing"] = f"briefs/{target_date}-aidc-hardware-morning-briefing.md"
     data_en["daily_report"]["date"] = target_date
 
-    for item in data_zh["s1_capex_dynamics"]:
+    for item in data_zh.get("s1_capex_dynamics", []):
         item["date"] = target_date
-    for item in data_en["s1_capex_dynamics"]:
+    for item in data_en.get("s1_capex_dynamics", []):
         item["date"] = target_date
 
     return data_zh, data_en
 
 
 def generate_with_gemini(target_date: str, api_key: str):
-    """Generate briefing using Google Gemini API."""
+    """Generate briefing using Google Gemini API with fallback across current models."""
     import urllib.request
+    import urllib.error
 
     system_prompt_path = os.path.join(PROMPTS_DIR, "AIDC_SYSTEM_PROMPT.md")
     with open(system_prompt_path, "r", encoding="utf-8") as f:
@@ -75,29 +90,43 @@ def generate_with_gemini(target_date: str, api_key: str):
     schema = load_schema()
 
     user_prompt = f"""请基于全球 AI 数据中心 (AIDC) 硬件底座（供电配电、光铜互连、算力机柜与板材、液冷温控）过去 24 小时的最新资讯，编写 {target_date} 的《AIDC 供应链情报早报》。
-必须严格遵守 System Prompt 中的铁律约束（严禁证券买卖建议、强制标注【厂商口径】、量化去水化），并完整输出符合 JSON Schema 规范的 JSON 数据。"""
+必须严格遵守 System Prompt 中的铁律约束（严禁证券买卖建议、强制标注【厂商口径】、量化去水化、输出真实出处链接与股票标的映射），并完整输出符合 JSON Schema 规范的合法 JSON 数据。"""
 
-    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-pro:generateContent?key={api_key}"
-    payload = {
-        "contents": [
-            {"role": "user", "parts": [{"text": f"{system_prompt}\n\n---\n\n{user_prompt}"}]}
-        ],
-        "generationConfig": {
-            "responseMimeType": "application/json",
-            "temperature": 0.2
+    candidate_models = ["gemini-flash-latest", "gemini-3.8-flash", "gemini-pro-latest", "gemini-2.5-flash-lite"]
+    last_err = None
+
+    for m in candidate_models:
+        url = f"https://generativelanguage.googleapis.com/v1beta/models/{m}:generateContent?key={api_key}"
+        payload = {
+            "contents": [
+                {"role": "user", "parts": [{"text": f"{system_prompt}\n\n---\n\n{user_prompt}"}]}
+            ],
+            "generationConfig": {
+                "responseMimeType": "application/json",
+                "temperature": 0.2
+            }
         }
-    }
+        req = urllib.request.Request(
+            url,
+            data=json.dumps(payload).encode("utf-8"),
+            headers={"Content-Type": "application/json"}
+        )
+        try:
+            print(f"[*] Attempting generation with Gemini model {m}...")
+            with urllib.request.urlopen(req, timeout=90) as response:
+                result = json.loads(response.read().decode("utf-8"))
+                text = result["candidates"][0]["content"]["parts"][0]["text"]
+                print(f"[+] Successfully generated briefing with {m}!")
+                return json.loads(text)
+        except urllib.error.HTTPError as e:
+            err_body = e.read().decode("utf-8", errors="ignore")
+            print(f"[!] Model {m} failed (HTTP {e.code}): {err_body[:120]}")
+            last_err = e
+        except Exception as e:
+            print(f"[!] Model {m} error: {e}")
+            last_err = e
 
-    req = urllib.request.Request(
-        url,
-        data=json.dumps(payload).encode("utf-8"),
-        headers={"Content-Type": "application/json"}
-    )
-
-    with urllib.request.urlopen(req, timeout=90) as response:
-        result = json.loads(response.read().decode("utf-8"))
-        text = result["candidates"][0]["content"]["parts"][0]["text"]
-        return json.loads(text)
+    raise last_err or RuntimeError("All Gemini candidate models failed")
 
 
 def generate_with_deepseek(target_date: str, api_key: str):

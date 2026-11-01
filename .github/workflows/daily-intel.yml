@@ -1,6 +1,9 @@
 name: Daily AIDC Supply Chain Intelligence Pipeline
 
 on:
+  push:
+    branches:
+      - main
   schedule:
     # Run daily at 00:30 UTC (08:30 CST)
     - cron: '30 0 * * *'
