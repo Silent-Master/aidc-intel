@@ -89,13 +89,13 @@ def generate_rss():
     channel = ET.SubElement(rss, "channel")
 
     ET.SubElement(channel, "title").text = "AIDC 智算中心供应链情报"
-    ET.SubElement(channel, "link").text = "https://nohho.github.io/aidc-intel/"
+    ET.SubElement(channel, "link").text = "https://silent-master.github.io/aidc-intel/"
     ET.SubElement(channel, "description").text = "AI 数据中心物理基建、算力机柜、供电配电、高速互连、液冷温控每日供应链情报。面向采购、供应链管理及硬件工程团队。"
     ET.SubElement(channel, "language").text = "zh-CN"
     ET.SubElement(channel, "lastBuildDate").text = datetime.now(timezone.utc).strftime("%a, %d %b %Y %H:%M:%S GMT")
 
     atom_link = ET.SubElement(channel, "atom:link")
-    atom_link.set("href", "https://nohho.github.io/aidc-intel/feed.xml")
+    atom_link.set("href", "https://silent-master.github.io/aidc-intel/feed.xml")
     atom_link.set("rel", "self")
     atom_link.set("type", "application/rss+xml")
 
@@ -113,7 +113,7 @@ def generate_rss():
 
             item = ET.SubElement(channel, "item")
             ET.SubElement(item, "title").text = f"【AIDC情报 {day}】{report.get('headline', '')[:100]}"
-            item_link = f"https://nohho.github.io/aidc-intel/#date={day}"
+            item_link = f"https://silent-master.github.io/aidc-intel/#date={day}"
             ET.SubElement(item, "link").text = item_link
             ET.SubElement(item, "guid", isPermaLink="true").text = item_link
             
@@ -157,7 +157,7 @@ def generate_sitemap():
 
     # Main page
     main_url = ET.SubElement(urlset, "url")
-    ET.SubElement(main_url, "loc").text = "https://nohho.github.io/aidc-intel/"
+    ET.SubElement(main_url, "loc").text = "https://silent-master.github.io/aidc-intel/"
     ET.SubElement(main_url, "changefreq").text = "daily"
     ET.SubElement(main_url, "priority").text = "1.0"
     if days:
@@ -165,7 +165,7 @@ def generate_sitemap():
 
     for day in reversed(days):
         day_url = ET.SubElement(urlset, "url")
-        ET.SubElement(day_url, "loc").text = f"https://nohho.github.io/aidc-intel/#date={day}"
+        ET.SubElement(day_url, "loc").text = f"https://silent-master.github.io/aidc-intel/#date={day}"
         ET.SubElement(day_url, "changefreq").text = "never"
         ET.SubElement(day_url, "priority").text = "0.8"
         ET.SubElement(day_url, "lastmod").text = day

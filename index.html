@@ -2,74 +2,87 @@
 <html lang="zh-CN">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,maximum-scale=1">
 <title>AIDC 智算基础设施与硬件供应链情报中心</title>
-<meta name="description" content="AI 数据中心 (AIDC) 物理基建与硬件供应链每日情报：算力机柜、供电配电、高速光铜互连、液冷温控、木桶短板与齐套预警。每天 08:30 更新。">
-<link rel="canonical" href="https://nohho.github.io/aidc-intel/">
+<meta name="description" content="AI 数据中心 (AIDC) 物理基建与硬件供应链每日情报：算力机柜、供电配电、高速光铜互连、液冷温控、木桶短板、持仓定制分析与权威信源跳转。每天 08:30 更新。">
+<link rel="canonical" href="https://kuntamei.cn/aidc-intel/">
 <link rel="alternate" type="application/rss+xml" title="AIDC 智算中心供应链情报" href="feed.xml">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="AIDC 供应链情报中心">
-<meta property="og:url" content="https://nohho.github.io/aidc-intel/">
 <meta property="og:title" content="AIDC 智算基础设施与硬件供应链情报">
-<meta property="og:description" content="AI 数据中心物理基建、NVL72整机柜、54V高压直流、800G/1.6T光模块、高速铜缆、液冷CDU供应链每日情报与齐套短板追踪">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230f172a'/%3E%3Cpath d='M16 44 L32 16 L48 44 Z' fill='none' stroke='%2306b6d4' stroke-width='4' stroke-linejoin='round'/%3E%3Ccircle cx='32' cy='28' r='4' fill='%2338bdf8'/%3E%3Ccircle cx='24' cy='42' r='4' fill='%2310b981'/%3E%3Ccircle cx='40' cy='42' r='4' fill='%236366f1'/%3E%3C/svg%3E">
+<meta property="og:description" content="高密度因果推导 · NVL72整机柜 · 变压器与供电 · 800G/1.6T光模块 · 液冷CDU · 持仓专属透视">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b1322'/%3E%3Cpath d='M16 44 L32 16 L48 44 Z' fill='none' stroke='%2338bdf8' stroke-width='4' stroke-linejoin='round'/%3E%3Ccircle cx='32' cy='28' r='4' fill='%2306b6d4'/%3E%3Ccircle cx='24' cy='42' r='4' fill='%2310b981'/%3E%3Ccircle cx='40' cy='42' r='4' fill='%236366f1'/%3E%3C/svg%3E">
 <style>
 :root {
-  --bg: #090d16;
-  --panel: #0f172a;
-  --card: #141e33;
-  --card-hover: #192742;
-  --line: #1e293b;
-  --line-strong: #334155;
-  --ink: #f1f5f9;
+  --bg: #070b14;
+  --bg-gradient: radial-gradient(circle at 50% 0%, #111d38 0%, #070b14 70%);
+  --panel: #0d1527;
+  --card: rgba(15, 23, 42, 0.78);
+  --card-border: rgba(56, 189, 248, 0.14);
+  --card-hover-border: rgba(56, 189, 248, 0.38);
+  --card-inner: rgba(11, 19, 36, 0.85);
+  --line: rgba(51, 65, 85, 0.55);
+  --line-strong: rgba(71, 85, 105, 0.75);
+  --ink: #f8fafc;
   --ink-dim: #94a3b8;
   --mut: #64748b;
   --cyan: #06b6d4;
-  --cyan-glow: rgba(6, 182, 212, 0.15);
-  --blue: #3b82f6;
+  --blue: #38bdf8;
   --indigo: #6366f1;
   --emerald: #10b981;
   --amber: #f59e0b;
-  --rose: #ef4444;
+  --rose: #f43f5e;
   --purple: #a855f7;
-  --badge-bg: #1e293b;
-  --radius-sm: 6px;
-  --radius-md: 10px;
-  --radius-lg: 14px;
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+html { scroll-behavior: smooth; }
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
   background: var(--bg);
+  background-image: var(--bg-gradient);
+  background-attachment: fixed;
   color: var(--ink);
   font-size: 14.5px;
-  line-height: 1.7;
+  line-height: 1.65;
+  min-height: 100vh;
+  padding-bottom: calc(75px + var(--safe-bottom));
 }
 
-/* Header Banner */
+/* ================= Top Header ================= */
 header.top {
-  background: linear-gradient(135deg, #0b1528 0%, #0d1e3d 50%, #081122 100%);
   border-bottom: 1px solid var(--line);
-  padding: 24px 20px 18px;
-  position: relative;
-  overflow: hidden;
+  background: rgba(13, 21, 39, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  padding: 14px 16px 12px;
 }
-header.top::before {
-  content: "";
-  position: absolute;
-  top: -40px; right: -40px;
-  width: 240px; height: 240px;
-  background: radial-gradient(circle, rgba(6, 182, 212, 0.18) 0%, transparent 70%);
-  pointer-events: none;
+.header-wrap { max-width: 1240px; margin: 0 auto; }
+.top-title-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.brand-area { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.brand-logo {
+  font-size: 19px;
+  font-weight: 900;
+  letter-spacing: 0.5px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
 }
-.header-wrap { max-width: 1200px; margin: 0 auto; }
-.top-title-row { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
-.top-title { font-size: 22px; font-weight: 800; letter-spacing: 0.5px; color: #fff; display: flex; align-items: center; gap: 10px; }
-.top-title span.logo-badge {
-  background: linear-gradient(135deg, var(--cyan), var(--blue));
+.brand-badge {
+  background: linear-gradient(135deg, #38bdf8 0%, #06b6d4 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  font-weight: 900;
 }
 .live-pill {
   font-size: 11px;
@@ -77,142 +90,114 @@ header.top::before {
   color: #34d399;
   border: 1px solid rgba(16, 185, 129, 0.4);
   border-radius: 12px;
-  padding: 2px 9px;
+  padding: 2px 8px;
   font-weight: 700;
-  vertical-align: middle;
 }
 .issue-badge {
   font-size: 11px;
-  background: rgba(59, 130, 246, 0.15);
-  color: #93c5fd;
-  border: 1px solid rgba(59, 130, 246, 0.35);
+  background: rgba(56, 189, 248, 0.15);
+  color: #7dd3fc;
+  border: 1px solid rgba(56, 189, 248, 0.35);
   border-radius: 12px;
-  padding: 2px 9px;
+  padding: 2px 8px;
   font-weight: 700;
 }
-.top-sub { font-size: 13px; color: var(--ink-dim); margin-top: 6px; }
-
-/* Headline ticker */
-.headline-bar {
-  margin-top: 14px;
-  background: rgba(15, 23, 42, 0.75);
-  border: 1px solid rgba(6, 182, 212, 0.25);
-  border-radius: var(--radius-md);
-  padding: 10px 14px;
-  font-size: 13.5px;
-  line-height: 1.6;
-  color: #e2e8f0;
+.top-actions { display: flex; align-items: center; gap: 10px; }
+.btn-action {
+  background: rgba(30, 41, 59, 0.6);
+  border: 1px solid var(--line);
+  color: var(--ink-dim);
+  font-size: 12px;
+  padding: 5px 10px;
+  border-radius: var(--radius-sm);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.15s ease;
+  min-height: 32px;
 }
-.headline-bar b { color: #38bdf8; margin-right: 6px; }
+.btn-action:hover { color: #fff; border-color: var(--blue); background: rgba(56, 189, 248, 0.12); }
 
-/* Date Pills & Quick Links */
-.date-actions-bar {
-  margin-top: 14px;
+/* Headline Ticker */
+.headline-bar {
+  margin-top: 10px;
+  background: rgba(11, 19, 36, 0.85);
+  border: 1px solid rgba(56, 189, 248, 0.22);
+  border-radius: var(--radius-sm);
+  padding: 8px 12px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #e2e8f0;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+.headline-tag {
+  flex: none;
+  font-size: 11px;
+  font-weight: 800;
+  background: linear-gradient(135deg, #ef4444, #f97316);
+  color: #fff;
+  border-radius: 4px;
+  padding: 2px 6px;
+  letter-spacing: 0.5px;
+}
+
+/* Date Pills Horizontal Scroller */
+.dpills-wrapper {
+  margin-top: 10px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 12px;
-}
-.dpills {
-  display: flex;
-  gap: 7px;
+  gap: 6px;
   overflow-x: auto;
-  padding-bottom: 4px;
+  padding-bottom: 2px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
 }
+.dpills-wrapper::-webkit-scrollbar { display: none; }
 .dpill {
   flex: none;
   font-size: 12px;
-  color: #94a3b8;
+  color: var(--ink-dim);
   border: 1px solid var(--line);
-  background: rgba(30, 41, 59, 0.5);
-  border-radius: 16px;
-  padding: 5px 12px;
+  background: rgba(15, 23, 42, 0.7);
+  border-radius: 14px;
+  padding: 4px 11px;
   cursor: pointer;
   transition: all 0.15s ease;
+  white-space: nowrap;
 }
 .dpill:hover { color: #fff; border-color: var(--cyan); }
 .dpill.on {
-  background: var(--cyan);
-  color: #041019;
-  font-weight: 700;
-  border-color: var(--cyan);
-  box-shadow: 0 0 10px rgba(6, 182, 212, 0.4);
+  background: var(--blue);
+  color: #030712;
+  font-weight: 800;
+  border-color: var(--blue);
+  box-shadow: 0 0 12px rgba(56, 189, 248, 0.35);
 }
-.hdlinks { display: flex; gap: 14px; align-items: center; }
-.hdlinks a, .hdlinks button {
-  background: none; border: none;
-  color: var(--ink-dim);
-  font-size: 12px;
-  cursor: pointer;
-  text-decoration: none;
-  display: flex; align-items: center; gap: 4px;
-  transition: color 0.15s;
-}
-.hdlinks a:hover, .hdlinks button:hover { color: var(--cyan); }
 
-/* Alert strip */
-.alert-strip {
-  display: none;
-  background: linear-gradient(90deg, #991b1b, #b91c1c);
-  color: #fef2f2;
-  font-size: 13.5px;
-  font-weight: 600;
-  padding: 10px 16px;
-  text-align: center;
-}
-.alert-strip.show { display: block; }
-.alert-strip a { color: #fff; text-decoration: underline; margin-left: 6px; }
+/* Desktop Sidebar Nav */
+nav.secnav { display: none; }
 
-/* Navigation Rail (Desktop) & Sticky Nav (Mobile) */
-nav.secnav {
-  display: flex;
-  gap: 8px;
-  padding: 10px 16px;
-  background: #0d1527;
-  border-bottom: 1px solid var(--line);
-  position: sticky;
-  top: 0;
-  z-index: 20;
-  overflow-x: auto;
-  backdrop-filter: blur(10px);
-}
-nav.secnav a {
-  flex: none;
-  font-size: 12.5px;
-  color: var(--ink-dim);
-  border: 1px solid var(--line);
-  border-radius: 14px;
-  padding: 5px 11px;
-  text-decoration: none;
-  background: rgba(15, 23, 42, 0.8);
-  display: flex; align-items: center; gap: 5px;
-  transition: all 0.15s ease;
-}
-nav.secnav a:hover { color: var(--cyan); border-color: var(--cyan); }
-nav.secnav a.on { background: rgba(6, 182, 212, 0.15); border-color: var(--cyan); color: var(--cyan); font-weight: 700; }
-.railsearch { display: none; }
-
-/* Desktop 2-Column Layout with Sidebar Rail */
 @media(min-width: 1080px) {
-  body { padding-left: 260px; }
+  body { padding-left: 270px; padding-bottom: 30px; }
   nav.secnav {
+    display: flex;
     position: fixed;
     left: 0; top: 0; bottom: 0;
-    width: 260px;
+    width: 270px;
     flex-direction: column;
     align-items: stretch;
-    gap: 4px;
+    gap: 3px;
     padding: 24px 16px;
     overflow-y: auto;
-    background: #0a101f;
-    border-bottom: none;
+    background: #090f1d;
     border-right: 1px solid var(--line);
+    z-index: 40;
   }
-  .railsearch {
-    display: block;
-    margin-bottom: 12px;
-  }
+  .railsearch { margin-bottom: 12px; }
   .railsearch input {
     width: 100%;
     padding: 8px 12px;
@@ -223,7 +208,7 @@ nav.secnav a.on { background: rgba(6, 182, 212, 0.15); border-color: var(--cyan)
     font-size: 12.5px;
     outline: none;
   }
-  .railsearch input:focus { border-color: var(--cyan); }
+  .railsearch input:focus { border-color: var(--blue); }
   .rail-section-label {
     font-size: 11px;
     text-transform: uppercase;
@@ -236,60 +221,255 @@ nav.secnav a.on { background: rgba(6, 182, 212, 0.15); border-color: var(--cyan)
     border-radius: var(--radius-sm);
     padding: 8px 12px;
     border: none;
-    background: transparent;
+    color: var(--ink-dim);
+    text-decoration: none;
     font-size: 13px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.15s;
   }
-  nav.secnav a:hover { background: rgba(30, 41, 59, 0.5); }
-  nav.secnav a.on { background: rgba(6, 182, 212, 0.12); color: var(--cyan); }
+  nav.secnav a:hover { background: rgba(30, 41, 59, 0.6); color: #fff; }
+  nav.secnav a.on { background: rgba(56, 189, 248, 0.15); color: var(--blue); font-weight: 700; border-left: 3px solid var(--blue); }
+  nav.secnav a .rn { font-family: monospace; font-size: 11.5px; color: var(--cyan); }
 }
 
-/* Main Content Area */
-main {
-  max-width: 1140px;
-  margin: 0 auto;
-  padding: 24px 20px 80px;
+/* ================= Mobile Bottom Dock Navigation ================= */
+.mobile-dock {
+  display: flex;
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  background: rgba(13, 21, 39, 0.94);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-top: 1px solid var(--line);
+  padding: 6px 4px calc(6px + var(--safe-bottom));
+  z-index: 99;
+  justify-content: space-around;
+  align-items: center;
 }
+@media(min-width: 1080px) { .mobile-dock { display: none; } }
+.dock-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  color: var(--ink-dim);
+  text-decoration: none;
+  font-size: 10.5px;
+  font-weight: 600;
+  padding: 4px 8px;
+  border-radius: 8px;
+  flex: 1;
+  text-align: center;
+  transition: color 0.15s ease;
+}
+.dock-item svg { width: 18px; height: 18px; stroke-width: 2; }
+.dock-item:hover, .dock-item.active { color: var(--blue); }
+.dock-item.highlight { color: #f59e0b; }
+.dock-item.highlight.active { color: #fbbf24; }
+
+/* ================= Main Container ================= */
+main {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 16px 14px 40px;
+}
+@media(min-width: 768px) {
+  main { padding: 24px 20px 60px; }
+}
+
+/* Section Card */
 .sec-card {
   background: var(--card);
-  border: 1px solid var(--line);
+  border: 1px solid var(--card-border);
   border-radius: var(--radius-lg);
-  padding: 24px 22px;
-  margin-bottom: 26px;
-  transition: border-color 0.2s;
+  padding: 18px 16px;
+  margin-bottom: 22px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+  transition: border-color 0.2s, box-shadow 0.2s;
 }
-.sec-card:hover { border-color: rgba(6, 182, 212, 0.3); }
+@media(min-width: 768px) {
+  .sec-card { padding: 24px 22px; margin-bottom: 28px; }
+}
+.sec-card:hover { border-color: var(--card-hover-border); }
 
+/* Section Header */
 .sec-head {
   display: flex;
   align-items: center;
   justify-content: space-between;
   border-bottom: 1px solid var(--line);
-  padding-bottom: 14px;
-  margin-bottom: 18px;
+  padding-bottom: 12px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+  gap: 8px;
 }
 .sec-title {
-  font-size: 18px;
-  font-weight: 700;
+  font-size: 17px;
+  font-weight: 800;
   color: #fff;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
 }
+@media(min-width: 768px) { .sec-title { font-size: 19px; } }
 .sec-title .sec-num {
-  font-size: 12px;
-  background: rgba(6, 182, 212, 0.15);
-  color: var(--cyan);
+  font-size: 11px;
+  background: rgba(56, 189, 248, 0.15);
+  color: var(--blue);
+  border: 1px solid rgba(56, 189, 248, 0.3);
   padding: 2px 7px;
   border-radius: 4px;
   font-weight: 800;
+  font-family: monospace;
 }
-.sec-sub { font-size: 12px; color: var(--mut); }
+.sec-sub { font-size: 12px; color: var(--mut); line-height: 1.4; }
 
-/* s1: CapEx cards */
+/* ================= PORTFOLIO RADAR (我的持仓专属透视) ================= */
+.portfolio-card {
+  background: linear-gradient(145deg, rgba(17, 24, 39, 0.95) 0%, rgba(15, 23, 42, 0.88) 100%);
+  border: 1px solid rgba(245, 158, 11, 0.35);
+  position: relative;
+  overflow: hidden;
+}
+.portfolio-card::before {
+  content: "";
+  position: absolute;
+  top: -60px; right: -60px;
+  width: 220px; height: 220px;
+  background: radial-gradient(circle, rgba(245, 158, 11, 0.15) 0%, transparent 70%);
+  pointer-events: none;
+}
+.portfolio-header-badge {
+  background: rgba(245, 158, 11, 0.15);
+  color: #fbbf24;
+  border: 1px solid rgba(245, 158, 11, 0.4);
+}
+.holding-presets {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+.preset-btn {
+  background: rgba(30, 41, 59, 0.5);
+  border: 1px solid var(--line);
+  color: var(--ink-dim);
+  font-size: 11.5px;
+  padding: 4px 10px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.preset-btn:hover { color: #fff; border-color: var(--amber); }
+.preset-btn.active {
+  background: rgba(245, 158, 11, 0.2);
+  color: #fbbf24;
+  border-color: #f59e0b;
+  font-weight: 700;
+}
+.holding-chips {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+.holding-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: #111c33;
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  color: #e2e8f0;
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  user-select: none;
+}
+.holding-chip.selected {
+  background: rgba(56, 189, 248, 0.18);
+  border-color: var(--blue);
+  color: #38bdf8;
+  font-weight: 700;
+}
+.holding-chip .chk { font-size: 11px; opacity: 0.8; }
+.holding-input-bar {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+.holding-input-bar input {
+  flex: 1;
+  background: #090e1c;
+  border: 1px solid var(--line);
+  color: #fff;
+  border-radius: var(--radius-sm);
+  padding: 8px 12px;
+  font-size: 12.5px;
+  outline: none;
+}
+.holding-input-bar input:focus { border-color: var(--amber); }
+
+/* Portfolio Radar Results Grid */
+.portfolio-radar-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+@media(min-width: 768px) {
+  .portfolio-radar-grid { grid-template-columns: repeat(2, 1fr); }
+}
+.radar-box {
+  background: var(--card-inner);
+  border: 1px solid rgba(245, 158, 11, 0.2);
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
+}
+.radar-box-title {
+  font-size: 13.5px;
+  font-weight: 800;
+  color: #fbbf24;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.radar-item {
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  font-size: 12.5px;
+  line-height: 1.5;
+}
+.radar-item:last-child { border-bottom: none; }
+.radar-ticker {
+  font-weight: 800;
+  color: #fff;
+  margin-right: 6px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+.impact-badge {
+  font-size: 10px;
+  padding: 1px 6px;
+  border-radius: 4px;
+  font-weight: 700;
+}
+.impact-pos { background: rgba(16, 185, 129, 0.2); color: #34d399; }
+.impact-neg { background: rgba(244, 63, 94, 0.2); color: #fb7185; }
+.impact-warn { background: rgba(245, 158, 11, 0.2); color: #fbbf24; }
+
+/* ================= s1: CapEx Cards ================= */
 .capex-grid { display: grid; grid-template-columns: 1fr; gap: 14px; }
 @media(min-width: 768px) { .capex-grid { grid-template-columns: repeat(3, 1fr); } }
 .capex-item {
-  background: rgba(15, 23, 42, 0.6);
+  background: var(--card-inner);
   border: 1px solid var(--line);
   border-radius: var(--radius-md);
   padding: 16px;
@@ -297,7 +477,7 @@ main {
   flex-direction: column;
   justify-content: space-between;
 }
-.capex-item h4 { font-size: 14px; color: #38bdf8; margin-bottom: 8px; line-height: 1.5; }
+.capex-item h4 { font-size: 14px; color: #38bdf8; margin-bottom: 8px; line-height: 1.5; font-weight: 700; }
 .capex-item p { font-size: 13px; color: var(--ink-dim); line-height: 1.6; margin-bottom: 10px; }
 .capex-impact {
   font-size: 12px;
@@ -306,62 +486,104 @@ main {
   padding: 6px 10px;
   color: #cbd5e1;
   border-radius: 0 4px 4px 0;
+  margin-bottom: 10px;
 }
 
-/* s2: Headline Teardown */
+/* ================= s2: Headline Teardown ================= */
 .headline-event {
-  background: rgba(15, 23, 42, 0.7);
+  background: var(--card-inner);
   border: 1px solid var(--line-strong);
   border-radius: var(--radius-md);
-  padding: 20px;
+  padding: 18px 16px;
   margin-bottom: 16px;
 }
-.hl-header { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; }
-.hl-title { font-size: 16px; font-weight: 700; color: #fff; }
-.hl-badges { display: flex; gap: 6px; }
+@media(min-width: 768px) { .headline-event { padding: 22px 20px; } }
+.hl-header { display: flex; align-items: flex-start; justify-content: space-between; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; }
+.hl-title { font-size: 16px; font-weight: 800; color: #fff; line-height: 1.4; flex: 1; min-width: 260px; }
+.hl-badges { display: flex; gap: 6px; flex-wrap: wrap; }
 .badge {
   font-size: 11px;
   padding: 2px 8px;
   border-radius: 4px;
   font-weight: 700;
+  white-space: nowrap;
 }
 .badge-danger { background: rgba(239, 68, 68, 0.2); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.4); }
 .badge-warning { background: rgba(245, 158, 11, 0.2); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.4); }
-.badge-success { background: rgba(16, 185, 129, 0.2); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.4); }
-.hl-metrics {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-  margin: 10px 0 14px;
+.badge-heat { background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3); }
+
+/* Key Takeaway Callout */
+.takeaway-box {
+  background: rgba(56, 189, 248, 0.08);
+  border-left: 3px solid var(--blue);
+  padding: 8px 12px;
+  margin: 10px 0 12px;
+  font-size: 13px;
+  color: #e2e8f0;
+  border-radius: 0 6px 6px 0;
 }
+.takeaway-box b { color: #38bdf8; }
+
+.hl-metrics { display: flex; gap: 8px; flex-wrap: wrap; margin: 10px 0 14px; }
 .metric-pill {
-  background: #1e293b;
+  background: rgba(30, 41, 59, 0.8);
   border: 1px solid #334155;
   border-radius: 6px;
   padding: 4px 10px;
   font-size: 12px;
-  font-weight: 600;
+  font-weight: 700;
   color: #38bdf8;
 }
-.teardown-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 12px;
-  margin-top: 14px;
+
+/* Transmission Chain Visualization (产业链因果图) */
+.chain-wrapper {
+  background: rgba(9, 14, 28, 0.75);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 12px 14px;
+  margin: 14px 0;
 }
+.chain-title { font-size: 11.5px; text-transform: uppercase; color: var(--cyan); font-weight: 800; letter-spacing: 0.5px; margin-bottom: 8px; }
+.chain-flow {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+@media(min-width: 768px) {
+  .chain-flow {
+    flex-direction: row;
+    align-items: stretch;
+    gap: 8px;
+  }
+}
+.chain-node {
+  flex: 1;
+  background: rgba(15, 23, 42, 0.9);
+  border: 1px solid rgba(56, 189, 248, 0.18);
+  border-radius: 6px;
+  padding: 8px 10px;
+  font-size: 12px;
+  position: relative;
+}
+.chain-node-stage { font-size: 10px; color: var(--amber); font-weight: 800; text-transform: uppercase; margin-bottom: 2px; }
+.chain-node-name { font-weight: 700; color: #fff; margin-bottom: 3px; font-size: 12px; }
+.chain-node-desc { color: var(--mut); font-size: 11px; line-height: 1.4; }
+
+/* Teardown 2-column details */
+.teardown-grid { display: grid; grid-template-columns: 1fr; gap: 12px; margin-top: 14px; }
 @media(min-width: 768px) { .teardown-grid { grid-template-columns: 1fr 1fr; } }
 .td-col {
-  background: #0d1526;
+  background: rgba(9, 14, 28, 0.6);
   border: 1px solid var(--line);
   border-radius: var(--radius-sm);
   padding: 12px 14px;
   font-size: 12.5px;
 }
-.td-col h5 { color: var(--cyan); margin-bottom: 6px; font-size: 12.5px; text-transform: uppercase; letter-spacing: 0.5px; }
+.td-col h5 { color: var(--cyan); margin-bottom: 6px; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; }
 
-/* s3: Bottlenecks */
+/* ================= s3: Bottlenecks ================= */
 .bottleneck-card {
-  background: rgba(15, 23, 42, 0.6);
+  background: var(--card-inner);
   border-left: 4px solid var(--amber);
   border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
   padding: 14px 16px;
@@ -372,24 +594,25 @@ main {
 }
 .bn-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; flex-wrap: wrap; gap: 6px; }
 .bn-title { font-size: 14.5px; font-weight: 700; color: #fff; }
-.bn-lead { font-size: 12px; color: #fbbf24; background: rgba(245, 158, 11, 0.15); padding: 2px 8px; border-radius: 4px; font-weight: 600; }
+.bn-lead { font-size: 12px; color: #fbbf24; background: rgba(245, 158, 11, 0.15); padding: 2px 8px; border-radius: 4px; font-weight: 700; }
 .bn-actor { font-size: 12px; color: var(--mut); margin-top: 4px; }
 
-/* s4: Cross industry */
+/* ================= s4: Cross-Industry ================= */
 .cross-grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
 @media(min-width: 768px) { .cross-grid { grid-template-columns: repeat(3, 1fr); } }
 .cross-box {
-  background: rgba(15, 23, 42, 0.6);
+  background: var(--card-inner);
   border: 1px solid var(--line);
   border-radius: var(--radius-md);
   padding: 14px;
 }
-.cross-box h4 { font-size: 13.5px; color: #a78bfa; margin-bottom: 6px; }
+.cross-box h4 { font-size: 13.5px; color: #a78bfa; margin-bottom: 6px; font-weight: 700; }
 .cross-box p { font-size: 12.5px; color: var(--ink-dim); margin-bottom: 8px; }
-.cross-mag { font-size: 11.5px; color: #cbd5e1; background: #1e293b; padding: 4px 8px; border-radius: 4px; }
+.cross-mag { font-size: 11.5px; color: #cbd5e1; background: #1e293b; padding: 4px 8px; border-radius: 4px; margin-bottom: 10px; }
 
-/* s5: Supplier updates */
-.filter-tabs { display: flex; gap: 6px; margin-bottom: 14px; overflow-x: auto; padding-bottom: 4px; }
+/* ================= s5: Supplier Updates ================= */
+.filter-tabs { display: flex; gap: 6px; margin-bottom: 14px; overflow-x: auto; padding-bottom: 4px; scrollbar-width: none; }
+.filter-tabs::-webkit-scrollbar { display: none; }
 .filter-tab {
   background: rgba(30, 41, 59, 0.5);
   border: 1px solid var(--line);
@@ -400,22 +623,22 @@ main {
   cursor: pointer;
   white-space: nowrap;
 }
-.filter-tab.on { background: var(--blue); color: #fff; border-color: var(--blue); }
+.filter-tab.on { background: var(--blue); color: #041019; border-color: var(--blue); font-weight: 700; }
 .supplier-grid { display: grid; grid-template-columns: 1fr; gap: 10px; }
 @media(min-width: 768px) { .supplier-grid { grid-template-columns: repeat(2, 1fr); } }
 .sup-card {
-  background: rgba(15, 23, 42, 0.6);
+  background: var(--card-inner);
   border: 1px solid var(--line);
   border-radius: var(--radius-sm);
   padding: 12px 14px;
 }
 .sup-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
-.sup-co { font-weight: 700; color: #fff; font-size: 13.5px; }
-.sup-tag { font-size: 11px; padding: 2px 7px; border-radius: 4px; background: rgba(59, 130, 246, 0.15); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.3); }
+.sup-co { font-weight: 800; color: #fff; font-size: 13.5px; }
+.sup-tag { font-size: 11px; padding: 2px 7px; border-radius: 4px; background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3); }
 
-/* s6: Alerts */
+/* ================= s6: Alerts ================= */
 .alert-card {
-  background: rgba(15, 23, 42, 0.7);
+  background: var(--card-inner);
   border-radius: var(--radius-md);
   border: 1px solid var(--line);
   padding: 16px;
@@ -425,24 +648,24 @@ main {
 .alert-card.medium { border-left: 5px solid var(--amber); }
 .alert-card.opportunity { border-left: 5px solid var(--emerald); }
 .alert-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; flex-wrap: wrap; gap: 8px; }
-.alert-mat { font-size: 15px; font-weight: 700; color: #fff; }
-.alert-action { background: #0f172a; border-radius: var(--radius-sm); padding: 10px 12px; margin-top: 8px; font-size: 12.5px; color: #cbd5e1; }
-.alert-meta { font-size: 12px; color: var(--mut); margin-top: 6px; display: flex; gap: 14px; }
+.alert-mat { font-size: 15px; font-weight: 800; color: #fff; }
+.alert-action { background: #0b1322; border-radius: var(--radius-sm); padding: 10px 12px; margin-top: 8px; font-size: 12.5px; color: #cbd5e1; }
+.alert-meta { font-size: 12px; color: var(--mut); margin-top: 6px; display: flex; gap: 14px; flex-wrap: wrap; }
 
-/* s7: Timeline */
+/* ================= s7: Timeline ================= */
 .timeline-list { display: flex; flex-direction: column; gap: 10px; }
 .tl-item {
   display: flex;
-  gap: 14px;
+  gap: 12px;
   align-items: flex-start;
-  background: rgba(15, 23, 42, 0.5);
+  background: var(--card-inner);
   border: 1px solid var(--line);
   border-radius: var(--radius-sm);
   padding: 12px 14px;
 }
 .tl-date {
   font-family: monospace;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 700;
   color: var(--cyan);
   background: rgba(6, 182, 212, 0.1);
@@ -450,32 +673,42 @@ main {
   border-radius: 4px;
   white-space: nowrap;
 }
-.tl-body h5 { color: #fff; font-size: 13.5px; margin-bottom: 4px; }
+.tl-body h5 { color: #fff; font-size: 13.5px; margin-bottom: 4px; font-weight: 700; }
 .tl-body p { font-size: 12.5px; color: var(--ink-dim); }
 
-/* s8: BOM Mapping */
-.bom-table-wrap { overflow-x: auto; }
-table.bom-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 13px;
-}
+/* ================= s8: BOM Mapping (Responsive Table / Mobile Cards) ================= */
+/* Desktop Table */
+.bom-table-wrap { display: none; overflow-x: auto; }
+@media(min-width: 768px) { .bom-table-wrap { display: block; } }
+table.bom-table { width: 100%; border-collapse: collapse; font-size: 13px; }
 table.bom-table th {
   text-align: left;
-  background: #0b1322;
+  background: #090e1a;
   color: var(--ink-dim);
   padding: 10px 12px;
   border-bottom: 2px solid var(--line);
-  font-size: 12px;
+  font-size: 11.5px;
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
-table.bom-table td {
-  padding: 11px 12px;
-  border-bottom: 1px solid var(--line);
-  color: var(--ink);
-}
+table.bom-table td { padding: 11px 12px; border-bottom: 1px solid var(--line); color: var(--ink); }
 table.bom-table tr:hover td { background: rgba(30, 41, 59, 0.4); }
+
+/* Mobile BOM Card Stream (手机端超清卡片布局) */
+.bom-mobile-stream { display: flex; flex-direction: column; gap: 10px; }
+@media(min-width: 768px) { .bom-mobile-stream { display: none; } }
+.bom-mobile-card {
+  background: var(--card-inner);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 12px 14px;
+}
+.bom-card-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 6px; }
+.bom-card-name { font-weight: 800; font-size: 13.5px; color: #fff; }
+.bom-card-cat { font-size: 11px; color: var(--mut); margin-top: 2px; }
+.bom-card-mid { display: flex; align-items: center; justify-content: space-between; margin: 8px 0; font-size: 12px; }
+.bom-card-note { font-size: 12px; color: #cbd5e1; line-height: 1.4; background: rgba(15, 23, 42, 0.6); padding: 6px 8px; border-radius: 4px; }
+
 .status-pill {
   font-size: 11px;
   padding: 2px 8px;
@@ -487,9 +720,46 @@ table.bom-table tr:hover td { background: rgba(30, 41, 59, 0.4); }
 .status-balance { background: rgba(245, 158, 11, 0.2); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.4); }
 .status-loose { background: rgba(16, 185, 129, 0.2); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.4); }
 
-/* Sparklines box */
+/* ================= Outbound News Link Button ================= */
+.news-link-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #38bdf8;
+  background: rgba(56, 189, 248, 0.1);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  border-radius: 4px;
+  padding: 3px 8px;
+  text-decoration: none;
+  transition: all 0.15s ease;
+  margin-top: 6px;
+}
+.news-link-btn:hover {
+  background: rgba(56, 189, 248, 0.25);
+  color: #fff;
+  border-color: #38bdf8;
+  box-shadow: 0 0 8px rgba(56, 189, 248, 0.3);
+}
+
+/* Source footer row inside cards */
+.card-source-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+  padding-top: 8px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  font-size: 11.5px;
+  color: var(--mut);
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+/* ================= Sidebar Sparklines ================= */
 .sparkbox {
-  background: #0d1526;
+  background: #090e1c;
   border: 1px solid var(--line);
   border-radius: var(--radius-md);
   padding: 14px;
@@ -506,34 +776,34 @@ table.bom-table tr:hover td { background: rgba(30, 41, 59, 0.4); }
 .spark-row:last-child { border-bottom: none; }
 .spark-name { width: 140px; color: var(--ink-dim); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .spark-val { font-weight: 700; color: #fff; min-width: 90px; text-align: right; }
-.spark-svg { width: 80px; height: 24px; }
+.spark-svg { width: 75px; height: 22px; }
 
-/* Modal */
+/* ================= Modal ================= */
 .modal-overlay {
   display: none;
   position: fixed;
   inset: 0;
   background: rgba(0, 0, 0, 0.75);
-  backdrop-filter: blur(4px);
+  backdrop-filter: blur(6px);
   z-index: 100;
   align-items: center;
   justify-content: center;
   padding: 20px;
 }
 .modal-box {
-  background: #0f172a;
-  border: 1px solid var(--line-strong);
+  background: #0d1527;
+  border: 1px solid var(--card-hover-border);
   border-radius: var(--radius-lg);
   max-width: 480px;
   width: 100%;
-  padding: 24px;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+  padding: 22px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.8);
 }
-.modal-title { font-size: 17px; font-weight: 700; color: #fff; margin-bottom: 8px; }
+.modal-title { font-size: 17px; font-weight: 800; color: #fff; margin-bottom: 8px; }
 .modal-desc { font-size: 13px; color: var(--ink-dim); margin-bottom: 14px; line-height: 1.6; }
 .modal-input {
   width: 100%; padding: 10px 12px;
-  background: #090d16;
+  background: #060a14;
   border: 1px solid var(--line);
   border-radius: var(--radius-sm);
   color: #38bdf8;
@@ -544,18 +814,18 @@ table.bom-table tr:hover td { background: rgba(30, 41, 59, 0.4); }
 .modal-actions { display: flex; gap: 10px; margin-bottom: 14px; }
 .btn-primary {
   flex: 1; padding: 10px;
-  background: var(--cyan);
-  color: #041019;
+  background: var(--blue);
+  color: #030712;
   border: none; border-radius: var(--radius-sm);
-  font-weight: 700; cursor: pointer; font-size: 13px;
+  font-weight: 800; cursor: pointer; font-size: 13px;
 }
 .btn-secondary {
   flex: 1; padding: 10px;
-  background: rgba(6, 182, 212, 0.15);
-  color: var(--cyan);
-  border: 1px solid var(--cyan);
+  background: rgba(56, 189, 248, 0.15);
+  color: var(--blue);
+  border: 1px solid var(--blue);
   border-radius: var(--radius-sm);
-  text-decoration: none; text-align: center; font-size: 13px; font-weight: 600;
+  text-decoration: none; text-align: center; font-size: 13px; font-weight: 700;
 }
 .btn-close {
   width: 100%; padding: 9px;
@@ -565,86 +835,121 @@ table.bom-table tr:hover td { background: rgba(30, 41, 59, 0.4); }
   border-radius: var(--radius-sm);
   cursor: pointer; font-size: 12.5px;
 }
-.btn-close:hover { color: #fff; }
 
-/* Footer */
+/* ================= Footer ================= */
 footer {
   border-top: 1px solid var(--line);
-  padding: 30px 20px;
+  padding: 30px 16px;
   text-align: center;
   font-size: 12px;
   color: var(--mut);
   line-height: 1.8;
 }
 footer a { color: var(--ink-dim); text-decoration: none; }
-footer a:hover { color: var(--cyan); }
+footer a:hover { color: var(--blue); }
 </style>
 </head>
 <body>
 
+<!-- Header -->
 <header class="top">
   <div class="header-wrap">
     <div class="top-title-row">
-      <div class="top-title">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-        <span class="logo-badge">AIDC</span> 智算基础设施与硬件供应链情报
+      <div class="brand-area">
+        <a href="#" class="brand-logo">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          <span class="brand-badge">AIDC</span> 智算供应链情报
+        </a>
         <span class="live-pill" id="live_status">LIVE 08:30</span>
         <span class="issue-badge" id="issue_pill">Issue #1</span>
       </div>
-      <div class="hdlinks">
-        <button onclick="showCalModal()"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg><span id="txt_sub_cal">日历订阅 (.ics)</span></button>
-        <a href="feed.xml" target="_blank"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/></svg>RSS</a>
-        <button onclick="toggleLang()"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span id="lang_btn">EN</span></button>
-        <a href="https://github.com/Silent-Master/aidc-intel" target="_blank" id="gh_link"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>GitHub</a>
+      <div class="top-actions">
+        <button class="btn-action" onclick="showCalModal()"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg><span id="txt_sub_cal">日历订阅</span></button>
+        <button class="btn-action" onclick="toggleLang()"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span id="lang_btn">EN</span></button>
+        <a href="https://github.com/Silent-Master/aidc-intel" target="_blank" class="btn-action" id="gh_link"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg></a>
       </div>
     </div>
-    <div class="top-sub" id="top_subtitle">
-      AI 数据中心物理基建 · 算力机柜 · 供电配电 · 高速互连 · 液冷温控 · 每天 08:30 更新
+    
+    <div class="headline-bar" id="headline_bar">
+      <span class="headline-tag">TOP FOCUS</span>
+      <span id="headline_text">正在载入今日 AIDC 供应链核心情报...</span>
     </div>
-    <div class="headline-bar" id="headline_text">
-      <b>[今日焦点]</b> 正在加载今日最新情报...
-    </div>
-    <div class="date-actions-bar">
-      <div class="dpills" id="dpills"></div>
-    </div>
+
+    <!-- Date selector -->
+    <div class="dpills-wrapper" id="dpills"></div>
   </div>
 </header>
 
-<div class="alert-strip" id="alert_strip">
-  ⚠️ <b>齐套风险警报：</b>今日检测到 1 项高危卡脖子短板物料交期拉长，请采购与寻源团队注意。<a href="#s6">查看应对建议 →</a>
-</div>
-
+<!-- Desktop Sidebar Navigation -->
 <nav class="secnav" id="secnav">
   <div class="railsearch">
-    <input type="text" id="rail_input" placeholder="在今日情报中检索物料/厂商..." oninput="filterIntel(this.value)">
+    <input type="text" id="rail_input" placeholder="搜索物料/标的/信源..." oninput="filterIntel(this.value)">
   </div>
-  <div class="rail-section-label" id="lbl_morning_sections">早报六段</div>
-  <a href="#s1" class="on"><span class="rn">#s1</span> <span class="r-text" id="rn_s1">基建动态</span></a>
-  <a href="#s2"><span class="rn">#s2</span> <span class="r-text" id="rn_s2">头条拆解</span></a>
-  <a href="#s3"><span class="rn">#s3</span> <span class="r-text" id="rn_s3">大厂短板</span></a>
-  <a href="#s4"><span class="rn">#s4</span> <span class="r-text" id="rn_s4">跨行业传导</span></a>
-  <a href="#s5"><span class="rn">#s5</span> <span class="r-text" id="rn_s5">供应商动态</span></a>
-  <a href="#s6"><span class="rn">#s6</span> <span class="r-text" id="rn_s6">齐套预警</span></a>
-  <div class="rail-section-label" id="lbl_tracking_panels">决策看板</div>
-  <a href="#s7"><span class="rn">#s7</span> <span class="r-text" id="rn_s7">时间锚点</span></a>
-  <a href="#s8"><span class="rn">#s8</span> <span class="r-text" id="rn_s8">黄金 BOM</span></a>
+  <div class="rail-section-label">专属定制</div>
+  <a href="#portfolio" class="on" style="color:#fbbf24"><span class="rn">★</span> <span>我的持仓透视</span></a>
+  <div class="rail-section-label">早报六段</div>
+  <a href="#s1"><span class="rn">#s1</span> <span id="rn_s1">基建与CapEx</span></a>
+  <a href="#s2"><span class="rn">#s2</span> <span id="rn_s2">深度头条拆解</span></a>
+  <a href="#s3"><span class="rn">#s3</span> <span id="rn_s3">大厂木桶短板</span></a>
+  <a href="#s4"><span class="rn">#s4</span> <span id="rn_s4">跨行业传导</span></a>
+  <a href="#s5"><span class="rn">#s5</span> <span id="rn_s5">供应商动态</span></a>
+  <a href="#s6"><span class="rn">#s6</span> <span id="rn_s6">齐套预警寻源</span></a>
+  <div class="rail-section-label">决策看板</div>
+  <a href="#s7"><span class="rn">#s7</span> <span id="rn_s7">时间锚点日历</span></a>
+  <a href="#s8"><span class="rn">#s8</span> <span id="rn_s8">黄金BOM供需</span></a>
 
   <!-- Sidebar Live Sparklines -->
   <div class="sparkbox" id="side_sparkbox">
-    <div style="font-weight:700;font-size:12px;color:var(--cyan);margin-bottom:6px;display:flex;align-items:center;gap:4px">
+    <div style="font-weight:700;font-size:12px;color:var(--blue);margin-bottom:6px;display:flex;align-items:center;gap:4px">
       <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/></svg>
-      <span id="side_spark_title">核心物料交期追踪</span>
+      <span id="side_spark_title">核心物料交期走势</span>
     </div>
     <div id="spark_rows"></div>
   </div>
 </nav>
 
+<!-- Main Feed -->
 <main id="main">
+
+  <!-- ================= PORTFOLIO RADAR (我的持仓定制透视) ================= -->
+  <section class="sec-card portfolio-card" id="portfolio">
+    <div class="sec-head">
+      <div class="sec-title">
+        <span class="sec-num portfolio-header-badge">PORTFOLIO</span>
+        <span id="portfolio_title">💼 我的持仓透视与供应链雷达</span>
+      </div>
+      <div class="sec-sub" id="portfolio_sub">输入或勾选您关注的标的，系统每日自动穿透上游断供、客户CapEx及BOM交期冲击</div>
+    </div>
+
+    <!-- Quick Presets -->
+    <div style="font-size:11.5px;color:var(--mut);margin-bottom:6px">快捷一键策略预设：</div>
+    <div class="holding-presets" id="holding_presets">
+      <button class="preset-btn active" onclick="applyPreset('all_round')">全部全景组合</button>
+      <button class="preset-btn" onclick="applyPreset('liquid')">💧 智算液冷核心</button>
+      <button class="preset-btn" onclick="applyPreset('optical')">⚡ 光互连与铜连接</button>
+      <button class="preset-btn" onclick="applyPreset('pcb_odm')">🖥️ 算力机柜与高阶PCB</button>
+      <button class="preset-btn" onclick="applyPreset('power')">🔌 电网变压器出海</button>
+      <button class="preset-btn" onclick="applyPreset('us_core')">🇺🇸 美股AI核心四巨头</button>
+    </div>
+
+    <!-- Chips of active holdings -->
+    <div class="holding-chips" id="holding_chips"></div>
+
+    <!-- Custom add ticker bar -->
+    <div class="holding-input-bar">
+      <input type="text" id="custom_ticker_input" placeholder="输入股票代码或简称，如 300308 或 中际旭创，按回车添加..." onkeydown="if(event.key==='Enter')addCustomHolding()">
+      <button class="btn-action" onclick="addCustomHolding()" style="background:rgba(245, 158, 11, 0.2);color:#fbbf24;border-color:rgba(245, 158, 11, 0.4)">+ 添加标的</button>
+    </div>
+
+    <!-- Radar Output Boxes -->
+    <div class="portfolio-radar-grid" id="portfolio_radar_grid"></div>
+  </section>
+
   <!-- #s1 CapEx & Infra -->
   <section class="sec-card" id="s1">
     <div class="sec-head">
       <div class="sec-title"><span class="sec-num">#s1</span> <span id="s1_title">算力基建与 CapEx 动态</span></div>
-      <div class="sec-sub" id="s1_sub">北美/亚太 CSP 资本开支指引 · 电网排队 · 绿电核能 PPA · 能效法规</div>
+      <div class="sec-sub" id="s1_sub">北美四大 CSP 资本开支 · 电网并网排队 · 绿电核能 PPA · 能效法规</div>
     </div>
     <div class="capex-grid" id="s1_grid"></div>
   </section>
@@ -653,7 +958,7 @@ footer a:hover { color: var(--cyan); }
   <section class="sec-card" id="s2">
     <div class="sec-head">
       <div class="sec-title"><span class="sec-num">#s2</span> <span id="s2_title">核心头条事件深度拆解</span></div>
-      <div class="sec-sub" id="s2_sub">事件还原 · BOM 冲击路径 · 短期与中期交付推演</div>
+      <div class="sec-sub" id="s2_sub">因果推导图谱 · BOM 冲击路径 · 短期与中期交付推演</div>
     </div>
     <div id="s2_container"></div>
   </section>
@@ -716,6 +1021,8 @@ footer a:hover { color: var(--cyan); }
       <div class="sec-title"><span class="sec-num">#s8</span> <span id="s8_title">AIDC 黄金 BOM 供需看板</span></div>
       <div class="sec-sub" id="s8_sub">9 大物理底座核心节点供需态势与交期趋势</div>
     </div>
+
+    <!-- Desktop Table -->
     <div class="bom-table-wrap">
       <table class="bom-table" id="bom_table">
         <thead>
@@ -726,13 +1033,41 @@ footer a:hover { color: var(--cyan); }
             <th>交期趋势</th>
             <th>典型交期</th>
             <th>今日异动要点</th>
+            <th>原始信源</th>
           </tr>
         </thead>
         <tbody id="bom_tbody"></tbody>
       </table>
     </div>
+
+    <!-- Mobile Card Stream (手机端超清体验) -->
+    <div class="bom-mobile-stream" id="bom_mobile_stream"></div>
   </section>
 </main>
+
+<!-- Mobile Bottom Dock Navigation Bar -->
+<div class="mobile-dock">
+  <a href="#s1" class="dock-item" onclick="setDockActive(this)">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M19 20H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v1m2 13a2 2 0 0 1-2-2V7m2 13a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/></svg>
+    <span>基建速览</span>
+  </a>
+  <a href="#s2" class="dock-item" onclick="setDockActive(this)">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+    <span>深度头条</span>
+  </a>
+  <a href="#portfolio" class="dock-item highlight active" onclick="setDockActive(this)">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+    <span>我的持仓</span>
+  </a>
+  <a href="#s3" class="dock-item" onclick="setDockActive(this)">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+    <span>木桶短板</span>
+  </a>
+  <a href="#s8" class="dock-item" onclick="setDockActive(this)">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+    <span>黄金BOM</span>
+  </a>
+</div>
 
 <!-- Calendar Subscription Modal -->
 <div class="modal-overlay" id="cal_modal" onclick="if(event.target===this)closeCalModal()">
@@ -741,10 +1076,10 @@ footer a:hover { color: var(--cyan); }
     <div class="modal-desc">
       包含全球 CSP 财报电话会、下一代算力芯片/机柜量产出货节点、OCP/GTC 行业峰会及新厂爬坡事件。自动在事件前 1 天 09:00 触发系统提醒。
     </div>
-    <input type="text" class="modal-input" readonly id="cal_url" value="https://nohho.github.io/aidc-intel/anchors.ics" onclick="this.select()">
+    <input type="text" class="modal-input" readonly id="cal_url" value="https://kuntamei.cn/aidc-intel/anchors.ics" onclick="this.select()">
     <div class="modal-actions">
       <button class="btn-primary" onclick="copyCalUrl()">复制订阅 URL</button>
-      <a class="btn-secondary" href="webcal://nohho.github.io/aidc-intel/anchors.ics">一键添加至系统日历</a>
+      <a class="btn-secondary" href="webcal://kuntamei.cn/aidc-intel/anchors.ics">一键添加至系统日历</a>
     </div>
     <div style="font-size:12px;color:var(--mut);line-height:1.6;margin-bottom:12px">
       • <b>iPhone/Mac</b>：点击「一键添加」即可通过日历 App 订阅。<br>
@@ -756,9 +1091,9 @@ footer a:hover { color: var(--cyan); }
 
 <footer>
   <p><b>AIDC 智算基础设施与硬件供应链情报中心</b> · 每日 08:30 (CST) 准时发布</p>
-  <p>面向算力机柜架构、硬件采购（Sourcing）、供应链计划（Supply Planning）及数据中心基础设施工程团队</p>
+  <p>面向算力机柜架构、硬件采购（Sourcing）、供应链计划（Supply Planning）及二级市场研究团队</p>
   <p style="margin-top:6px;color:#475569">
-    数据已标注【厂商口径】与审计信源 · 仅供物理供应链与研发寻源参考 · 严禁任何证券投资建议
+    所有新闻均附权威信源跳转链接 · 严禁任何证券买卖建议 · 数据版权归原信息披露机构所有
   </p>
 </footer>
 
@@ -768,17 +1103,54 @@ let CUR_DATE = "2026-10-27";
 let LANG = "zh";
 let ALL_DAYS = [];
 
+// ================= 持仓标的库与预设定义 =================
+const HOLDINGS_LIB = [
+  { ticker: "601138.SH", name: "工业富联", en: "Foxconn FII", cat: "pcb_odm" },
+  { ticker: "002463.SZ", name: "沪电股份", en: "WUS PCB", cat: "pcb_odm" },
+  { ticker: "300476.SZ", name: "胜宏科技", en: "Victory Giant", cat: "pcb_odm" },
+  { ticker: "600183.SH", name: "生益科技", en: "Shengyi Tech", cat: "pcb_odm" },
+  { ticker: "2383.TW",   name: "台光电子", en: "Elite Material", cat: "pcb_odm" },
+  { ticker: "300308.SZ", name: "中际旭创", en: "Innolight", cat: "optical" },
+  { ticker: "300502.SZ", name: "新易盛",   en: "Eoptolink", cat: "optical" },
+  { ticker: "300394.SZ", name: "天孚通信", en: "TFC Optical", cat: "optical" },
+  { ticker: "APH",       name: "安费诺",   en: "Amphenol", cat: "optical" },
+  { ticker: "002475.SZ", name: "立讯精密", en: "Luxshare", cat: "optical" },
+  { ticker: "002130.SZ", name: "沃尔核材", en: "Woer Nuclear", cat: "optical" },
+  { ticker: "002837.SZ", name: "英维克",   en: "Envicool", cat: "liquid" },
+  { ticker: "002050.SZ", name: "三花智控", en: "Sanhua", cat: "liquid" },
+  { ticker: "VRT",       name: "维谛技术", en: "Vertiv", cat: "liquid" },
+  { ticker: "300499.SZ", name: "高澜股份", en: "Gaolan", cat: "liquid" },
+  { ticker: "688676.SH", name: "金盘科技", en: "Jinpan Tech", cat: "power" },
+  { ticker: "002922.SZ", name: "伊戈尔",   en: "Eaglerise", cat: "power" },
+  { ticker: "ETN",       name: "伊顿",     en: "Eaton", cat: "power" },
+  { ticker: "NVDA",      name: "英伟达",   en: "NVIDIA", cat: "us_core" },
+  { ticker: "MSFT",      name: "微软",     en: "Microsoft", cat: "us_core" }
+];
+
+// Current user active holdings (tickers)
+let USER_HOLDINGS = JSON.parse(localStorage.getItem("aidc_user_holdings") || '["601138.SH", "300308.SZ", "002837.SZ", "688676.SH", "VRT"]');
+
+const PRESETS = {
+  all_round: ["601138.SH", "300308.SZ", "002837.SZ", "688676.SH", "VRT", "002463.SZ", "APH"],
+  liquid: ["002837.SZ", "002050.SZ", "VRT", "300499.SZ"],
+  optical: ["300308.SZ", "300502.SZ", "300394.SZ", "APH", "002475.SZ", "002130.SZ"],
+  pcb_odm: ["601138.SH", "002463.SZ", "300476.SZ", "600183.SH", "2383.TW"],
+  power: ["688676.SH", "002922.SZ", "ETN", "VRT"],
+  us_core: ["NVDA", "VRT", "APH", "MSFT", "ETN"]
+};
+
 const I18N = {
   zh: {
     live: "LIVE 08:30",
     issue: "第 {n} 期",
-    sub_cal: "日历订阅 (.ics)",
+    sub_cal: "日历订阅",
     lang_btn: "EN",
-    subtitle: "AI 数据中心物理基建 · 算力机柜 · 供电配电 · 高速互连 · 液冷温控 · 每天 08:30 更新",
+    portfolio_title: "💼 我的持仓透视与供应链雷达",
+    portfolio_sub: "输入或勾选您关注的标的，系统每日自动穿透上游断供、客户CapEx及BOM交期冲击",
     s1: "算力基建与 CapEx 动态",
-    s1_sub: "北美/亚太 CSP 资本开支指引 · 电网排队 · 绿电核能 PPA · 能效法规",
+    s1_sub: "北美四大 CSP 资本开支 · 电网并网排队 · 绿电核能 PPA · 能效法规",
     s2: "核心头条事件深度拆解",
-    s2_sub: "事件还原 · BOM 冲击路径 · 短期与中期交付推演",
+    s2_sub: "因果推导图谱 · BOM 冲击路径 · 短期与中期交付推演",
     s3: "大厂锁单与卡脖子木桶短板",
     s3_sub: "CSP 产能包产虹吸 · 发泡芯线 · Low-Dk石英布 · 变压器 120周交期",
     s4: "跨行业传导效应",
@@ -791,18 +1163,20 @@ const I18N = {
     s7_sub: "提前 1 天 09:00 提醒 · 财报日 · 芯片流片 · 展会 · 新厂投产",
     s8: "AIDC 黄金 BOM 供需看板",
     s8_sub: "9 大物理底座核心节点供需态势与交期趋势",
-    spark_title: "核心物料交期追踪"
+    spark_title: "核心物料交期走势",
+    open_source: "查阅信源原文 ↗"
   },
   en: {
     live: "LIVE 08:30",
     issue: "Issue #{n}",
-    sub_cal: "Calendar (.ics)",
+    sub_cal: "Calendar",
     lang_btn: "中文",
-    subtitle: "AI Data Center Physical Infrastructure · Server Racks · Power · Interconnect · Liquid Cooling · Updated Daily 08:30",
+    portfolio_title: "💼 My Portfolio Radar & Supply Chain Insights",
+    portfolio_sub: "Select your held equities/suppliers; system analyzes upstream constraints, client CapEx & lead times",
     s1: "CapEx & Infrastructure Dynamics",
     s1_sub: "Hyperscaler CapEx Guidance · Power Queue · Clean Energy PPAs · PUE Standards",
     s2: "Headline Event Teardowns",
-    s2_sub: "Fact Summary · BOM Transmission · Short & Mid-Term Delivery Forecasts",
+    s2_sub: "Causal Transmission Flows · BOM Paths · Short & Mid-Term Forecasts",
     s3: "Bottlenecks & Hyperscaler Siphoning",
     s3_sub: "Hyperscaler LTA Commitments · Foamed Dielectrics · Low-Dk Cloth · Transformer 120W Lead Time",
     s4: "Cross-Industry Transmission",
@@ -815,7 +1189,8 @@ const I18N = {
     s7_sub: "1-Day Prior Alert · Earnings · Tape-out · Trade Expos · Ramp Milestones",
     s8: "AIDC Golden BOM Matrix",
     s8_sub: "Supply Status & Lead Time Trends Across 9 Physical Nodes",
-    spark_title: "Core Material Lead Times"
+    spark_title: "Core Lead Time Trends",
+    open_source: "Open Source Article ↗"
   }
 };
 
@@ -843,7 +1218,8 @@ function applyLang() {
   document.getElementById("live_status").textContent = t.live;
   document.getElementById("txt_sub_cal").textContent = t.sub_cal;
   document.getElementById("lang_btn").textContent = t.lang_btn;
-  document.getElementById("top_subtitle").textContent = t.subtitle;
+  document.getElementById("portfolio_title").textContent = t.portfolio_title;
+  document.getElementById("portfolio_sub").textContent = t.portfolio_sub;
   document.getElementById("s1_title").textContent = t.s1;
   document.getElementById("s1_sub").textContent = t.s1_sub;
   document.getElementById("s2_title").textContent = t.s2;
@@ -863,6 +1239,185 @@ function applyLang() {
   document.getElementById("side_spark_title").textContent = t.spark_title;
 }
 
+// ================= 持仓交互逻辑 =================
+function renderHoldingChips() {
+  const container = document.getElementById("holding_chips");
+  container.innerHTML = HOLDINGS_LIB.map(h => {
+    const isSel = USER_HOLDINGS.includes(h.ticker);
+    return `
+      <div class="holding-chip ${isSel ? 'selected' : ''}" onclick="toggleHolding('${h.ticker}')">
+        <span class="chk">${isSel ? '✓' : '+'}</span>
+        <span>${esc(LANG==='en' ? h.en : h.name)}</span>
+        <span style="font-size:10px;color:var(--mut);font-family:monospace">${h.ticker.split('.')[0]}</span>
+      </div>
+    `;
+  }).join("");
+}
+
+function toggleHolding(ticker) {
+  if (USER_HOLDINGS.includes(ticker)) {
+    USER_HOLDINGS = USER_HOLDINGS.filter(t => t !== ticker);
+  } else {
+    USER_HOLDINGS.push(ticker);
+  }
+  localStorage.setItem("aidc_user_holdings", JSON.stringify(USER_HOLDINGS));
+  renderHoldingChips();
+  renderPortfolioRadar();
+}
+
+function applyPreset(presetKey) {
+  document.querySelectorAll("#holding_presets .preset-btn").forEach(b => b.classList.remove("active"));
+  event.target.classList.add("active");
+  if (PRESETS[presetKey]) {
+    USER_HOLDINGS = [...PRESETS[presetKey]];
+    localStorage.setItem("aidc_user_holdings", JSON.stringify(USER_HOLDINGS));
+    renderHoldingChips();
+    renderPortfolioRadar();
+  }
+}
+
+function addCustomHolding() {
+  const input = document.getElementById("custom_ticker_input");
+  const val = (input.value || "").trim().toUpperCase();
+  if (!val) return;
+  // Match in lib or add custom
+  let item = HOLDINGS_LIB.find(h => h.ticker === val || h.name === val || h.en.toUpperCase() === val);
+  if (!item) {
+    item = { ticker: val, name: val, en: val, cat: "custom" };
+    HOLDINGS_LIB.push(item);
+  }
+  if (!USER_HOLDINGS.includes(item.ticker)) {
+    USER_HOLDINGS.push(item.ticker);
+    localStorage.setItem("aidc_user_holdings", JSON.stringify(USER_HOLDINGS));
+  }
+  input.value = "";
+  renderHoldingChips();
+  renderPortfolioRadar();
+}
+
+// 动态计算持仓透视与雷达
+function renderPortfolioRadar() {
+  const grid = document.getElementById("portfolio_radar_grid");
+  if (!CUR_DATA) return;
+
+  const d = CUR_DATA;
+  const hits = [];
+
+  // 1. Check headlines
+  (d.s2_headlines || []).forEach(h => {
+    const matched = (h.related_tickers || []).filter(t => USER_HOLDINGS.includes(t));
+    if (matched.length) {
+      hits.push({
+        type: "HEADLINE",
+        title: h.title,
+        tickers: matched,
+        impact_type: h.severity === "HIGH" ? "NEGATIVE" : "NEUTRAL",
+        impact_text: h.key_takeaway || h.summary,
+        link: (h.sources && h.sources[0]) ? h.sources[0].url : null,
+        source_name: (h.sources && h.sources[0]) ? h.sources[0].outlet : null
+      });
+    }
+  });
+
+  // 2. Check CapEx
+  (d.s1_capex_dynamics || []).forEach(c => {
+    const matched = (c.related_tickers || []).filter(t => USER_HOLDINGS.includes(t));
+    if (matched.length) {
+      hits.push({
+        type: "CAPEX",
+        title: c.title,
+        tickers: matched,
+        impact_type: "POSITIVE",
+        impact_text: c.impact,
+        link: c.source_url,
+        source_name: c.source
+      });
+    }
+  });
+
+  // 3. Check Bottlenecks
+  (d.s3_bottlenecks || []).forEach(b => {
+    const matched = (b.related_tickers || []).filter(t => USER_HOLDINGS.includes(t));
+    if (matched.length) {
+      hits.push({
+        type: "BOTTLENECK",
+        title: `【${b.category}】${b.bottleneck_item} (交期 ${b.lead_time_weeks})`,
+        tickers: matched,
+        impact_type: "NEGATIVE",
+        impact_text: `锁单挤压影响：${b.analysis}`,
+        link: b.source_url,
+        source_name: b.source
+      });
+    }
+  });
+
+  // 4. Check Supplier Dynamics
+  (d.s5_suppliers || []).forEach(s => {
+    const matched = (s.related_tickers || []).filter(t => USER_HOLDINGS.includes(t));
+    if (matched.length) {
+      hits.push({
+        type: "SUPPLIER",
+        title: `${s.company} · [${s.tag}]`,
+        tickers: matched,
+        impact_type: s.tag.includes("扩产") || s.tag.includes("进AVL") ? "POSITIVE" : "NEUTRAL",
+        impact_text: s.detail,
+        link: s.source_url,
+        source_name: s.source
+      });
+    }
+  });
+
+  // Render 2 Column Radar
+  let positiveHits = hits.filter(h => h.impact_type === "POSITIVE");
+  let riskHits = hits.filter(h => h.impact_type === "NEGATIVE" || h.impact_type === "NEUTRAL");
+
+  const renderHitItems = (arr) => {
+    if (!arr.length) return `<div style="font-size:12px;color:var(--mut);padding:10px 0">今日您关注的持仓标的暂无直接异动，供应链平稳运行。</div>`;
+    return arr.map(item => {
+      const tickerNames = item.tickers.map(t => {
+        const found = HOLDINGS_LIB.find(x => x.ticker === t);
+        return found ? (LANG==='en' ? found.en : found.name) : t;
+      }).join("、");
+
+      return `
+        <div class="radar-item">
+          <div>
+            <span class="radar-ticker">🎯 ${esc(tickerNames)}</span>
+            <span class="impact-badge ${item.impact_type==='POSITIVE'?'impact-pos':'impact-neg'}">${item.type}</span>
+          </div>
+          <div style="font-weight:700;color:#e2e8f0;margin:3px 0">${esc(item.title)}</div>
+          <div style="color:var(--ink-dim);font-size:12px">${esc(item.impact_text)}</div>
+          ${item.link ? `
+            <div style="margin-top:4px">
+              <a href="${esc(item.link)}" target="_blank" rel="noopener noreferrer" class="news-link-btn">
+                🔗 ${esc(item.source_name || I18N[LANG].open_source)}
+              </a>
+            </div>
+          ` : ''}
+        </div>
+      `;
+    }).join("");
+  };
+
+  grid.innerHTML = `
+    <div class="radar-box">
+      <div class="radar-box-title">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2.5"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/></svg>
+        <span>持仓标的正向利好与 CapEx 驱动 (${positiveHits.length})</span>
+      </div>
+      <div>${renderHitItems(positiveHits)}</div>
+    </div>
+    <div class="radar-box">
+      <div class="radar-box-title">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#f43f5e" stroke-width="2.5"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        <span>持仓标的上游短板与交期承压 (${riskHits.length})</span>
+      </div>
+      <div>${renderHitItems(riskHits)}</div>
+    </div>
+  `;
+}
+
+// ================= 数据加载与页面渲染 =================
 async function loadDate(dateStr) {
   CUR_DATE = dateStr;
   const fileName = (LANG === "en") ? `data/${dateStr}-en.json` : `data/${dateStr}.json`;
@@ -872,22 +1427,18 @@ async function loadDate(dateStr) {
     CUR_DATA = await res.json();
     renderAll();
     
-    // update url
     history.replaceState(null, "", `#date=${dateStr}&lang=${LANG}`);
     
-    // highlight date pills
     document.querySelectorAll(".dpill").forEach(p => {
       p.classList.toggle("on", p.dataset.date === dateStr);
     });
 
-    // issue pill
     const idx = ALL_DAYS.indexOf(dateStr);
     if (idx >= 0) {
       document.getElementById("issue_pill").textContent = (LANG === "en") ? `Issue #${idx + 1}` : `第 ${idx + 1} 期`;
     }
   } catch(e) {
     console.error("Failed loading date:", e);
-    // Fallback to default
     if (fileName.includes("-en")) {
       const fallback = await fetch(`data/${dateStr}.json`);
       if (fallback.ok) {
@@ -904,18 +1455,11 @@ function renderAll() {
   const r = d.daily_report || {};
 
   // Headline
-  document.getElementById("headline_text").innerHTML = `<b>[${LANG==='en'?'Top Focus':'今日焦点'}]</b> ${esc(r.headline || '')}`;
+  document.getElementById("headline_text").textContent = r.headline || '';
 
-  // Alert bar
-  const alerts = d.s6_alerts || [];
-  const highAlerts = alerts.filter(a => a.risk_level === 'HIGH');
-  const alertStrip = document.getElementById("alert_strip");
-  if (highAlerts.length > 0) {
-    alertStrip.classList.add("show");
-    alertStrip.innerHTML = `⚠️ <b>${LANG==='en'?'Critical Kitting Bottleneck:':'齐套短板警报：'}</b> ${esc(highAlerts[0].material)} · ${esc(highAlerts[0].lead_time_status)} <a href="#s6">${LANG==='en'?'View Sourcing Actions →':'查看应对建议 →'}</a>`;
-  } else {
-    alertStrip.classList.remove("show");
-  }
+  // Render Portfolio Radar
+  renderHoldingChips();
+  renderPortfolioRadar();
 
   // s1: CapEx
   const s1Grid = document.getElementById("s1_grid");
@@ -927,41 +1471,93 @@ function renderAll() {
       </div>
       <div>
         <div class="capex-impact"><b>传导影响：</b>${esc(item.impact)}</div>
-        <div style="font-size:11px;color:var(--mut);margin-top:6px;text-align:right">出处: ${esc(item.source)}</div>
+        <div class="card-source-row">
+          <span>信源: <b>${esc(item.source)}</b></span>
+          ${item.source_url ? `
+            <a href="${esc(item.source_url)}" target="_blank" rel="noopener noreferrer" class="news-link-btn">
+              🔗 ${I18N[LANG].open_source}
+            </a>
+          ` : ''}
+        </div>
       </div>
     </div>
   `).join("");
 
   // s2: Headlines
   const s2Cont = document.getElementById("s2_container");
-  s2Cont.innerHTML = (d.s2_headlines || []).map(h => `
-    <div class="headline-event">
-      <div class="hl-header">
-        <div class="hl-title">${esc(h.title)}</div>
-        <div class="hl-badges">
-          <span class="badge ${h.severity==='HIGH'?'badge-danger':'badge-warning'}">${esc(h.severity)}</span>
-          <span class="badge" style="background:#1e293b;color:#38bdf8">热度: ${h.heat}°</span>
+  s2Cont.innerHTML = (d.s2_headlines || []).map(h => {
+    // Chain nodes rendering
+    let chainHtml = "";
+    if (h.transmission_chain && h.transmission_chain.length) {
+      chainHtml = `
+        <div class="chain-wrapper">
+          <div class="chain-title">⚡ 产业链传导图谱 (Transmission Chain)</div>
+          <div class="chain-flow">
+            ${h.transmission_chain.map(c => `
+              <div class="chain-node">
+                <div class="chain-node-stage">${esc(c.stage)}</div>
+                <div class="chain-node-name">${esc(c.node)}</div>
+                <div class="chain-node-desc">${esc(c.desc)}</div>
+              </div>
+            `).join("")}
+          </div>
         </div>
-      </div>
-      <p style="font-size:13.5px;color:#cbd5e1;line-height:1.6">${esc(h.summary)}</p>
-      <div class="hl-metrics">
-        ${(h.numbers || []).map(num => `<span class="metric-pill">📌 ${esc(num)}</span>`).join("")}
-      </div>
-      <div class="teardown-grid">
-        <div class="td-col">
-          <h5>⚡ BOM 冲击路径 (Affected Subsystems)</h5>
-          <ul style="padding-left:16px;color:var(--ink-dim);line-height:1.7">
-            ${(h.bom_impact_path || []).map(p => `<li>${esc(p)}</li>`).join("")}
-          </ul>
+      `;
+    }
+
+    return `
+      <div class="headline-event">
+        <div class="hl-header">
+          <div class="hl-title">${esc(h.title)}</div>
+          <div class="hl-badges">
+            <span class="badge ${h.severity==='HIGH'?'badge-danger':'badge-warning'}">${esc(h.severity)}</span>
+            <span class="badge badge-heat">热度: ${h.heat}°</span>
+          </div>
         </div>
-        <div class="td-col">
-          <h5>📦 交付推演 (Delivery Forecast)</h5>
-          <div style="margin-bottom:6px"><b style="color:#f59e0b">短期 (1~3月)：</b>${esc((h.delivery_forecast||{}).short_term)}</div>
-          <div><b style="color:#38bdf8">中期 (6月+)：</b>${esc((h.delivery_forecast||{}).mid_term)}</div>
+
+        ${h.key_takeaway ? `
+          <div class="takeaway-box">
+            <b>核心要点：</b>${esc(h.key_takeaway)}
+          </div>
+        ` : ''}
+
+        <p style="font-size:13.5px;color:#cbd5e1;line-height:1.6">${esc(h.summary)}</p>
+        
+        <div class="hl-metrics">
+          ${(h.numbers || []).map(num => `<span class="metric-pill">📌 ${esc(num)}</span>`).join("")}
         </div>
+
+        ${chainHtml}
+
+        <div class="teardown-grid">
+          <div class="td-col">
+            <h5>⚡ BOM 冲击路径 (BOM Nodes Affected)</h5>
+            <ul style="padding-left:16px;color:var(--ink-dim);line-height:1.7">
+              ${(h.bom_impact_path || []).map(p => `<li>${esc(p)}</li>`).join("")}
+            </ul>
+          </div>
+          <div class="td-col">
+            <h5>📦 交付推演 (Delivery Forecast)</h5>
+            <div style="margin-bottom:6px"><b style="color:#f59e0b">短期 (1~3月)：</b>${esc((h.delivery_forecast||{}).short_term)}</div>
+            <div><b style="color:#38bdf8">中期 (6月+)：</b>${esc((h.delivery_forecast||{}).mid_term)}</div>
+          </div>
+        </div>
+
+        ${h.sources && h.sources.length ? `
+          <div class="card-source-row">
+            <span>权威审计信源：</span>
+            <div style="display:flex;gap:6px;flex-wrap:wrap">
+              ${h.sources.map(s => `
+                <a href="${esc(s.url)}" target="_blank" rel="noopener noreferrer" class="news-link-btn">
+                  🔗 ${esc(s.outlet)} ↗
+                </a>
+              `).join("")}
+            </div>
+          </div>
+        ` : ''}
       </div>
-    </div>
-  `).join("");
+    `;
+  }).join("");
 
   // s3: Bottlenecks
   const s3Cont = document.getElementById("s3_container");
@@ -969,10 +1565,18 @@ function renderAll() {
     <div class="bottleneck-card">
       <div class="bn-head">
         <div class="bn-title">【${esc(b.category)}】${esc(b.bottleneck_item)}</div>
-        <div class="bn-lead">行业交期: ${esc(b.lead_time_weeks)}</div>
+        <div class="bn-lead">行业加权交期: ${esc(b.lead_time_weeks)}</div>
       </div>
       <p style="font-size:13px;color:#cbd5e1;line-height:1.6">${esc(b.analysis)}</p>
       <div class="bn-actor">🔒 <b>锁单/挤压主体：</b>${esc(b.siphoning_actor)}</div>
+      ${b.source_url ? `
+        <div class="card-source-row">
+          <span>信源: <b>${esc(b.source)}</b></span>
+          <a href="${esc(b.source_url)}" target="_blank" rel="noopener noreferrer" class="news-link-btn">
+            🔗 ${I18N[LANG].open_source}
+          </a>
+        </div>
+      ` : ''}
     </div>
   `).join("");
 
@@ -983,6 +1587,14 @@ function renderAll() {
       <h4>${esc(c.upstream_sector)}</h4>
       <p>${esc(c.transmission_logic)}</p>
       <div class="cross-mag"><b>传导影响量级：</b>${esc(c.impact_magnitude)}</div>
+      ${c.source_url ? `
+        <div class="card-source-row">
+          <span>信源: <b>${esc(c.source)}</b></span>
+          <a href="${esc(c.source_url)}" target="_blank" rel="noopener noreferrer" class="news-link-btn">
+            🔗 ${I18N[LANG].open_source}
+          </a>
+        </div>
+      ` : ''}
     </div>
   `).join("");
 
@@ -1007,6 +1619,14 @@ function renderAll() {
         <span>紧迫度: <b style="color:#f59e0b">${esc(a.urgency)}</b></span>
         <span>建议锁定窗口/期限: <b>${esc(a.deadline)}</b></span>
       </div>
+      ${a.source_url ? `
+        <div class="card-source-row">
+          <span>短板监测出处：</span>
+          <a href="${esc(a.source_url)}" target="_blank" rel="noopener noreferrer" class="news-link-btn">
+            🔗 ${I18N[LANG].open_source}
+          </a>
+        </div>
+      ` : ''}
     </div>
   `).join("");
 
@@ -1018,11 +1638,18 @@ function renderAll() {
       <div class="tl-body">
         <h5>${esc(t.event_title)} <span style="font-size:11px;color:var(--cyan);font-weight:normal;margin-left:6px">[${esc(t.entity)}]</span></h5>
         <p>${esc(t.reminder_note)}</p>
+        ${t.source_url ? `
+          <div style="margin-top:4px">
+            <a href="${esc(t.source_url)}" target="_blank" rel="noopener noreferrer" class="news-link-btn">
+              🔗 事件信源链接 ↗
+            </a>
+          </div>
+        ` : ''}
       </div>
     </div>
   `).join("");
 
-  // s8: BOM
+  // s8: BOM Desktop Table
   const bomTbody = document.getElementById("bom_tbody");
   bomTbody.innerHTML = (d.s8_bom_mapping || []).map(b => {
     let pClass = "status-balance";
@@ -1038,9 +1665,51 @@ function renderAll() {
         <td style="color:var(--ink-dim)">${esc(b.category)}</td>
         <td><span class="status-pill ${pClass}">${esc(b.supply_status)}</span></td>
         <td style="font-weight:700;color:${trendCol}">${trendIco}</td>
-        <td style="font-family:monospace;font-weight:600">${esc(b.typical_lead_time)}</td>
+        <td style="font-family:monospace;font-weight:700">${esc(b.typical_lead_time)}</td>
         <td style="font-size:12.5px;color:#cbd5e1">${esc(b.daily_note)}</td>
+        <td>
+          ${b.source_url ? `
+            <a href="${esc(b.source_url)}" target="_blank" rel="noopener noreferrer" class="news-link-btn">
+              🔗 信源
+            </a>
+          ` : '-'}
+        </td>
       </tr>
+    `;
+  }).join("");
+
+  // s8: BOM Mobile Card Stream
+  const mobileStream = document.getElementById("bom_mobile_stream");
+  mobileStream.innerHTML = (d.s8_bom_mapping || []).map(b => {
+    let pClass = "status-balance";
+    if (b.supply_status === "极度紧缺") pClass = "status-tight";
+    if (b.supply_status === "供给宽松") pClass = "status-loose";
+    let trendIco = "→";
+    let trendCol = "#cbd5e1";
+    if (b.lead_time_trend === "UP") { trendIco = "↑ 拉长"; trendCol = "#f87171"; }
+    if (b.lead_time_trend === "DOWN") { trendIco = "↓ 缩短"; trendCol = "#34d399"; }
+    return `
+      <div class="bom-mobile-card">
+        <div class="bom-card-top">
+          <div>
+            <div class="bom-card-name">${esc(b.bom_node)}</div>
+            <div class="bom-card-cat">${esc(b.category)}</div>
+          </div>
+          <span class="status-pill ${pClass}">${esc(b.supply_status)}</span>
+        </div>
+        <div class="bom-card-mid">
+          <span>交期趋势: <b style="color:${trendCol}">${trendIco}</b></span>
+          <span>标准交期: <b>${esc(b.typical_lead_time)}</b></span>
+        </div>
+        <div class="bom-card-note">${esc(b.daily_note)}</div>
+        ${b.source_url ? `
+          <div style="margin-top:6px;text-align:right">
+            <a href="${esc(b.source_url)}" target="_blank" rel="noopener noreferrer" class="news-link-btn">
+              🔗 查阅原始出处 ↗
+            </a>
+          </div>
+        ` : ''}
+      </div>
     `;
   }).join("");
 }
@@ -1060,7 +1729,14 @@ function renderSuppliers(filterSub) {
         </div>
       </div>
       <p style="font-size:12.5px;color:var(--ink-dim);line-height:1.5">${esc(s.detail)}</p>
-      ${s.source ? `<div style="font-size:11px;color:var(--mut);margin-top:6px;text-align:right">来源: ${esc(s.source)}</div>` : ''}
+      <div class="card-source-row">
+        <span>出处: <b>${esc(s.source || '公告')}</b></span>
+        ${s.source_url ? `
+          <a href="${esc(s.source_url)}" target="_blank" rel="noopener noreferrer" class="news-link-btn">
+            🔗 原始链接 ↗
+          </a>
+        ` : ''}
+      </div>
     </div>
   `).join("");
 }
@@ -1074,14 +1750,18 @@ function filterSupplier(subsystem, btn) {
 function filterIntel(query) {
   query = (query || "").toLowerCase().trim();
   if (!query) {
-    document.querySelectorAll(".sec-card").forEach(s => s.style.display = "");
+    document.querySelectorAll(".capex-item, .headline-event, .bottleneck-card, .cross-box, .sup-card, .alert-card, .tl-item").forEach(el => el.style.display = "");
     return;
   }
-  // Simple in-page highlight/filter
   document.querySelectorAll(".capex-item, .headline-event, .bottleneck-card, .cross-box, .sup-card, .alert-card, .tl-item").forEach(el => {
     const text = el.textContent.toLowerCase();
     el.style.display = text.includes(query) ? "" : "none";
   });
+}
+
+function setDockActive(el) {
+  document.querySelectorAll(".mobile-dock .dock-item").forEach(d => d.classList.remove("active"));
+  el.classList.add("active");
 }
 
 async function loadSparklines() {
@@ -1096,14 +1776,12 @@ async function loadSparklines() {
       const prev = pts[pts.length - 2];
       const diff = last.value - prev.value;
       const col = diff > 0 ? "#f87171" : (diff < 0 ? "#34d399" : "#cbd5e1");
-      const sign = diff > 0 ? "+" : "";
       
-      // build mini SVG sparkline
       const vals = pts.map(p => p.value);
       const min = Math.min(...vals);
       const max = Math.max(...vals);
       const range = (max - min) || 1;
-      const w = 70, h = 20;
+      const w = 75, h = 22;
       const coords = pts.map((p, i) => {
         const x = (i / (pts.length - 1)) * w;
         const y = h - ((p.value - min) / range) * (h - 4) - 2;
@@ -1147,9 +1825,9 @@ function copyCalUrl() {
   });
 }
 
-// Spy on scroll to highlight nav rail
+// Spy on scroll for desktop rail & mobile dock
 window.addEventListener("scroll", () => {
-  const sections = ["s1", "s2", "s3", "s4", "s5", "s6", "s7", "s8"];
+  const sections = ["portfolio", "s1", "s2", "s3", "s4", "s5", "s6", "s7", "s8"];
   let cur = sections[0];
   const scrollPos = window.scrollY + 120;
   for (let s of sections) {
@@ -1160,6 +1838,9 @@ window.addEventListener("scroll", () => {
   }
   document.querySelectorAll("nav.secnav a").forEach(a => {
     a.classList.toggle("on", a.getAttribute("href") === `#${cur}`);
+  });
+  document.querySelectorAll(".mobile-dock .dock-item").forEach(a => {
+    a.classList.toggle("active", a.getAttribute("href") === `#${cur}`);
   });
 });
 
@@ -1173,14 +1854,12 @@ async function boot() {
     ALL_DAYS = idx.days || [];
     const latest = idx.latest || ALL_DAYS[ALL_DAYS.length - 1];
 
-    // render pills (last 14 days)
     const recent = ALL_DAYS.slice(-14).reverse();
     const pillsHtml = recent.map(d => `
       <button class="dpill" data-date="${esc(d)}" onclick="loadDate('${esc(d)}')">${esc(d.slice(5))}</button>
     `).join("");
     document.getElementById("dpills").innerHTML = pillsHtml;
 
-    // check hash
     const m = location.hash.match(/date=(\d{4}-\d{2}-\d{2})/);
     const target = (m && ALL_DAYS.includes(m[1])) ? m[1] : latest;
     await loadDate(target);
