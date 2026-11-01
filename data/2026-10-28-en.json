@@ -1,0 +1,391 @@
+{
+  "meta": {
+    "date": "2026-10-28",
+    "schema_version": "v1.0",
+    "source_briefing": "briefs/2026-10-28-aidc-hardware-morning-briefing.md",
+    "note": "North American CSPs revised 2027 CapEx upward to $320B; Substation transformer lead times breached 120 weeks; Nittobo Low-Dk quartz cloth spot premium hit 31.8%; Liquid cooling CDU brazed plate heat exchanger second-sourcing qualification window opened."
+  },
+  "daily_report": {
+    "date": "2026-10-28",
+    "title": "AIDC Physical Infrastructure & Hardware Supply Chain Daily",
+    "headline": "Transformer Lead Times Breach 120 Weeks! Nittobo Low-Dk Spot Premium Reaches 31.8% · Top 4 North American CSPs Revise 2027 CapEx to $320B · Vertiv Q3 Earnings Preview & Liquid CDU Backlog Tracking",
+    "hotspot_count": 2,
+    "warning_count": 6
+  },
+  "s1_capex_dynamics": [
+    {
+      "date": "2026-10-28",
+      "title": "Top North American CSPs 2027 CapEx Guidance Revised to $320B, Over 45% Allocated to Power and Data Center Physical Shells",
+      "fact": "Bloomberg Intelligence and Q3 pre-disclosures indicate median fiscal 2027 CapEx guidance across Microsoft, Meta, Alphabet, and Amazon has risen to $320B (+24.5% YoY). Direct substation builds, microgrids, and nuclear PPA investments surged from 22% two years ago to 46.8%. [Analyst Estimate]",
+      "impact": "Long-term agreements for power distribution and backup generation are locking up rapidly; substation transformer and diesel generator capacities beyond 2026H2 are almost fully committed.",
+      "source": "Bloomberg Intelligence / SEC Filings"
+    },
+    {
+      "date": "2026-10-28",
+      "title": "PJM Interconnection Queue Reform Takes Effect, Yet AIDC Grid Interconnection Queue Time Remains at 38 Months",
+      "fact": "PJM Interconnection implemented its 'First-Ready, First-Served' reform. Despite an 18% reduction in backlog, severe shortages of high-voltage substation switchgear maintain the average energization delay at 38.4 months.",
+      "impact": "Forces compute clusters toward self-built heavy aeroderivative gas turbines and containerized BESS/diesel hybrids, causing a spike in 2MW+ industrial genset demand.",
+      "source": "PJM Official / S&P Global Commodity"
+    },
+    {
+      "date": "2026-10-28",
+      "title": "UAE & Saudi Arabia Launch 50GW Sovereign AI Infrastructure Fund, Initial $18B Hardware RFP Mandates Liquid Cooling and Optical Interconnects",
+      "fact": "GCC announced a 50GW sovereign AI hub fund. The initial $18B hardware procurement tender mandates cold plate / immersion liquid cooling (PUE <= 1.15) and 800G/1.6T networking, with initial deployment set for Q1 2027. [Vendor Claim]",
+      "impact": "High ambient tolerance (50C+ exterior) secondary loops and heavy-duty closed-circuit cooling tower suppliers will see concentrated bidding volume.",
+      "source": "Zawya / Arabian Business"
+    }
+  ],
+  "s2_headlines": [
+    {
+      "id": "evt-20261027-01",
+      "title": "Global Substation Transformer Lead Times Breach 120 Weeks, Grain-Oriented Electrical Steel (GOES) Booked Out Through 2028",
+      "severity": "HIGH",
+      "heat": 95,
+      "summary": "According to Wood Mackenzie and NERC, weighted average lead times for 500kV+ step-up and data center pad-mount transformers have stretched to 120-128 weeks (~2.5 years). High-grade Hi-B GOES capacity from Nippon Steel, JFE, and Baosteel has been co-locked by Western grid utilities and hyperscalers through end of 2028.",
+      "numbers": [
+        "Average Lead Time: 120-128 Weeks",
+        "Spot Premium: +45% to +60%",
+        "GOES Allocation Locked Through 2028"
+      ],
+      "event_summary": "The large power transformer deficit has expanded from localized hiccups into a structural bottleneck. Expanding GOES capacity requires 24-36 months, exacerbated by a severe shortage of skilled high-voltage coil winders.",
+      "bom_impact_path": [
+        "Substation & Power Ingress Subsystem",
+        "500kV/220kV Step-Up & Step-Down Transformers",
+        "Hi-B Grain-Oriented Electrical Steel (GOES)",
+        "HV Insulated Bushings & On-Load Tap Changers"
+      ],
+      "delivery_forecast": {
+        "short_term": "Data center builds lacking pre-booked transformers face 6-12 month commissioning slippages; contractors turning to refurbished units.",
+        "mid_term": "Accelerates adoption of 10kV Direct-to-Compute server power architectures and Solid State Transformers (SST)."
+      },
+      "sources": [
+        {
+          "outlet": "Wood Mackenzie Power & Renewables",
+          "date": "2026-10-25",
+          "url": "https://www.woodmac.com/reports/power-transformers-shortage-ai-datacenter/",
+          "first_party": false
+        },
+        {
+          "outlet": "NERC Annual Grid Report",
+          "date": "2026-10-24",
+          "url": "https://www.nerc.com/pa/RAPA/ri/Pages/Default.aspx",
+          "first_party": false
+        }
+      ]
+    },
+    {
+      "id": "evt-20261027-02",
+      "title": "Nittobo Low-Dk Quartz Glass Fiber Yarn Allocation Tightens, M8 Copper Clad Laminate Spot Premium Exceeds 30%",
+      "severity": "HIGH",
+      "heat": 91,
+      "summary": "Mass shipments of NVL72 compute and switch trays have triggered a surge in M8/M9 grade CCL consumption. Japan's Nittobo, the primary volume supplier of ultra-low loss (Low-Dk/Low-Df) quartz glass yarn, has allocated over 85% of Q4 output to EMC and Shengyi, pushing secondary PCB maker spot premiums to 31.8%.",
+      "numbers": [
+        "Nittobo Capacity Locked >85%",
+        "Glass Cloth Spot Premium: +31.8%",
+        "NVL72 Consumes >150 sqm M8 CCL per Rack"
+      ],
+      "event_summary": "High-density compute boards feature 32 to 44 layers running 224Gbps PAM4 signals, requiring strict Df <= 0.0015 metrics. Nittobo's new production lines will not achieve full ramp until mid-2027.",
+      "bom_impact_path": [
+        "Compute Mainboards & High-Speed Switch Backplanes",
+        "High-Speed Copper Clad Laminates (CCL)",
+        "Low-Dk Quartz Fiber Yarn & Glass Fabric",
+        "Specialty Polyphenylene Oxide (PPO) Resin"
+      ],
+      "delivery_forecast": {
+        "short_term": "HLC board makers prioritizing Tier-1 ODMs (Foxconn, Quanta, Wiwynn); secondary ODMs face lead times stretching beyond 40 weeks.",
+        "mid_term": "Accelerates qualification of TUC Gen-2 cloth and domestic alternatives from Honghe and Jushi."
+      },
+      "sources": [
+        {
+          "outlet": "TrendForce Research",
+          "date": "2026-10-26",
+          "url": "https://www.trendforce.com/research/low-dk-ccl-shortage-ai-servers-2026",
+          "first_party": false
+        },
+        {
+          "outlet": "Nikkei Asian Review",
+          "date": "2026-10-25",
+          "url": "https://asia.nikkei.com/Business/Electronics/Nittobo-quartz-glass-fiber-ai-supply-chain",
+          "first_party": false
+        }
+      ]
+    }
+  ],
+  "s3_bottlenecks": [
+    {
+      "category": "供电与基建瓶颈",
+      "bottleneck_item": "Large Power Transformers & Gas-Insulated Switchgear (GIS)",
+      "analysis": "Gigawatt-scale procurement by hyperscalers is crowding out regional 20-50MW builds, driving secondary transformer refurbishment auctions to double original MSRP.",
+      "siphoning_actor": "Microsoft / AWS / Meta Supercluster Dedicated Buildouts",
+      "lead_time_weeks": "115-130 Weeks",
+      "source": "Wood Mackenzie / Platts"
+    },
+    {
+      "category": "算力机柜与板材瓶颈",
+      "bottleneck_item": "Low-Dk / Low-Df Electronic Quartz Glass Cloth & M8 CCL",
+      "analysis": "NVL72 intra-rack interconnect density demands 5x the board area of conventional servers; weekly rack deliveries are directly constrained by Nittobo weaving output.",
+      "siphoning_actor": "Foxconn / Quanta Dedicated AI Assembly Lines",
+      "lead_time_weeks": "40-52 Weeks",
+      "source": "Prismark / Digitimes"
+    },
+    {
+      "category": "光铜互连瓶颈",
+      "bottleneck_item": "224G Foamed Dielectric Cores for AEC/DAC Cables",
+      "analysis": "Micro-cellular physical foaming extrusion yields remain low, and precision silver-plated wire drawing tools face wear limits, leaving Amphenol and Credo backlogged 9+ months.",
+      "siphoning_actor": "Blackwell / Rubin Intra-Rack Copper Overpass Cables",
+      "lead_time_weeks": "36-48 Weeks",
+      "source": "LightCounting / Omdia"
+    },
+    {
+      "category": "液冷温控瓶颈",
+      "bottleneck_item": "Heavy-Duty Brazed Plate Heat Exchangers (BPHE) & Canned Pumps",
+      "analysis": "Liquid CDU primary heat exchange requires 1.5MPa+ rating and zero-leak reliability; qualified suppliers are concentrated in Danfoss, Alfa Laval, and SWEP.",
+      "siphoning_actor": "Vertiv / Boyd / CoolIT Modular CDU Production",
+      "lead_time_weeks": "34-46 Weeks",
+      "source": "BSRIA / Industry Online"
+    }
+  ],
+  "s4_cross_industry": [
+    {
+      "upstream_sector": "Electric Utilities & Grid Infrastructure",
+      "transmission_logic": "Aging Western grid upgrades and offshore wind interconnections are clashing directly with AIDC buildouts for coil winding machinery and annealing furnace capacity.",
+      "impact_magnitude": "Power equipment prices up 22% YTD with 50%+ non-refundable milestone deposits required",
+      "source": "FERC / NERC",
+      "date": "2026-10-26"
+    },
+    {
+      "upstream_sector": "Commodities & Precious Metals (Copper & Silver)",
+      "transmission_logic": "LME spot copper crossed $10,380/t while solar TOPCon paste competes for silver supply with plating on high-speed connectors, inflating BOM costs for silver-plated DAC cables.",
+      "impact_magnitude": "DAC/AEC copper cable raw material BOM cost up 14.5% per meter",
+      "source": "London Metal Exchange / Silver Institute",
+      "date": "2026-10-26"
+    },
+    {
+      "upstream_sector": "Fluorochemical Regulations & PFAS Transition",
+      "transmission_logic": "EU REACH PFAS restriction draft approaches final review, compelling cold plate and CDU manufacturers to transition toward modified propylene glycol (PG25) and reformulate elastomer seals.",
+      "impact_magnitude": "UQD coupling EPDM O-ring qualification cycle requires 6 months",
+      "source": "ECHA (European Chemicals Agency)",
+      "date": "2026-10-25"
+    }
+  ],
+  "s5_suppliers": [
+    {
+      "subsystem": "供电与配电",
+      "company": "Vertiv",
+      "tag": "财报/指引",
+      "detail": "Scheduled to report Q3 earnings on 10-28; consensus expects data center power and thermal backlog to exceed $7.8B, with next-gen 120kW In-Row CDUs and HVDC systems comprising over 40%. [Vendor Claim]",
+      "source": "Wall Street Consensus / TipRanks"
+    },
+    {
+      "subsystem": "供电与配电",
+      "company": "Jinpan Technology",
+      "tag": "扩产/投产",
+      "detail": "Phase 2 of its Wuhan digital factory for dry-type and pad-mount transformers commissioned, lifting export capacity 40%; initial batch shipments bound for Mexican integration facilities.",
+      "source": "Company Announcement / Securities Times"
+    },
+    {
+      "subsystem": "光互连与铜连接",
+      "company": "Innolight (中际旭创)",
+      "tag": "良率/交期",
+      "detail": "1.6T silicon photonics solution achieved 88% overall optical yield at lead overseas accounts; dual 800G/1.6T shipments ramping in November from its Thailand Phase 2 plant.",
+      "source": "Supply Chain Channel Checks"
+    },
+    {
+      "subsystem": "光互连与铜连接",
+      "company": "Amphenol",
+      "tag": "扩产/投产",
+      "detail": "Committed an additional $120M to its Bac Ninh, Vietnam interconnect campus, adding 16 micro-foamed coaxial lines to boost 224G intra-rack copper assembly output by 50% ahead of Q1 2027. [Vendor Claim]",
+      "source": "Amphenol IR / Vietnam Investment Review"
+    },
+    {
+      "subsystem": "算力机柜/ODM/PCB",
+      "company": "Foxconn / FII",
+      "tag": "良率/交期",
+      "detail": "Guadalajara mega-facility achieved 92.5% First-Time Yield on NVL72 rack integration; hydraulic leak and helium pressure test cycles compressed from 48h to 18h, yielding 450+ racks/week. [Vendor Claim]",
+      "source": "DigiTimes / Supply Chain Checks"
+    },
+    {
+      "subsystem": "算力机柜/ODM/PCB",
+      "company": "Wus Printed Circuit (沪电股份)",
+      "tag": "新品/进AVL",
+      "detail": "Completed Approved Vendor List (AVL) qualification for M8-grade 36-layer compute backplanes with Tier-1 hyperscale clients; Engineering Validation Test (EVT) pilot run set for December.",
+      "source": "Institutional Investor Note"
+    },
+    {
+      "subsystem": "智算液冷与温控",
+      "company": "Cooler Master Enterprise",
+      "tag": "扩产/投产",
+      "detail": "Completed construction of its 2.5MW exterior CDU and liquid cold plate campus in Chonburi, Thailand, with initial Q4 shipments targeting US cloud operators featuring dual-canned redundant pumps. [Vendor Claim]",
+      "source": "Cooler Master Enterprise / Tom's Hardware"
+    },
+    {
+      "subsystem": "智算液冷与温控",
+      "company": "Envicool (英维克)",
+      "tag": "新品/进AVL",
+      "detail": "Unveiled Coolinside 2.0 full-chain liquid cooling architecture; proprietary micro-channel cold plates and UQD04 couplings cleared OCP compliance tests and won major carrier cluster tenders.",
+      "source": "Envicool Annual Report / Tender Bulletin"
+    }
+  ],
+  "s6_alerts": [
+    {
+      "id": "warn-20261027-01",
+      "risk_level": "HIGH",
+      "material": "Substation Step-Up & Pad-Mount Transformers (500kV / 110kV / 10kV)",
+      "lead_time_status": "Weighted lead time reached 120 weeks; new order queues extend beyond Q3 2028",
+      "action_recommendation": "For clusters planned for 2027-2028 energization, immediately lock transformer orders with deposits; qualify modular skid-mounted substations and dry-type alternatives.",
+      "urgency": "高",
+      "deadline": "2026-11-15"
+    },
+    {
+      "id": "warn-20261027-02",
+      "risk_level": "HIGH",
+      "material": "Low-Dk / Low-Df Quartz Glass Cloth (M8/M9 PCB Core Substrate)",
+      "lead_time_status": "Nittobo quota 90% committed; spot markup at 31.8% with lead times at 46 weeks",
+      "action_recommendation": "Hardware engineering must broaden BOM approved lists and expedite qualification of Shengyi and Honghe alternatives for outer trace routing layers.",
+      "urgency": "高",
+      "deadline": "2026-11-10"
+    },
+    {
+      "id": "warn-20261027-03",
+      "risk_level": "MEDIUM",
+      "material": "224G Foamed Dielectric Cores & Direct Attach Copper Cables",
+      "lead_time_status": "Industry standard lead time at 38 weeks; Amphenol and Credo capacity tight",
+      "action_recommendation": "Evaluate Luxshare and Shenyu high-impedance cables for intra-rack jumpers; maintain a minimum 12-week safety stock.",
+      "urgency": "中",
+      "deadline": "2026-11-30"
+    },
+    {
+      "id": "warn-20261027-04",
+      "risk_level": "MEDIUM",
+      "material": "CDU Brazed Plate Heat Exchangers (BPHE)",
+      "lead_time_status": "Danfoss and Alfa Laval lead times at 42 weeks, up 40% YoY",
+      "action_recommendation": "Issue rolling 12-month forecasts to secondary domestic suppliers (Sanhua, Tongfei, Gaolan) to lock vacuum brazing furnace slots.",
+      "urgency": "中",
+      "deadline": "2026-12-05"
+    },
+    {
+      "id": "warn-20261027-05",
+      "risk_level": "MEDIUM",
+      "material": "UQD Blind-Mate Quick Disconnects & EPDM Elastomer O-Rings",
+      "lead_time_status": "Lead times stable at 30 weeks; fluoropolymer chemical audits ongoing",
+      "action_recommendation": "Mandate dual-source Staubli/CPC cross-compatibility; audit helium sniffing and thermal shock test certifications.",
+      "urgency": "中",
+      "deadline": "2026-12-15"
+    },
+    {
+      "id": "warn-20261027-06",
+      "risk_level": "OPPORTUNITY",
+      "material": "800G Optical Transceivers (LPO / Silicon Photonics)",
+      "lead_time_status": "Lead time compressed to 24 weeks; silicon photonics ramp creates pricing flexibility",
+      "action_recommendation": "Capitalize on Q4 capacity ramp at Innolight and Eoptolink to negotiate 5-8% batch discounts on 2027H1 fat-tree fabric expansions.",
+      "urgency": "低",
+      "deadline": "2026-12-20"
+    }
+  ],
+  "s7_timeline_ics": [
+    {
+      "date": "2026-10-28",
+      "event_title": "Vertiv Q3 2026 Earnings Call & Liquid Cooling Backlog Update",
+      "entity": "Vertiv (Power & Thermal)",
+      "reminder_note": "Track CDU Book-to-Bill ratio and 2027 modular power system production guidance."
+    },
+    {
+      "date": "2026-10-29",
+      "event_title": "Eaton Investor Day: North American Grid Expansion & Transformer Ramp",
+      "entity": "Eaton (Electrical & Medium-Voltage)",
+      "reminder_note": "Monitor Texas transformer facility Phase 2 timeline and customer LTA commitments."
+    },
+    {
+      "date": "2026-11-05",
+      "event_title": "OCP Global Summit: Next-Gen Compute Rack Busway & Liquid Interface Standards",
+      "entity": "OCP Foundation / Tier-1 ODMs",
+      "reminder_note": "Review 54V busbar geometry and UQD06 large-bore coupling specifications."
+    },
+    {
+      "date": "2026-11-12",
+      "event_title": "Nittobo Investor Briefing: Fukushima Quartz Yarn Ramp Roadmap",
+      "entity": "Nittobo (Low-Dk Glass Substrates)",
+      "reminder_note": "Verify Phase 2 commercial production schedule to gauge 2027H1 CCL supply tightness."
+    },
+    {
+      "date": "2026-11-20",
+      "event_title": "North American Cloud Hyperscaler FY27 Hardware RFP Technical Clarification Deadline",
+      "entity": "Microsoft / AWS Sourcing",
+      "reminder_note": "Submit final documentation for Tier-2 power supply, high-speed copper, and cold plate AVL qualification."
+    }
+  ],
+  "s8_bom_mapping": [
+    {
+      "bom_node": "Substation Transformers & Medium-Voltage Switchgear",
+      "category": "供电与配电",
+      "supply_status": "极度紧缺",
+      "lead_time_trend": "UP",
+      "typical_lead_time": "120 Weeks",
+      "daily_note": "GOES capacity booked through 2028; main substation transformers stand as primary bottleneck."
+    },
+    {
+      "bom_node": "High-Power Diesel Gensets & Aeroderivative Gas Turbines",
+      "category": "供电与配电",
+      "supply_status": "紧平衡",
+      "lead_time_trend": "UP",
+      "typical_lead_time": "68 Weeks",
+      "daily_note": "Cummins and Caterpillar large-displacement engine lines operating near 100% utilization."
+    },
+    {
+      "bom_node": "Server Titanium Power Supply Units (PSU) & 54V HVDC",
+      "category": "供电与配电",
+      "supply_status": "紧平衡",
+      "lead_time_trend": "FLAT",
+      "typical_lead_time": "36 Weeks",
+      "daily_note": "SiC device supply stable; Delta and Lite-On expanding capacity, test bays remain fully loaded."
+    },
+    {
+      "bom_node": "Rack-Level Battery Backup Units (BBU) & Ultracapacitors",
+      "category": "供电与配电",
+      "supply_status": "供给宽松",
+      "lead_time_trend": "FLAT",
+      "typical_lead_time": "26 Weeks",
+      "daily_note": "High-C LFP battery cell capacity abundant; BMS silicon supply unconstrained."
+    },
+    {
+      "bom_node": "800G/1.6T Optical Transceivers & Lasers (EML/CW/SiPh)",
+      "category": "光互连与铜连接",
+      "supply_status": "紧平衡",
+      "lead_time_trend": "DOWN",
+      "typical_lead_time": "28 Weeks",
+      "daily_note": "Silicon photonics penetration alleviates EML pinch; Innolight Thailand ramp tracking on schedule."
+    },
+    {
+      "bom_node": "High-Speed Direct Attach Copper (AEC/DAC 224G/112G)",
+      "category": "光互连与铜连接",
+      "supply_status": "极度紧缺",
+      "lead_time_trend": "UP",
+      "typical_lead_time": "42 Weeks",
+      "daily_note": "Micro-cellular foaming yields rising slowly; Amphenol and Credo allocations tight."
+    },
+    {
+      "bom_node": "AI Server Compute Rack ODM Integration (NVL72/36)",
+      "category": "算力机柜/ODM/PCB",
+      "supply_status": "紧平衡",
+      "lead_time_trend": "FLAT",
+      "typical_lead_time": "32 Weeks",
+      "daily_note": "Foxconn Mexico FTY reached 92.5%; rack assembly and pressure test cycles accelerated."
+    },
+    {
+      "bom_node": "High-Layer PCB/CCL & Low-Dk Quartz Glass Cloth",
+      "category": "算力机柜/ODM/PCB",
+      "supply_status": "极度紧缺",
+      "lead_time_trend": "UP",
+      "typical_lead_time": "46 Weeks",
+      "daily_note": "Nittobo quartz cloth spot premium exceeds 30%; Shengyi and EMC actively qualifying backup formulas."
+    },
+    {
+      "bom_node": "Liquid Cooling CDU / Cold Plates / UQD Quick Disconnects",
+      "category": "智算液冷与温控",
+      "supply_status": "紧平衡",
+      "lead_time_trend": "UP",
+      "typical_lead_time": "38 Weeks",
+      "daily_note": "Brazed plate heat exchangers (BPHE) and canned pumps represent thermal delivery constraints."
+    }
+  ]
+}
