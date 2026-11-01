@@ -1295,6 +1295,46 @@ function addCustomHolding() {
   renderPortfolioRadar();
 }
 
+// 智能股票标的匹配函数（同时支持显式 ticker 映射与智能文本/主体穿透）
+function matchTickers(item, userHoldings) {
+  const matched = new Set();
+  (item.related_tickers || []).forEach(t => {
+    if (userHoldings.includes(t)) matched.add(t);
+  });
+  const textBlob = `${item.title || ''} ${item.fact || ''} ${item.summary || ''} ${item.company || ''} ${item.bottleneck_item || ''} ${item.material || ''} ${item.detail || ''} ${item.action_recommendation || ''} ${item.impact || ''}`.toLowerCase();
+  
+  userHoldings.forEach(ticker => {
+    const libEntry = HOLDINGS_LIB.find(x => x.ticker === ticker);
+    if (!libEntry) {
+      if (textBlob.includes(ticker.toLowerCase())) matched.add(ticker);
+      return;
+    }
+    const names = [libEntry.name, libEntry.en, libEntry.ticker.split('.')[0]];
+    if (libEntry.ticker === '300308') names.push('中际', '旭创', 'innolight');
+    if (libEntry.ticker === '300502') names.push('新易盛', 'eoptolink');
+    if (libEntry.ticker === '300394') names.push('天孚', 'tfc');
+    if (libEntry.ticker === '002837') names.push('英维克', 'envicool');
+    if (libEntry.ticker === '002050') names.push('三花', 'sanhua');
+    if (libEntry.ticker === '601138') names.push('工业富联', '鸿海', 'foxconn', 'fii');
+    if (libEntry.ticker === '002463') names.push('沪电', 'wus');
+    if (libEntry.ticker === '688676') names.push('金盘', 'jinpan');
+    if (libEntry.ticker === '002922') names.push('伊戈尔', 'eaglerise');
+    if (libEntry.ticker === 'VRT') names.push('vertiv', '维谛');
+    if (libEntry.ticker === 'APH') names.push('amphenol', '安费诺');
+    if (libEntry.ticker === 'NVDA') names.push('nvidia', '英伟达');
+    if (libEntry.ticker === 'SMCI') names.push('超微', 'supermicro');
+    if (libEntry.ticker === 'GOOGL') names.push('google', 'alphabet', '谷歌');
+    if (libEntry.ticker === 'MSFT') names.push('microsoft', '微软');
+    if (libEntry.ticker === 'AMZN') names.push('amazon', 'aws', '亚马逊');
+    if (libEntry.ticker === 'META') names.push('meta', 'facebook');
+
+    if (names.some(n => n && textBlob.includes(n.toLowerCase()))) {
+      matched.add(ticker);
+    }
+  });
+  return Array.from(matched);
+}
+
 // 动态计算持仓透视与雷达
 function renderPortfolioRadar() {
   const grid = document.getElementById("portfolio_radar_grid");
@@ -1305,31 +1345,31 @@ function renderPortfolioRadar() {
 
   // 1. Check headlines
   (d.s2_headlines || []).forEach(h => {
-    const matched = (h.related_tickers || []).filter(t => USER_HOLDINGS.includes(t));
+    const matched = matchTickers(h, USER_HOLDINGS);
     if (matched.length) {
       hits.push({
-        type: "HEADLINE",
+        type: "头条重磅",
         title: h.title,
         tickers: matched,
         impact_type: h.severity === "HIGH" ? "NEGATIVE" : "NEUTRAL",
         impact_text: h.key_takeaway || h.summary,
-        link: (h.sources && h.sources[0]) ? h.sources[0].url : null,
-        source_name: (h.sources && h.sources[0]) ? h.sources[0].outlet : null
+        link: (h.sources && h.sources[0]) ? h.sources[0].url : `https://www.google.com/search?q=${encodeURIComponent(h.title + ' AIDC')}`,
+        source_name: (h.sources && h.sources[0]) ? h.sources[0].outlet : "公开行业研报与披露"
       });
     }
   });
 
   // 2. Check CapEx
   (d.s1_capex_dynamics || []).forEach(c => {
-    const matched = (c.related_tickers || []).filter(t => USER_HOLDINGS.includes(t));
+    const matched = matchTickers(c, USER_HOLDINGS);
     if (matched.length) {
       hits.push({
-        type: "CAPEX",
+        type: "CAPEX驱动",
         title: c.title,
         tickers: matched,
         impact_type: "POSITIVE",
         impact_text: c.impact,
-        link: c.source_url,
+        link: c.source_url || `https://www.google.com/search?q=${encodeURIComponent(c.title + ' CapEx')}`,
         source_name: c.source
       });
     }
@@ -1337,15 +1377,15 @@ function renderPortfolioRadar() {
 
   // 3. Check Bottlenecks
   (d.s3_bottlenecks || []).forEach(b => {
-    const matched = (b.related_tickers || []).filter(t => USER_HOLDINGS.includes(t));
+    const matched = matchTickers(b, USER_HOLDINGS);
     if (matched.length) {
       hits.push({
-        type: "BOTTLENECK",
+        type: "短板预警",
         title: `【${b.category}】${b.bottleneck_item} (交期 ${b.lead_time_weeks})`,
         tickers: matched,
         impact_type: "NEGATIVE",
         impact_text: `锁单挤压影响：${b.analysis}`,
-        link: b.source_url,
+        link: b.source_url || `https://www.google.com/search?q=${encodeURIComponent(b.bottleneck_item + ' 锁单交期')}`,
         source_name: b.source
       });
     }
@@ -1353,16 +1393,32 @@ function renderPortfolioRadar() {
 
   // 4. Check Supplier Dynamics
   (d.s5_suppliers || []).forEach(s => {
-    const matched = (s.related_tickers || []).filter(t => USER_HOLDINGS.includes(t));
+    const matched = matchTickers(s, USER_HOLDINGS);
     if (matched.length) {
       hits.push({
-        type: "SUPPLIER",
+        type: "供应商动态",
         title: `${s.company} · [${s.tag}]`,
         tickers: matched,
         impact_type: s.tag.includes("扩产") || s.tag.includes("进AVL") ? "POSITIVE" : "NEUTRAL",
         impact_text: s.detail,
-        link: s.source_url,
+        link: s.source_url || `https://www.google.com/search?q=${encodeURIComponent(s.company + ' ' + s.tag)}`,
         source_name: s.source
+      });
+    }
+  });
+
+  // 5. Check Kitting Alerts (s6)
+  (d.s6_alerts || []).forEach(a => {
+    const matched = matchTickers(a, USER_HOLDINGS);
+    if (matched.length) {
+      hits.push({
+        type: "齐套告警",
+        title: `【${a.risk_level}】${a.material} (交期: ${a.lead_time_status})`,
+        tickers: matched,
+        impact_type: a.risk_level.includes("断供") || a.risk_level.includes("拉长") ? "NEGATIVE" : "POSITIVE",
+        impact_text: a.action_recommendation,
+        link: a.source_url || `https://www.google.com/search?q=${encodeURIComponent(a.material + ' 采购交期')}`,
+        source_name: a.source || "供应链齐套监测"
       });
     }
   });
