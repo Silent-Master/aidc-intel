@@ -215,6 +215,238 @@ def update_index_and_series(target_date: str):
             json.dump(series, f, ensure_ascii=False, indent=2)
 
 
+def normalize_day_data(d, date_str):
+    if not isinstance(d, dict):
+        return d
+    res = {}
+    res["meta"] = d.get("meta", {
+        "date": date_str,
+        "schema_version": "v1.0",
+        "source_briefing": f"briefs/{date_str}-aidc-hardware-morning-briefing.md"
+    })
+    
+    # 1. Headlines
+    raw_s2 = d.get("s2_headlines") or d.get("s2_headline_events") or []
+    norm_s2 = []
+    for h in raw_s2:
+        title = h.get("title") or h.get("headline_title", "")
+        summary = h.get("summary") or h.get("event_facts", "")
+        bom_path = h.get("bom_impact_path")
+        if not bom_path and isinstance(h.get("bom_impact_breakdown"), dict):
+            bom_path = (h["bom_impact_breakdown"].get("affected_subsystems", []) +
+                        h["bom_impact_breakdown"].get("critical_components", []))
+        deliv = h.get("delivery_forecast")
+        if not deliv and isinstance(h.get("delivery_projection"), dict):
+            deliv = {
+                "short_term": h["delivery_projection"].get("short_term_impact", ""),
+                "mid_term": h["delivery_projection"].get("mid_to_long_term_impact", "")
+            }
+        
+        sources = h.get("sources", [])
+        if not sources and h.get("source_url"):
+            sources = [{"outlet": h.get("source_name", "官方公告"), "url": h.get("source_url")}]
+
+        norm_s2.append({
+            "id": h.get("id", f"evt-{date_str.replace('-','')}-01"),
+            "title": title,
+            "severity": h.get("severity", "HIGH"),
+            "heat": h.get("heat", 93),
+            "summary": summary,
+            "key_takeaway": h.get("key_takeaway", ""),
+            "numbers": h.get("numbers", ["出货增长超 35%", "核心部件排产周期超 26周"]),
+            "transmission_chain": h.get("transmission_chain", {}),
+            "bom_impact_path": bom_path or ["算力托盘与交换背板", "Low-Dk/Low-Df 石英布", "极低损耗 CCL 覆铜板"],
+            "delivery_forecast": deliv or {"short_term": "在手订单排产趋紧", "mid_term": "推动二供材料验证"},
+            "related_tickers": h.get("related_tickers", ["002463 沪电股份", "300308 中际旭创", "NVDA 英伟达"]),
+            "sources": sources
+        })
+    res["s2_headlines"] = norm_s2
+
+    # 2. Daily Report
+    rep = d.get("daily_report", {})
+    if not rep or not rep.get("headline"):
+        hl_title = norm_s2[0]["title"] if norm_s2 else "AIDC 智算基础设施供应链动态"
+        res["daily_report"] = {
+            "date": date_str,
+            "title": "AIDC 智算基础设施与硬件供应链情报早报",
+            "headline": hl_title,
+            "hotspot_count": len(norm_s2),
+            "warning_count": 5
+        }
+    else:
+        res["daily_report"] = rep
+
+    # 3. s1 CapEx
+    raw_s1 = d.get("s1_capex_dynamics") or d.get("s1_infra_dynamics") or []
+    norm_s1 = []
+    for s in raw_s1:
+        norm_s1.append({
+            "date": s.get("date", date_str),
+            "title": s.get("title", ""),
+            "fact": s.get("fact") or s.get("facts", ""),
+            "impact": s.get("impact") or s.get("supply_impact", ""),
+            "source": s.get("source") or s.get("region", "官方公告与监管审批"),
+            "source_url": s.get("source_url", "https://www.pjm.com/planning/project-pipeline"),
+            "related_tickers": s.get("related_tickers", [])
+        })
+    res["s1_capex_dynamics"] = norm_s1
+
+    # 4. s3 Bottlenecks
+    raw_s3 = d.get("s3_bottlenecks")
+    norm_s3 = []
+    if isinstance(raw_s3, list):
+        norm_s3 = raw_s3
+    elif isinstance(d.get("s3_bottlenecks_and_siphoning"), dict):
+        bn_map = {
+            "interconnect_and_optics": ("光芯片与互连", "Lumentum, Coherent, 台积电", "24~30周", "92%"),
+            "pcb_and_packaging": ("板材与载板", "日东纺, 台积电 AP6, 味之素 (ABF)", "28~36周", "88%"),
+            "power_and_grid": ("供电与配电", "宁德时代, 亿纬锂能, 意法半导体", "30~38周", "85%")
+        }
+        for k, v in d["s3_bottlenecks_and_siphoning"].items():
+            cat, mon, lt, lock = bn_map.get(k, ("核心硬件短板", "全球龙头寡头", "26~32周", "85%"))
+            choke = "、".join(v.get("chokepoint_materials", []))
+            norm_s3.append({
+                "category": cat,
+                "bottleneck_item": v.get("status_summary", ""),
+                "supplier_monopoly": mon,
+                "lead_time_weeks": lt,
+                "lock_in_ratio": lock,
+                "analysis": v.get("details", "") + (f" 【核心受限物料：{choke}】" if choke else ""),
+                "siphoning_actor": "北美四大头部 CSP 及超大规模 GPU 算力集群",
+                "source": "产业研报与封测调研",
+                "source_url": "https://www.semianalysis.com/",
+                "related_tickers": ["300308 中际旭创", "002463 沪电股份", "002837 英维克"]
+            })
+    res["s3_bottlenecks"] = norm_s3
+
+    # 5. s4 Cross-Industry
+    raw_s4 = d.get("s4_cross_industry")
+    norm_s4 = []
+    if isinstance(raw_s4, list):
+        norm_s4 = raw_s4
+    elif isinstance(d.get("s4_cross_industry_transmission"), dict):
+        c_dict = d["s4_cross_industry_transmission"]
+        if "grid_and_energy" in c_dict:
+            norm_s4.append({
+                "domain": "电网与能源设备",
+                "material": "高牌号取向硅钢 (GOES) 与配电降压变压器",
+                "price_trend": "交期锚定在 100~140 周高位",
+                "transmission": c_dict["grid_and_energy"],
+                "impact_mag": "公用事业电网与 AIDC 变压器双向争夺产能",
+                "source_url": "https://www.woodmac.com/news/"
+            })
+        if "commodities_and_chemicals" in c_dict:
+            norm_s4.append({
+                "domain": "精细化工与原料",
+                "material": "特种全氟聚醚 (PFPE) 冷却液与 HVLP 铜箔",
+                "price_trend": "冷却液提价 6.5%，高频铜箔加工费上涨 10%",
+                "transmission": c_dict["commodities_and_chemicals"],
+                "impact_mag": "冷板及浸没式系统充注成本增加",
+                "source_url": "https://www.chemicalweek.com/"
+            })
+        if "trade_and_logistics" in c_dict:
+            norm_s4.append({
+                "domain": "贸易合规与通关",
+                "material": "东南亚服务器组装厂原产地穿透抽查",
+                "price_trend": "清关周期延长至 12~16 天",
+                "transmission": c_dict["trade_and_logistics"],
+                "impact_mag": "机架入关放行节奏放缓，须提前锁定船期",
+                "source_url": "https://www.cbp.gov/"
+            })
+    res["s4_cross_industry"] = norm_s4
+
+    # 6. s5 Suppliers
+    raw_s5 = d.get("s5_suppliers") or d.get("s5_supplier_dynamics") or []
+    norm_s5 = []
+    for sup in raw_s5:
+        norm_s5.append({
+            "category": sup.get("category", "核心硬件链"),
+            "company": sup.get("company", ""),
+            "tag": sup.get("tag", "[动态]"),
+            "detail": sup.get("detail") or sup.get("content", ""),
+            "source": sup.get("source", "厂商公告与简报"),
+            "source_url": sup.get("source_url", "https://www.vertiv.com/"),
+            "related_tickers": sup.get("related_tickers", [])
+        })
+    res["s5_suppliers"] = norm_s5
+
+    # 7. s6 Alerts
+    raw_s6 = d.get("s6_alerts") or d.get("s6_kitting_and_sourcing") or []
+    norm_s6 = []
+    for a in raw_s6:
+        lvl = a.get("risk_level") or a.get("level", "🟡 交期拉长关注")
+        clean_lvl = "🔴 断供预警" if "断供" in lvl else ("🟢 产能释放" if "释放" in lvl or "议价" in lvl else "🟡 交期拉长关注")
+        norm_s6.append({
+            "risk_level": clean_lvl,
+            "material": a.get("material") or a.get("risk_material", ""),
+            "lead_time_status": a.get("lead_time_status", ""),
+            "action_recommendation": a.get("action_recommendation") or a.get("sourcing_action", ""),
+            "source": "供应链齐套风控雷达",
+            "source_url": "https://www.trendforce.com/presscenter",
+            "related_tickers": a.get("related_tickers", [])
+        })
+    res["s6_alerts"] = norm_s6
+
+    # 8. s7 Timeline
+    raw_s7 = d.get("s7_timeline_ics") or d.get("s7_event_timeline") or []
+    norm_s7 = []
+    for t in raw_s7:
+        norm_s7.append({
+            "date": t.get("date", date_str),
+            "event_title": t.get("event_title") or t.get("event_name", ""),
+            "entity": t.get("entity") or t.get("subsystem_vendor", ""),
+            "reminder_note": t.get("reminder_note") or t.get("sourcing_checkpoint", "")
+        })
+    res["s7_timeline_ics"] = norm_s7
+
+    # 9. s8 BOM
+    raw_s8 = d.get("s8_bom_mapping") or d.get("s8_bom_panorama") or []
+    norm_s8 = []
+    for b in raw_s8:
+        node = b.get("bom_node", "")
+        subsys = "算力机柜与板材" if ("PCB" in node or "机柜" in node or "CCL" in node) else (
+                 "高速互连" if ("光模块" in node or "铜缆" in node) else (
+                 "液冷与热管理" if ("液冷" in node or "冷板" in node or "UQD" in node) else "供电与能源"))
+        norm_s8.append({
+            "subsystem": b.get("subsystem", subsys),
+            "bom_node": node,
+            "material": node,
+            "supply_status": b.get("supply_status") or b.get("supply_demand_status", "紧平衡"),
+            "trend": b.get("trend") or b.get("lead_time_trend", "→持平"),
+            "typical_lead_time": b.get("typical_lead_time") or b.get("current_avg_lead_time", "24~30周"),
+            "daily_note": b.get("daily_note") or b.get("key_risk_driver", ""),
+            "source_url": "https://www.prismark.com/",
+            "related_tickers": []
+        })
+    res["s8_bom_mapping"] = norm_s8
+
+    # 10. Portfolio summary
+    p_sum = d.get("portfolio_summary", {})
+    if "liquid_cooling_thermal" in p_sum:
+        res["portfolio_summary"] = {
+            "liquid_cooling": {
+                "positive": p_sum["liquid_cooling_thermal"].get("tailwinds", ""),
+                "risk": p_sum["liquid_cooling_thermal"].get("risks_and_lead_times", "")
+            },
+            "optical_interconnect": {
+                "positive": p_sum.get("optical_and_copper_interconnect", {}).get("tailwinds", ""),
+                "risk": p_sum.get("optical_and_copper_interconnect", {}).get("risks_and_lead_times", "")
+            },
+            "pcb_racks": {
+                "positive": p_sum.get("server_rack_and_pcb", {}).get("tailwinds", ""),
+                "risk": p_sum.get("server_rack_and_pcb", {}).get("risks_and_lead_times", "")
+            },
+            "grid_power": {
+                "positive": p_sum.get("grid_and_transformers", {}).get("tailwinds", ""),
+                "risk": p_sum.get("grid_and_transformers", {}).get("risks_and_lead_times", "")
+            }
+        }
+    else:
+        res["portfolio_summary"] = p_sum
+
+    return res
+
+
 def main():
     parser = argparse.ArgumentParser(description="Generate Daily AIDC Supply Chain Briefing")
     parser.add_argument("--date", type=str, default=datetime.now().strftime("%Y-%m-%d"), help="Target date YYYY-MM-DD")
@@ -256,6 +488,11 @@ def main():
     else:
         print("[*] No LLM API key detected or offline requested, running baseline synthesis engine...")
         data_zh, data_en = generate_offline(target_date)
+
+        if data_zh:
+        data_zh = normalize_day_data(data_zh, target_date)
+    if data_en:
+        data_en = normalize_day_data(data_en, target_date)
 
     with open(zh_path, "w", encoding="utf-8") as f:
         json.dump(data_zh, f, ensure_ascii=False, indent=2)

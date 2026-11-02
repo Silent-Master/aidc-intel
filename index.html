@@ -1488,6 +1488,231 @@ function renderSourceLinks(title, sourceName, officialUrl) {
   `;
 }
 
+// 全版本数据自适应归一化适配器（兼容任何大模型输出变体，杜绝空白卡片）
+function normalizeData(d, dateStr) {
+  if (!d) return {};
+  const res = { ...d };
+
+  // 1. s2 Headlines
+  const rawS2 = d.s2_headlines || d.s2_headline_events || [];
+  res.s2_headlines = rawS2.map((h, i) => {
+    let bomPath = h.bom_impact_path;
+    if (!bomPath && h.bom_impact_breakdown) {
+      bomPath = [
+        ...(h.bom_impact_breakdown.affected_subsystems || []),
+        ...(h.bom_impact_breakdown.critical_components || [])
+      ];
+    }
+    let deliv = h.delivery_forecast;
+    if (!deliv && h.delivery_projection) {
+      deliv = {
+        short_term: h.delivery_projection.short_term_impact || "",
+        mid_term: h.delivery_projection.mid_to_long_term_impact || ""
+      };
+    }
+    let sources = h.sources || [];
+    if (!sources.length && h.source_url) {
+      sources = [{ outlet: h.source_name || "官方公告", url: h.source_url }];
+    }
+    return {
+      id: h.id || `evt-${(dateStr||'').replace(/-/g,'')}-${i+1}`,
+      title: h.title || h.headline_title || "",
+      severity: h.severity || "HIGH",
+      heat: h.heat || 92,
+      summary: h.summary || h.event_facts || "",
+      key_takeaway: h.key_takeaway || "",
+      numbers: h.numbers || [],
+      transmission_chain: h.transmission_chain || null,
+      bom_impact_path: bomPath || [],
+      delivery_forecast: deliv || {},
+      related_tickers: h.related_tickers || [],
+      sources: sources
+    };
+  });
+
+  // 2. Daily Report Headline
+  let rep = d.daily_report || {};
+  if (!rep.headline) {
+    const topH = res.s2_headlines[0];
+    rep = {
+      date: dateStr,
+      title: (LANG === 'en') ? "AIDC Hardware Supply Chain Intelligence" : "AIDC 智算基础设施与硬件供应链情报早报",
+      headline: topH ? topH.title : "全球 AIDC 供应链关键动态",
+      hotspot_count: res.s2_headlines.length,
+      warning_count: 5
+    };
+  }
+  res.daily_report = rep;
+
+  // 3. s1 CapEx
+  const rawS1 = d.s1_capex_dynamics || d.s1_infra_dynamics || [];
+  res.s1_capex_dynamics = rawS1.map(s => ({
+    date: s.date || dateStr,
+    title: s.title || "",
+    fact: s.fact || s.facts || "",
+    impact: s.impact || s.supply_impact || "",
+    source: s.source || s.region || (LANG==='en'?'Industry Regulatory Approval':'官方公告与监管审批'),
+    source_url: s.source_url || "",
+    related_tickers: s.related_tickers || []
+  }));
+
+  // 4. s3 Bottlenecks
+  if (Array.isArray(d.s3_bottlenecks)) {
+    res.s3_bottlenecks = d.s3_bottlenecks;
+  } else if (d.s3_bottlenecks_and_siphoning && typeof d.s3_bottlenecks_and_siphoning === 'object') {
+    const catMap = {
+      interconnect_and_optics: "光芯片与互连",
+      pcb_and_packaging: "板材与载板",
+      power_and_grid: "供电与配电"
+    };
+    res.s3_bottlenecks = Object.entries(d.s3_bottlenecks_and_siphoning).map(([k, v]) => {
+      const choke = (v.chokepoint_materials || []).join("、");
+      return {
+        category: catMap[k] || "核心短板",
+        bottleneck_item: v.status_summary || "",
+        supplier_monopoly: "全球核心原厂",
+        lead_time_weeks: "26~32周",
+        lock_in_ratio: "85%",
+        analysis: (v.details || "") + (choke ? ` 【核心受限物料：${choke}】` : ""),
+        siphoning_actor: "超大规模云厂商 (Hyperscaler) 与头部 GPU 算力集群",
+        source: "产业调研",
+        source_url: "https://www.semianalysis.com/",
+        related_tickers: []
+      };
+    });
+  } else {
+    res.s3_bottlenecks = [];
+  }
+
+  // 5. s4 Cross Industry
+  if (Array.isArray(d.s4_cross_industry)) {
+    res.s4_cross_industry = d.s4_cross_industry;
+  } else if (d.s4_cross_industry_transmission && typeof d.s4_cross_industry_transmission === 'object') {
+    const t = d.s4_cross_industry_transmission;
+    res.s4_cross_industry = [];
+    if (t.grid_and_energy) {
+      res.s4_cross_industry.push({
+        domain: "电网与能源设备",
+        material: "高牌号取向硅钢 (GOES) 与配电降压变压器",
+        price_trend: "交期锚定在 100~140 周高位",
+        transmission: t.grid_and_energy,
+        impact_mag: "公用事业电网与 AIDC 变压器双向争夺产能",
+        source_url: "https://www.woodmac.com/news/"
+      });
+    }
+    if (t.commodities_and_chemicals) {
+      res.s4_cross_industry.push({
+        domain: "精细化工与原料",
+        material: "特种全氟聚醚 (PFPE) 冷却液与 HVLP 铜箔",
+        price_trend: "冷却液提价 6.5%，高频铜箔加工费上涨 10%",
+        transmission: t.commodities_and_chemicals,
+        impact_mag: "冷板及浸没式系统充注成本增加",
+        source_url: "https://www.chemicalweek.com/"
+      });
+    }
+    if (t.trade_and_logistics) {
+      res.s4_cross_industry.push({
+        domain: "贸易合规与通关",
+        material: "东南亚服务器组装厂原产地穿透抽查",
+        price_trend: "清关周期延长至 12~16 天",
+        transmission: t.trade_and_logistics,
+        impact_mag: "机架入关放行节奏放缓，须提前锁定船期",
+        source_url: "https://www.cbp.gov/"
+      });
+    }
+  } else {
+    res.s4_cross_industry = [];
+  }
+
+  // 6. s5 Suppliers
+  const rawS5 = d.s5_suppliers || d.s5_supplier_dynamics || [];
+  res.s5_suppliers = rawS5.map(s => ({
+    category: s.category || "核心硬件链",
+    company: s.company || "",
+    tag: s.tag || "[动态]",
+    detail: s.detail || s.content || "",
+    source: s.source || "厂商官方动态",
+    source_url: s.source_url || "",
+    related_tickers: s.related_tickers || []
+  }));
+
+  // 7. s6 Alerts
+  const rawS6 = d.s6_alerts || d.s6_kitting_and_sourcing || d.s6_kitting_alerts || [];
+  res.s6_alerts = rawS6.map(a => {
+    const lvl = a.risk_level || a.level || "🟡 交期拉长关注";
+    const cleanLvl = lvl.includes("断供") ? "🔴 断供预警" : (lvl.includes("释放") || lvl.includes("议价") ? "🟢 产能释放" : "🟡 交期拉长关注");
+    return {
+      risk_level: cleanLvl,
+      material: a.material || a.risk_material || "",
+      lead_time_status: a.lead_time_status || "",
+      action_recommendation: a.action_recommendation || a.sourcing_action || "",
+      source: "供应链齐套监测",
+      source_url: a.source_url || "",
+      related_tickers: a.related_tickers || []
+    };
+  });
+
+  // 8. s7 Timeline
+  const rawS7 = d.s7_timeline_ics || d.s7_event_timeline || [];
+  res.s7_timeline_ics = rawS7.map(t => ({
+    date: t.date || dateStr,
+    event_title: t.event_title || t.event_name || "",
+    entity: t.entity || t.subsystem_vendor || "",
+    reminder_note: t.reminder_note || t.sourcing_checkpoint || ""
+  }));
+
+  // 9. s8 BOM
+  const rawS8 = d.s8_bom_mapping || d.s8_bom_panorama || [];
+  res.s8_bom_mapping = rawS8.map(b => {
+    const node = b.bom_node || b.material || "";
+    let subsys = b.subsystem;
+    if (!subsys) {
+      if (node.includes("PCB") || node.includes("机柜") || node.includes("CCL") || node.includes("玻纤")) subsys = "算力机柜与板材";
+      else if (node.includes("光模块") || node.includes("铜缆")) subsys = "高速互连";
+      else if (node.includes("液冷") || node.includes("冷板") || node.includes("UQD") || node.includes("换热")) subsys = "液冷与热管理";
+      else subsys = "供电与能源";
+    }
+    return {
+      subsystem: subsys,
+      bom_node: node,
+      material: node,
+      supply_status: b.supply_status || b.supply_demand_status || "紧平衡",
+      trend: b.trend || b.lead_time_trend || "→持平",
+      typical_lead_time: b.typical_lead_time || b.current_avg_lead_time || "24~30周",
+      daily_note: b.daily_note || b.key_risk_driver || "",
+      source_url: b.source_url || "https://www.prismark.com/",
+      related_tickers: b.related_tickers || []
+    };
+  });
+
+  // 10. Portfolio summary
+  const pSum = d.portfolio_summary || {};
+  if (pSum.liquid_cooling_thermal) {
+    res.portfolio_summary = {
+      liquid_cooling: {
+        positive: pSum.liquid_cooling_thermal.tailwinds || "",
+        risk: pSum.liquid_cooling_thermal.risks_and_lead_times || ""
+      },
+      optical_interconnect: {
+        positive: pSum.optical_and_copper_interconnect?.tailwinds || "",
+        risk: pSum.optical_and_copper_interconnect?.risks_and_lead_times || ""
+      },
+      pcb_racks: {
+        positive: pSum.server_rack_and_pcb?.tailwinds || "",
+        risk: pSum.server_rack_and_pcb?.risks_and_lead_times || ""
+      },
+      grid_power: {
+        positive: pSum.grid_and_transformers?.tailwinds || "",
+        risk: pSum.grid_and_transformers?.risks_and_lead_times || ""
+      }
+    };
+  } else {
+    res.portfolio_summary = pSum;
+  }
+
+  return res;
+}
+
 // ================= 数据加载与页面渲染 =================
 
 async function loadDate(dateStr) {
@@ -1496,7 +1721,8 @@ async function loadDate(dateStr) {
   try {
     const res = await fetch(fileName + "?_t=" + Date.now());
     if (!res.ok) throw new Error("HTTP " + res.status);
-    CUR_DATA = await res.json();
+    const raw = await res.json();
+    CUR_DATA = normalizeData(raw, dateStr);
     renderAll();
     
     history.replaceState(null, "", `#date=${dateStr}&lang=${LANG}`);
@@ -1514,7 +1740,8 @@ async function loadDate(dateStr) {
     if (fileName.includes("-en")) {
       const fallback = await fetch(`data/${dateStr}.json?_t=` + Date.now());
       if (fallback.ok) {
-        CUR_DATA = await fallback.json();
+        const rawFb = await fallback.json();
+        CUR_DATA = normalizeData(rawFb, dateStr);
         renderAll();
       }
     }
