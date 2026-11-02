@@ -228,7 +228,7 @@
       ]
     },
     {
-      "risk_level": "🟡 交期拉长",
+      "risk_level": "🟡 交期拉长关注",
       "material": "精密不锈钢无滴漏盲插快换接头（UQD02/UQD04）",
       "lead_time_status": "交期由 16 周缓慢攀升至 22-26 周；受加工模具及精密机床瓶颈影响涨价 5-8%",
       "action_recommendation": "启动常州中航光电、浙江苏奥等国内精密连接器二供的可靠性与压力降压差长效验证（长达 1,000 小时插拔与水锤实验），分散欧美原厂交付挤兑风险。",
@@ -284,11 +284,7 @@
       "typical_lead_time": "120 - 144 周",
       "daily_note": "高牌号取向硅钢产能受限与北美公用事业电网抢装截流",
       "source_url": "https://www.prismark.com/",
-      "related_tickers": [
-        "601138 工业富联",
-        "002463 沪电股份",
-        "002837 英维克"
-      ]
+      "related_tickers": []
     },
     {
       "subsystem": "供电与能源",
@@ -299,11 +295,7 @@
       "typical_lead_time": "52 - 68 周",
       "daily_note": "大缸径发动机曲轴锻件与特种涡轮增压器交付周期高位维持",
       "source_url": "https://www.prismark.com/",
-      "related_tickers": [
-        "601138 工业富联",
-        "002463 沪电股份",
-        "002837 英维克"
-      ]
+      "related_tickers": []
     },
     {
       "subsystem": "供电与能源",
@@ -314,11 +306,7 @@
       "typical_lead_time": "20 - 28 周",
       "daily_note": "GaN/SiC 高压宽禁带功率器件出货受封装基板交付节奏制约",
       "source_url": "https://www.prismark.com/",
-      "related_tickers": [
-        "601138 工业富联",
-        "002463 沪电股份",
-        "002837 英维克"
-      ]
+      "related_tickers": []
     },
     {
       "subsystem": "供电与能源",
@@ -329,11 +317,7 @@
       "typical_lead_time": "32 - 40 周",
       "daily_note": "北美巨头全额锁死 10C 以上高倍率电芯长协配额",
       "source_url": "https://www.prismark.com/",
-      "related_tickers": [
-        "601138 工业富联",
-        "002463 沪电股份",
-        "002837 英维克"
-      ]
+      "related_tickers": []
     },
     {
       "subsystem": "高速互连",
@@ -344,11 +328,7 @@
       "typical_lead_time": "26 - 34 周",
       "daily_note": "200G EML 芯片和高功率 CW 连续光激光器晶圆外延产能严重不足",
       "source_url": "https://www.prismark.com/",
-      "related_tickers": [
-        "601138 工业富联",
-        "002463 沪电股份",
-        "002837 英维克"
-      ]
+      "related_tickers": []
     },
     {
       "subsystem": "高速互连",
@@ -359,11 +339,7 @@
       "typical_lead_time": "18 - 24 周",
       "daily_note": "高精度发泡绝缘铁氟龙挤出机产能受限及特种铜导线拉拔良率波动",
       "source_url": "https://www.prismark.com/",
-      "related_tickers": [
-        "601138 工业富联",
-        "002463 沪电股份",
-        "002837 英维克"
-      ]
+      "related_tickers": []
     },
     {
       "subsystem": "算力机柜与板材",
@@ -374,11 +350,7 @@
       "typical_lead_time": "16 - 22 周",
       "daily_note": "木桶定律显现，受制于石英布与液冷接头缺料导致的未齐套停工",
       "source_url": "https://www.prismark.com/",
-      "related_tickers": [
-        "601138 工业富联",
-        "002463 沪电股份",
-        "002837 英维克"
-      ]
+      "related_tickers": []
     },
     {
       "subsystem": "算力机柜与板材",
@@ -389,11 +361,7 @@
       "typical_lead_time": "28 - 36 周",
       "daily_note": "日东纺窑炉热态检修推迟投产，M8/M9 级石英玻纤布供给缺口超 15%",
       "source_url": "https://www.prismark.com/",
-      "related_tickers": [
-        "601138 工业富联",
-        "002463 沪电股份",
-        "002837 英维克"
-      ]
+      "related_tickers": []
     },
     {
       "subsystem": "液冷与热管理",
@@ -404,11 +372,7 @@
       "typical_lead_time": "24 - 30 周",
       "daily_note": "高精度无滴漏快换接头（UQD）五金精密公差加工产能无法匹配暴增需求",
       "source_url": "https://www.prismark.com/",
-      "related_tickers": [
-        "601138 工业富联",
-        "002463 沪电股份",
-        "002837 英维克"
-      ]
+      "related_tickers": []
     }
   ],
   "portfolio_summary": {

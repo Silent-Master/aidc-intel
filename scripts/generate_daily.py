@@ -489,7 +489,7 @@ def main():
         print("[*] No LLM API key detected or offline requested, running baseline synthesis engine...")
         data_zh, data_en = generate_offline(target_date)
 
-        if data_zh:
+    if data_zh:
         data_zh = normalize_day_data(data_zh, target_date)
     if data_en:
         data_en = normalize_day_data(data_en, target_date)
