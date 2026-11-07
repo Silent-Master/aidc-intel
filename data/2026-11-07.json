@@ -1,0 +1,167 @@
+{
+  "meta": {
+    "date": "2026-11-07",
+    "schema_version": "v1.0",
+    "source_briefing": "briefs/2026-11-07-aidc-hardware-morning-briefing.md"
+  },
+  "s2_headlines": [
+    {
+      "id": "evt-20261107-01",
+      "title": "",
+      "severity": "HIGH",
+      "heat": 93,
+      "summary": "",
+      "key_takeaway": "核心基材配额遭削减15%，高阶CCL交期延长至26周，机柜组装受阻。",
+      "numbers": [
+        "出货增长超 35%",
+        "核心部件排产周期超 26周"
+      ],
+      "transmission_chain": {},
+      "bom_impact_path": [
+        "算力托盘与交换背板",
+        "Low-Dk/Low-Df 石英布",
+        "极低损耗 CCL 覆铜板"
+      ],
+      "delivery_forecast": {
+        "short_term": "在手订单排产趋紧",
+        "mid_term": "推动二供材料验证"
+      },
+      "related_tickers": [
+        "2383.TW 台光电子",
+        "601138.SH 工业富联",
+        "603256.SH 宏和科技",
+        "002463.SZ 沪电股份"
+      ],
+      "sources": [
+        {
+          "outlet": "官方公告",
+          "url": "https://www.trendforce.com/research/advanced-ccl-substrates-supply-chain-leadtimes-q4-2026"
+        }
+      ]
+    }
+  ],
+  "daily_report": {
+    "date": "2026-11-07",
+    "title": "AIDC 智算基础设施与硬件供应链情报早报",
+    "headline": "",
+    "hotspot_count": 1,
+    "warning_count": 5
+  },
+  "s1_capex_dynamics": [],
+  "s3_bottlenecks": [],
+  "s4_cross_industry": [],
+  "s5_suppliers": [
+    {
+      "category": "核心硬件链",
+      "company": "",
+      "tag": "[扩产/投产]",
+      "detail": "",
+      "source": "厂商公告与简报",
+      "source_url": "https://www.vertiv.com/en-us/about/news-and-insights/news-releases/greensboro-manufacturing-expansion-operational/",
+      "related_tickers": [
+        "VRT.N 维谛技术"
+      ]
+    },
+    {
+      "category": "核心硬件链",
+      "company": "",
+      "tag": "[良率/交期]",
+      "detail": "",
+      "source": "厂商公告与简报",
+      "source_url": "https://www.innolight.com/news/thailand-facility-ramping-up-1-6t-optical-transceivers/",
+      "related_tickers": [
+        "300308.SZ 中际旭创"
+      ]
+    },
+    {
+      "category": "核心硬件链",
+      "company": "",
+      "tag": "[财报/指引]",
+      "detail": "",
+      "source": "厂商公告与简报",
+      "source_url": "https://www.fii-foxconn.com/en/news/q4-performance-ai-server-rack-deployment/",
+      "related_tickers": [
+        "601138.SH 工业富联"
+      ]
+    },
+    {
+      "category": "核心硬件链",
+      "company": "",
+      "tag": "[新品/进AVL]",
+      "detail": "",
+      "source": "厂商公告与简报",
+      "source_url": "https://www.avc.com.tw/investors/press-release-liquid-cooling-components-avl/",
+      "related_tickers": [
+        "3017.TW 奇鋐"
+      ]
+    }
+  ],
+  "s6_alerts": [],
+  "s7_timeline_ics": [
+    {
+      "date": "2026-11-07",
+      "event_title": "英伟达FY27 Q3财报电话会暨Rubin架构平台供应链配套进展说明",
+      "entity": "",
+      "reminder_note": ""
+    },
+    {
+      "date": "2026-11-07",
+      "event_title": "北美OCP全球技术峰会液冷与供电标准专题闭门会",
+      "entity": "",
+      "reminder_note": ""
+    },
+    {
+      "date": "2026-11-07",
+      "event_title": "台积电高雄先进封装厂（AP8）二期产线试产及通水节点",
+      "entity": "",
+      "reminder_note": ""
+    }
+  ],
+  "s8_bom_mapping": [],
+  "portfolio_summary": [
+    {
+      "sector": "液冷与热管理",
+      "catalysts": "Vertiv与双鸿扩建液冷CDU及二次侧歧管产能，北美大型云厂商对NVL72级以上液冷机柜需求确定性高，单相直接浸没与高密度盲插液冷板出货量环比增长14%。",
+      "bottleneck_risks": "不锈钢精密冷板的真空钎焊良率波动，以及符合UQD04标准的精密快换接头公差超标，导致机柜全系统组装阶段漏液率在抽检中升至1.8%【厂商口径】。",
+      "related_tickers": [
+        "002837.SZ 英维克",
+        "VRT.N 维谛技术",
+        "3324.TW 双鸿",
+        "3017.TW 奇鋐"
+      ]
+    },
+    {
+      "sector": "高速光互连与铜缆",
+      "catalysts": "1.6T OSFP-XD光模块量产爬坡，200G/Lane PAM4 EML芯片与硅光CW光源放量，头部CSP将2027年内部互联规划中硅光渗透率目标上调至45%。",
+      "bottleneck_risks": "InP（磷化铟）衬底晶圆切割损耗高企，发泡氟树脂（FEP）受环保法规管控配额收紧，导致超低衰减DAC内层芯线供货周期拉长至38周。",
+      "related_tickers": [
+        "300308.SZ 中际旭创",
+        "300502.SZ 新易盛",
+        "APH.N 安费诺",
+        "CRDO.O Credo"
+      ]
+    },
+    {
+      "sector": "算力机柜与高多层PCB",
+      "catalysts": "台光电子与斗山超低损耗覆铜板（CCL）通过下一代机架验证，M8/M9等级物料采购订单环比增加22%，带动高端HLC多层板产线稼动率维持95%以上。",
+      "bottleneck_risks": "日东纺极低介电常数（Low-Dk/Low-Df）NE-玻纤布原丝配额遭主权AI订单抢占，三阶HDI以上计算母板交付延迟风险扩大至4周。",
+      "related_tickers": [
+        "601138.SH 工业富联",
+        "2317.TW 鸿海",
+        "002463.SZ 沪电股份",
+        "2383.TW 台光电子"
+      ]
+    },
+    {
+      "sector": "电网与变压器出海",
+      "catalysts": "美东PJM电网互联协议加速批准专用输变电走廊，345kV/500kV升压变压器与集装箱式中压开关柜的离岸出口订单确认周期缩短至60天。",
+      "bottleneck_risks": "特高牌号取向硅钢（GOES）全球产能受限，变压器交期普遍滞留在115-140周高位，结构性延误机房主降压站完工时间。",
+      "related_tickers": [
+        "688676.SH 金盘科技",
+        "002922.SZ 伊戈尔",
+        "ETN.N 伊顿",
+        "GEV.N GE Vernova"
+      ]
+    }
+  ]
+}
