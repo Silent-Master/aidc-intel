@@ -1,0 +1,426 @@
+{
+  "meta": {
+    "date": "2026-11-09",
+    "schema_version": "v1.0",
+    "source_briefing": "briefs/2026-11-09-aidc-hardware-morning-briefing.md",
+    "note": "高压直流 (HVDC 400V/800V) 取代传统三相交流成为超算中心主流供电架构；高倍率 BBU 电池模组与超级电容现货紧俏。"
+  },
+  "s2_headlines": [
+    {
+      "id": "evt-20261031-01",
+      "title": "算力机柜全面转向 400V/800V 高压直流 (HVDC)，高倍率 BBU 电芯与超容模组全线紧俏",
+      "severity": "HIGH",
+      "heat": 91,
+      "summary": "单个机架功率达 120kW-140kW，传统 12V 铜排压降损耗过大，全面倒逼算力机柜供电母线向 400V/800V HVDC 演进。为此配套的高倍率（10C以上）短时脉冲放电锂电电芯与超级电容模组成为抢购核心，宁德时代、亿纬锂能与松下产线排产已至 2027H1，现货市场溢价达 18%。",
+      "key_takeaway": "超算机柜供电拓扑向高压直流彻底切换，高倍率储能备电成为必保短板。",
+      "numbers": [
+        "供电拓扑转向 400V/800V",
+        "BBU电芯现货溢价 +18%",
+        "单机架BBU功率达 30kW-60kW"
+      ],
+      "transmission_chain": {
+        "source_driver": "算力芯片瞬态负载波动高达 1000A/μs，传统市电旁路无法抵御纳秒级电压骤降",
+        "midstream_impact": "机架内嵌高倍率 BBU 与超级电容吸收峰值功率，降低电网并网容量压力",
+        "terminal_mapping": "具备高压直流 PSU、BBU 封装与智能电池管理系统 (BMS) 认证能力的麦格米特、光宝科技与台达电价值量大增"
+      },
+      "bom_impact_path": [
+        "电力与备用电源子系统",
+        "机架内嵌 BBU 电池包",
+        "10C+ 高倍率磷酸铁锂电芯",
+        "超级电容能量缓冲模组"
+      ],
+      "delivery_forecast": {
+        "short_term": "BBU 电池模组交期从 16 周延长至 24 周，二线服务器装柜被迫预留空槽后续补装。",
+        "mid_term": "加速全固态微型电池与钠离子超倍率电芯在数据中心高安全备电领域的验证落地。"
+      },
+      "related_tickers": [
+        "002851 麦格米特",
+        "300014 亿纬锂能",
+        "300750 宁德时代",
+        "688676 金盘科技"
+      ],
+      "sources": [
+        {
+          "outlet": "BloombergNEF Storage Monitor",
+          "date": "2026-10-30",
+          "url": "https://about.bnef.com/",
+          "first_party": false
+        },
+        {
+          "outlet": "OCP Power Delivery Subgroup Whitepaper",
+          "date": "2026-10-29",
+          "url": "https://www.opencompute.org/",
+          "first_party": false
+        }
+      ]
+    },
+    {
+      "id": "evt-20261031-02",
+      "title": "224Gbps 高速无源铜缆 (DAC) 锁单潮涌，安费诺与沃尔核材特种发泡芯线订单排满",
+      "severity": "MEDIUM",
+      "heat": 86,
+      "summary": "针对机柜内部短距点对点互连（Scale-Up 网络），高频高速无源铜缆（DAC）凭借零功耗与高可靠性依然是 NVL 架构绝对首选。全球安费诺、沃尔核材等核心厂商的特种化学发泡聚四氟乙烯 (ePTFE) 绝缘芯线产能被大客户联合长单锁定逾 85%，单机柜铜缆用量超 5000 根。",
+      "key_takeaway": "机架内铜退光进被打破，224G无源铜缆凭借极低功耗坐稳短距连接核心地位。",
+      "numbers": [
+        "单机柜铜缆逾 5000根",
+        "特种芯线产能锁定 >85%",
+        "传输速率单通道 224Gbps PAM4"
+      ],
+      "transmission_chain": {
+        "source_driver": "单机架百千瓦功耗逼近极限，光模块发热与激光器寿命在密闭机柜内面临挑战",
+        "midstream_impact": "CSP 扩大 DAC/AEC 铜直连使用比例，替代 2 米以内短距光收发器",
+        "terminal_mapping": "沃尔核材、立讯精密与安费诺高速线缆出货量激增，打破光进铜退传统线性推论"
+      },
+      "bom_impact_path": [
+        "高速互连子系统",
+        "224G DAC 高速铜缆",
+        "化学发泡氟树脂芯线",
+        "精密差分压接连接器"
+      ],
+      "delivery_forecast": {
+        "short_term": "芯线拉丝与自动绕包交期维持在 16 周左右，整体出货平稳可控。",
+        "mid_term": "推动 448G 预研线缆试制，要求更低的高频集肤效应损耗与更严苛的阻抗一致性。"
+      },
+      "related_tickers": [
+        "002130 沃尔核材",
+        "002475 立讯精密",
+        "APH 安费诺"
+      ],
+      "sources": [
+        {
+          "outlet": "LightCounting Interconnect Report",
+          "date": "2026-10-30",
+          "url": "https://www.lightcounting.com/",
+          "first_party": false
+        },
+        {
+          "outlet": "沃尔核材投资者关系活动纪要",
+          "date": "2026-10-29",
+          "url": "http://www.cninfo.com.cn/new/index",
+          "first_party": true
+        }
+      ]
+    }
+  ],
+  "daily_report": {
+    "date": "2026-11-09",
+    "title": "AIDC Hardware & Physical Infrastructure Intelligence Briefing",
+    "headline": "算力机架HVDC高压直流变革加速 · 甲骨文计划兴建1GW级SMR核能智算中心 · 沃尔核材安费诺224G高速无源铜缆产能锁单",
+    "hotspot_count": 2,
+    "warning_count": 5
+  },
+  "s1_capex_dynamics": [
+    {
+      "date": "2026-11-09",
+      "title": "甲骨文 Oracle 宣布拟投建由 3 座小型模块化反应堆 (SMR) 驱动的 1GW 超级智算基地",
+      "fact": "甲骨文董事长兼 CTO 拉里·埃里森在分析师电话会披露，已获得 3 座 SMR 建设许可选址意向，计划直接利用闭式核裂变电力构建 1000MW 超算集群，彻底绕过公共电网排队。【SEC 电话会纪要】",
+      "impact": "加速核能微堆与高压直流电力接入设备走向产业化，重塑超算电力基建选址逻辑。",
+      "source": "Oracle Q1 Earnings Call / SEC Filings",
+      "source_url": "https://www.sec.gov/edgar/searchedgar/companysearch",
+      "related_tickers": [
+        "ORCL 甲骨文",
+        "688676 金盘科技",
+        "002922 伊戈尔"
+      ]
+    },
+    {
+      "date": "2026-11-09",
+      "title": "腾讯云与阿里云在乌兰察布和张家口启动大规模浸没式与冷板液冷算力集群升级",
+      "fact": "国内两大云厂商同步发布 2026-2027 年北方算力枢纽绿色化改造标段，总计改造超 3000 架高功耗算力机柜，要求综合 PUE 必须控制在 1.10 以内，全部配套高倍率 BBU 储能系统。",
+      "impact": "国内液冷与储能备用电源本土厂商迎来集中放量订单，提振第四季度内需交付信心。",
+      "source": "中国招标投标公共服务平台",
+      "source_url": "http://www.cebpubservice.com/",
+      "related_tickers": [
+        "002837 英维克",
+        "300499 高澜股份",
+        "002050 三花智控"
+      ]
+    },
+    {
+      "date": "2026-11-09",
+      "title": "欧盟正式发布新版绿色智算中心能源效率指令 (EED)，限期整改 PUE > 1.25 老旧机房",
+      "fact": "欧洲议会通过修正案，自 2027 年起对全欧境内 IT 负载超 500kW 的数据中心实施严格水资源利用率 (WUE) 与热能回收利用审计，未达标者将面临高额碳排放附加费处罚。",
+      "impact": "倒逼欧洲老旧机房加速推行风改液改造，驱动闭式冷却塔与余热回收板换设备需求井喷。",
+      "source": "European Commission Official Journal",
+      "source_url": "https://eur-lex.europa.eu/",
+      "related_tickers": [
+        "VRT 维谛技术",
+        "002837 英维克"
+      ]
+    }
+  ],
+  "s3_bottlenecks": [
+    {
+      "category": "供电与能源",
+      "bottleneck_item": "10C 脉冲充放电高倍率 BBU 专用电芯",
+      "supplier_monopoly": "宁德时代, 亿纬锂能, 松下",
+      "lead_time_weeks": "24~28周",
+      "lock_in_ratio": "86.5%",
+      "analysis": "兼顾极高倍率与超长日历寿命（10年以上）的特种高镍/磷酸铁锂配方电芯产能被国际大厂预付款锁定。",
+      "source": "BNEF Battery Quarterly",
+      "source_url": "https://about.bnef.com/",
+      "related_tickers": [
+        "300014 亿纬锂能",
+        "300750 宁德时代",
+        "002851 麦格米特"
+      ]
+    },
+    {
+      "category": "高速互连",
+      "bottleneck_item": "224G 铜缆用微米级绝缘物理发泡挤出生产线",
+      "supplier_monopoly": "罗森泰 (Rosendahl Nextrom)",
+      "lead_time_weeks": "48~52周",
+      "lock_in_ratio": "89.0%",
+      "analysis": "发泡度控制在 50%±1% 的进口精密押出机交期达一年，制约线缆加工商短期大幅扩产。",
+      "source": "Wire & Cable Technology",
+      "source_url": "https://www.wirenet.org/",
+      "related_tickers": [
+        "002130 沃尔核材",
+        "002475 立讯精密"
+      ]
+    }
+  ],
+  "s4_cross_industry": [
+    {
+      "domain": "储能与电池",
+      "material": "特种高倍率碳纳米管 (CNT) 导电浆料",
+      "price_trend": "现货价格环比微升 4.5%",
+      "transmission": "快充电车与 AIDC 数据中心 BBU 争夺高纯度单壁碳纳米管，关键分散设备超声均质机排产紧张。",
+      "impact_mag": "高倍率电芯极片内阻优化成本增加约 3%",
+      "source_url": "https://www.batterymarket.com/"
+    },
+    {
+      "domain": "大宗商品",
+      "material": "高导电无氧铜带 (OFC C10200)",
+      "price_trend": "LME 铜价在高位震荡，加工费微幅上涨",
+      "transmission": "重型母线、快接头与水冷板铲齿全面消耗特种无氧纯铜，铜带压延工厂订单排至年底。",
+      "impact_mag": "机柜导电母排与均热板采购成本环比抬升 3.8%",
+      "source_url": "https://www.lme.com/"
+    },
+    {
+      "domain": "法规政策",
+      "material": "北美电网黑启动与数据中心碳合规审计 (Black Start Compliance)",
+      "price_trend": "审计合规认证周期达 4 个月",
+      "transmission": "美国各区域电网对超过 100MW 的单体集群强制要求具备 72 小时脱网独立运行能力。",
+      "impact_mag": "倒逼机房必须额外超配 20% 的储能或清洁备用燃气机组",
+      "source_url": "https://www.ferc.gov/"
+    }
+  ],
+  "s5_suppliers": [
+    {
+      "category": "光互连与铜连接",
+      "company": "沃尔核材 (002130)",
+      "tag": "[扩产/投产]",
+      "detail": "惠州高速线缆产业基地二期 12 条特种发泡芯线押出产线全面投产，224G 单通道线缆月产能突破 30 万米，全面配套安费诺等国际大厂。",
+      "source": "深交所投资者问答",
+      "source_url": "http://irm.cninfo.com.cn/",
+      "related_tickers": [
+        "002130 沃尔核材"
+      ]
+    },
+    {
+      "category": "供电与配电",
+      "company": "伊戈尔 (002922)",
+      "tag": "[财报/指引]",
+      "detail": "三季度海外高频升压升流变压器出口同比增长 85%，马来西亚巴生港新工厂顺利试产，规避关税壁垒并就近配套东南亚数据中心。",
+      "source": "巨潮资讯网官方公告",
+      "source_url": "http://www.cninfo.com.cn/new/index",
+      "related_tickers": [
+        "002922 伊戈尔"
+      ]
+    },
+    {
+      "category": "液冷与热管理",
+      "company": "高澜股份 (300499)",
+      "tag": "[新品/进AVL]",
+      "detail": "新一代针对液冷机房的全自动智能除气与水质在线净化除垢单元通过中国移动算力中心采购入围标准。",
+      "source": "公司官方动态",
+      "source_url": "http://www.cninfo.com.cn/new/index",
+      "related_tickers": [
+        "300499 高澜股份"
+      ]
+    },
+    {
+      "category": "算力机柜与PCB",
+      "company": "立讯精密 (002475)",
+      "tag": "[良率/交期]",
+      "detail": "高阶 PCIe 6.0 铜连接器与 AEC 有源铜缆良率提升至 94%，已向北美前两大云厂商大批量送样测试，首批订单预计明春确认。",
+      "source": "券商调研交流纪要",
+      "source_url": "http://irm.cninfo.com.cn/",
+      "related_tickers": [
+        "002475 立讯精密"
+      ]
+    }
+  ],
+  "s6_alerts": [
+    {
+      "risk_level": "🔴 断供预警",
+      "material": "高倍率 10C 脉冲放电 BBU 锂电电芯",
+      "lead_time_status": "交期拉长至 24~28 周",
+      "action_recommendation": "电源与整机团队必须在方案设计初期将 BBU 电芯规格双源化（兼容宁德与亿纬），提前 6 个月向电芯厂打款锁定配额。",
+      "source": "供应链齐套风控雷达",
+      "source_url": "https://www.trendforce.com/presscenter",
+      "related_tickers": [
+        "300014 亿纬锂能",
+        "300750 宁德时代",
+        "002851 麦格米特"
+      ]
+    },
+    {
+      "risk_level": "🟡 交期拉长关注",
+      "material": "机架用特种高纯度无氧铜母排 (Busbar)",
+      "lead_time_status": "交期 14 周，受铜价传导单价上涨 5%",
+      "action_recommendation": "借助期货套期保值工具锁定半年度铜原料成本，规避大宗价格剧烈震荡带来的毛利侵蚀。",
+      "source": "供应链齐套风控雷达",
+      "source_url": "https://www.trendforce.com/presscenter",
+      "related_tickers": [
+        "002130 沃尔核材",
+        "601138 工业富联"
+      ]
+    },
+    {
+      "risk_level": "🟢 产能释放",
+      "material": "低压断路器与标准低频连接线束",
+      "lead_time_status": "交期缩短至 4~6 周，社会库存充足",
+      "action_recommendation": "在通用线束与外围连接线品类上集中采购招标，压低辅助配件的整体采购支出。",
+      "source": "供应链齐套风控雷达",
+      "source_url": "https://www.trendforce.com/presscenter",
+      "related_tickers": [
+        "002475 立讯精密"
+      ]
+    }
+  ],
+  "s7_timeline_ics": [
+    {
+      "date": "2026-11-15",
+      "event_title": "IEEE 全球电力电子与数据中心直流微电网峰会",
+      "entity": "IEEE PELS & 国际大电网会议 (CIGRE)",
+      "reminder_note": "关注 800V 直流机架配电安全规范与固态断路器 (SSCB) 行业测试标准定稿。"
+    },
+    {
+      "date": "2026-11-25",
+      "event_title": "亚马逊 AWS re:Invent 2026 全球技术大会",
+      "entity": "Amazon AWS",
+      "reminder_note": "关注自研 Trainium3 算力芯片机柜架构、液冷全面部署方案以及核能直供新动作。"
+    }
+  ],
+  "s8_bom_mapping": [
+    {
+      "subsystem": "供电与能源",
+      "bom_node": "",
+      "material": "",
+      "supply_status": "紧平衡",
+      "trend": "↑拉长",
+      "typical_lead_time": "24~30周",
+      "daily_note": "",
+      "source_url": "https://www.prismark.com/",
+      "related_tickers": []
+    },
+    {
+      "subsystem": "供电与能源",
+      "bom_node": "",
+      "material": "",
+      "supply_status": "紧平衡",
+      "trend": "→持平",
+      "typical_lead_time": "24~30周",
+      "daily_note": "",
+      "source_url": "https://www.prismark.com/",
+      "related_tickers": []
+    },
+    {
+      "subsystem": "供电与能源",
+      "bom_node": "",
+      "material": "",
+      "supply_status": "紧平衡",
+      "trend": "↑拉长",
+      "typical_lead_time": "24~30周",
+      "daily_note": "",
+      "source_url": "https://www.prismark.com/",
+      "related_tickers": []
+    },
+    {
+      "subsystem": "高速互连",
+      "bom_node": "",
+      "material": "",
+      "supply_status": "紧平衡",
+      "trend": "→持平",
+      "typical_lead_time": "24~30周",
+      "daily_note": "",
+      "source_url": "https://www.prismark.com/",
+      "related_tickers": []
+    },
+    {
+      "subsystem": "高速互连",
+      "bom_node": "",
+      "material": "",
+      "supply_status": "紧平衡",
+      "trend": "↑拉长",
+      "typical_lead_time": "24~30周",
+      "daily_note": "",
+      "source_url": "https://www.prismark.com/",
+      "related_tickers": []
+    },
+    {
+      "subsystem": "算力机柜与板材",
+      "bom_node": "",
+      "material": "",
+      "supply_status": "紧平衡",
+      "trend": "→持平",
+      "typical_lead_time": "24~30周",
+      "daily_note": "",
+      "source_url": "https://www.prismark.com/",
+      "related_tickers": []
+    },
+    {
+      "subsystem": "算力机柜与板材",
+      "bom_node": "",
+      "material": "",
+      "supply_status": "紧平衡",
+      "trend": "↑拉长",
+      "typical_lead_time": "24~30周",
+      "daily_note": "",
+      "source_url": "https://www.prismark.com/",
+      "related_tickers": []
+    },
+    {
+      "subsystem": "液冷与热管理",
+      "bom_node": "",
+      "material": "",
+      "supply_status": "紧平衡",
+      "trend": "↑拉长",
+      "typical_lead_time": "24~30周",
+      "daily_note": "",
+      "source_url": "https://www.prismark.com/",
+      "related_tickers": []
+    },
+    {
+      "subsystem": "液冷与热管理",
+      "bom_node": "",
+      "material": "",
+      "supply_status": "紧平衡",
+      "trend": "→持平",
+      "typical_lead_time": "24~30周",
+      "daily_note": "",
+      "source_url": "https://www.prismark.com/",
+      "related_tickers": []
+    }
+  ],
+  "portfolio_summary": {
+    "liquid_cooling": {
+      "positive": "CDU 智能化监控与数字液冷运维平台普及，英维克与维谛整站软件附加值提升。",
+      "risk": "冷却液二次管路防爆破水锤设计带来阀门材料成本小幅上升。"
+    },
+    "optical_interconnect": {
+      "positive": "Scale-Out 跨机房连接对 800G 长距单模光模块需求高企，光芯片外延良率稳定在 88%。",
+      "risk": "高速铜缆在机柜内部近端直连（Near-Stack）侵蚀部分短距光模块份额。"
+    },
+    "pcb_racks": {
+      "positive": "机柜内盲插铜排与电源背板（Power Busbar）单机价值量提升 30%，代工大厂产线满载。",
+      "risk": "无氧铜带现货受大宗期货波动影响，采购锁定周期需提前 60 天。"
+    },
+    "grid_power": {
+      "positive": "SMR 小型模块化反应堆与工业级固态变压器 (SST) 进入前沿中试，金盘科技特种干变深度受益。",
+      "risk": "高倍率磷酸铁锂与钠离子 BBU 电芯交付周期延长至 24 周。"
+    }
+  }
+}
