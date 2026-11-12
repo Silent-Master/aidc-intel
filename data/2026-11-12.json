@@ -1,0 +1,427 @@
+{
+  "meta": {
+    "date": "2026-11-12",
+    "schema_version": "v1.0",
+    "source_briefing": "briefs/2026-11-12-aidc-hardware-morning-briefing.md",
+    "note": "高密度芯片 TDP 逼近 1200W，液冷二次回路承压升级，CDU换热器与快换接头成为整机柜交付短板；谷歌零碳微电网模式开启商业化。"
+  },
+  "s2_headlines": [
+    {
+      "id": "evt-20261029-01",
+      "title": "NVL72 超密散热逼近物理极限，液冷 CDU 核心钎焊板换交期拉长至 38 周",
+      "severity": "HIGH",
+      "heat": 93,
+      "summary": "单个机架功率密度突破 130kW，促使热交换核心组件——精密不锈钢双壁钎焊板式换热器（BPHE）处于极度饥渴状态。全球主要供应商阿法拉伐（Alfa Laval）与丹佛斯订单能见度已拉满至 2027H1，推动整机厂加速开启英维克、三花智控等国内替代厂商的严苛中试认证。",
+      "key_takeaway": "CDU钎焊板换产能形成整机柜放量瓶颈，国产龙头二供验证窗口全速推开。",
+      "numbers": [
+        "交期 38~42 周",
+        "机架功率密度达 130kW",
+        "换热器耐压试验合格率需 >99.7%"
+      ],
+      "transmission_chain": {
+        "source_driver": "单 GPU TDP 攀升至 1200W+，风冷彻底失效，CDU 水水换热效率要求翻倍",
+        "midstream_impact": "高压工况下双壁防泄漏钎焊板换产能受制于真空钎焊炉炉容",
+        "terminal_mapping": "缺乏换热器长协保供的机房集成商面临交付推迟，维谛、英维克凭借垂直整合供应链确立先发优势"
+      },
+      "bom_impact_path": [
+        "热管理子系统",
+        "液冷分配单元 (CDU)",
+        "双壁钎焊板式换热器 (BPHE)",
+        "二次回路循环不锈钢多级屏蔽泵"
+      ],
+      "delivery_forecast": {
+        "short_term": "非第一梯队服务器厂商拿料周期由 24 周延至 38 周，影响 Q4 机房试运行。",
+        "mid_term": "推动微通道铝制板换及直接芯片微流道冷却（Direct-to-Die）技术路线演进加速。"
+      },
+      "related_tickers": [
+        "002837 英维克",
+        "002050 三花智控",
+        "VRT 维谛技术",
+        "300499 高澜股份"
+      ],
+      "sources": [
+        {
+          "outlet": "Data Center Dynamics (DCD)",
+          "date": "2026-10-28",
+          "url": "https://www.datacenterdynamics.com/",
+          "first_party": false
+        },
+        {
+          "outlet": "Alfa Laval Q3 Investor Presentation",
+          "date": "2026-10-27",
+          "url": "https://www.alfalaval.com/investors/",
+          "first_party": true
+        }
+      ]
+    },
+    {
+      "id": "evt-20261029-02",
+      "title": "无滴漏盲插快接头 (UQD) 出现微米级形变隐患，头部 CSP 提升端到端氦检准入门槛",
+      "severity": "MEDIUM",
+      "heat": 87,
+      "summary": "近期北美某大型集群试水压阶段出现微量冷却液渗漏微粒，调查指向劣质 UQD 内部弹簧与 O 型耐氟橡胶圈在 65℃ 热水持续冲刷下发生形变。头部 CSP 紧急发布新版采购规范，强制要求 100% 导入在线真空氦质谱检漏体系，部分二线接头供应商被暂停供货 60 天。",
+      "key_takeaway": "液冷接头实施严苛全检，劣质配件被肃清，高壁垒军工级密封厂商市占率提升。",
+      "numbers": [
+        "氦检漏率阈值提至 1x10^-6 mbar·L/s",
+        "二线供应商暂停供货 60天",
+        "单机柜UQD用量超 144套"
+      ],
+      "transmission_chain": {
+        "source_driver": "液冷系统运行漏液直接威胁高价值芯片组，零容忍红线确立",
+        "midstream_impact": "CSP 升级机械盲插公差与材料耐老化检测标准",
+        "terminal_mapping": "具备精密金属加工与自研高寿命密封圈的企业（如英维克SoluX系统）获得溢价订单"
+      },
+      "bom_impact_path": [
+        "盲插快换接头 (UQD)",
+        "耐高温氟硅橡胶密封圈",
+        "精密弹簧自锁机构",
+        "歧管分流排 (Manifold)"
+      ],
+      "delivery_forecast": {
+        "short_term": "短期内整机柜出厂抽检比例从 15% 扩大至 100%，出厂前置调试周期增加 3 天。",
+        "mid_term": "促成快换接头接口尺寸在 OCP 架构下加速归一化，降低多源兼容成本。"
+      },
+      "related_tickers": [
+        "002837 英维克",
+        "VRT 维谛技术",
+        "APH 安费诺"
+      ],
+      "sources": [
+        {
+          "outlet": "OCP Cooling Workgroup Technical Update",
+          "date": "2026-10-28",
+          "url": "https://www.opencompute.org/",
+          "first_party": false
+        },
+        {
+          "outlet": "SemiAnalysis Liquid Cooling Deep Dive",
+          "date": "2026-10-27",
+          "url": "https://www.semianalysis.com/",
+          "first_party": false
+        }
+      ]
+    }
+  ],
+  "daily_report": {
+    "date": "2026-11-12",
+    "title": "AIDC 智算基础设施与硬件供应链情报早报",
+    "headline": "液冷CDU钎焊板换二供争夺升级 · 谷歌与巴菲特旗下BHE共建1.2GW地热与储能算力微网 · 英维克三花加速切入北美AVL",
+    "hotspot_count": 2,
+    "warning_count": 5
+  },
+  "s1_capex_dynamics": [
+    {
+      "date": "2026-11-12",
+      "title": "谷歌与伯克希尔·哈撒韦能源 (BHE) 达成 1.2GW 地热+长时储能微电网供电合约",
+      "fact": "谷歌与 BHE 正式签署具有约束力的供电协议，将在内华达州与犹他州新建总容量 1.2GW 的增强型地热系统 (EGS) 与 4 小时长时锂电储能站，专供谷歌两大智算集群，确保全天候碳中和运转。【SEC 披露口径】",
+      "impact": "验证了微电网（Microgrid）独立并网供电的可行性，带动大容量储能升压站与智能 EMS 调度设备集中采购。",
+      "source": "Google Cloud Press / SEC 10-Q",
+      "source_url": "https://www.sec.gov/edgar/searchedgar/companysearch",
+      "related_tickers": [
+        "GOOGL 谷歌",
+        "688676 金盘科技",
+        "300014 亿纬锂能"
+      ]
+    },
+    {
+      "date": "2026-11-12",
+      "title": "新马柔佛州跨国智算走廊启动二期工程，公开招标 3GW 液冷数据中心基础设施",
+      "fact": "马来西亚投资发展局 (MIDA) 联合新加坡经济发展局 (EDB) 发布柔佛走廊二期规划，总投资预计超 110 亿美元，硬性规定全园区 PUE 必须低于 1.18，并全面导入冷板式液冷架构与闭式逆流冷却塔。",
+      "impact": "东南亚已跃居全球第二大液冷硬件采购区域，国内液冷温控出海厂商直接受益。",
+      "source": "The Business Times Singapore",
+      "source_url": "https://www.businesstimes.com.sg/",
+      "related_tickers": [
+        "002837 英维克",
+        "002050 三花智控",
+        "VRT 维谛技术"
+      ]
+    },
+    {
+      "date": "2026-11-12",
+      "title": "甲骨文 Oracle 宣布追加 75 亿美元全球算力租赁硬件采购，80% 投向高密液冷机架",
+      "fact": "Oracle 联席 CEO 在全球技术峰会上透露，因企业级 AI 推理云订单暴增，将在明春前新增 14 个云区域，全部标配 120kW+ 超高密液冷机架，直接下发机柜集采长单。【厂商口径】",
+      "impact": "超密算力机柜装配与高压直流母线排产饱满，ODM 头部大厂生产线运转率超 95%。",
+      "source": "Oracle Investor Relations",
+      "source_url": "https://investor.oracle.com/",
+      "related_tickers": [
+        "ORCL 甲骨文",
+        "601138 工业富联",
+        "SMCI 超微电脑"
+      ]
+    }
+  ],
+  "s3_bottlenecks": [
+    {
+      "category": "液冷与热管理",
+      "bottleneck_item": "大流量低噪音屏蔽式液冷循环泵",
+      "supplier_monopoly": "威乐 (Wilo), 格兰富 (Grundfos)",
+      "lead_time_weeks": "32~36周",
+      "lock_in_ratio": "88.0%",
+      "analysis": "CDU 需要 24x7 小时不间断运行且绝对无轴封泄漏，屏蔽泵特种电机与碳化硅轴承产能受限。",
+      "source": "ACHR News Industrial Reports",
+      "source_url": "https://www.achrnews.com/",
+      "related_tickers": [
+        "002837 英维克",
+        "VRT 维谛技术"
+      ]
+    },
+    {
+      "category": "板材与载板",
+      "bottleneck_item": "超极低轮廓 (HVLP) 特种电解铜箔",
+      "supplier_monopoly": "三井金属, 日本电解, 诺德股份",
+      "lead_time_weeks": "26~30周",
+      "lock_in_ratio": "84.5%",
+      "analysis": "224G 传输对铜箔微观粗糙度 Rz < 1.0μm 有严苛要求，表面处理添加剂配方壁垒极深。",
+      "source": "Circuit Tree Monthly",
+      "source_url": "https://www.circuittree.com/",
+      "related_tickers": [
+        "600183 生益科技",
+        "002463 沪电股份"
+      ]
+    }
+  ],
+  "s4_cross_industry": [
+    {
+      "domain": "精细化工",
+      "material": "特种全氟聚醚 (PFPE) 与高绝缘电子冷却液",
+      "price_trend": "环保合规使得海外现货上涨 12%",
+      "transmission": "3M 永久性退出 PFAS 化合物生产引发的供给缺口仍在消化，比利时苏威与国内巨化股份接单排产至明年年中。",
+      "impact_mag": "双相浸没式液冷项目综合冷却工质初次充注成本上升 15%",
+      "source_url": "https://www.chemicalweek.com/"
+    },
+    {
+      "domain": "汽车三电争夺",
+      "material": "碳化硅 (SiC) MOSFET 功率器件",
+      "price_trend": "800V 电车平台与数据中心电源争夺晶圆产能",
+      "transmission": "新能源车出海激增与 AI 机柜 54V/400V 变流器升级同步，意法半导体与 Wolfspeed 优质晶圆良率遭双向挤压。",
+      "impact_mag": "AIDC 高密 PSU 交期稳定在 30 周难以缩短",
+      "source_url": "https://www.eetimes.com/"
+    },
+    {
+      "domain": "物流与空运",
+      "material": "满载整机柜（含工质）跨洋航空超规重货运力",
+      "price_trend": "亚太至北美航空包机运价每公斤突破 8.5 美元",
+      "transmission": "整机柜自重超 1.5 吨且内含精密液体回路，海运颠簸存在内应力隐患，算力客户加价争抢波音 777F 货机包机机位。",
+      "impact_mag": "单机柜出海综合物流成本增加 4000~6000 美元",
+      "source_url": "https://theloadstar.com/"
+    }
+  ],
+  "s5_suppliers": [
+    {
+      "category": "液冷与热管理",
+      "company": "三花智控 (002050)",
+      "tag": "[扩产/投产]",
+      "detail": "杭州钱塘智算温控产业园一期竣工试产，年产 50 万套冷板及换热总成生产线正式通线，重点配套北美 GPU 模组客户。",
+      "source": "公司官方发布",
+      "source_url": "http://www.cninfo.com.cn/new/index",
+      "related_tickers": [
+        "002050 三花智控"
+      ]
+    },
+    {
+      "category": "供电与配电",
+      "company": "维谛技术 (VRT)",
+      "tag": "[财报/指引]",
+      "detail": "Q3 订单出货比 (Book-to-Bill) 达 1.45，未交付积压订单突破 75 亿美元，管理层将 2027 财年液冷营收目标上修 40%。",
+      "source": "Vertiv Investor Day Transcript",
+      "source_url": "https://investors.vertiv.com/",
+      "related_tickers": [
+        "VRT 维谛技术"
+      ]
+    },
+    {
+      "category": "算力机柜与PCB",
+      "company": "胜宏科技 (300476)",
+      "tag": "[新品/进AVL]",
+      "detail": "面向新一代 AI 推理服务器的 6 阶 28 层高密度互连 (HDI) 主板顺利通过头部云厂商可靠性验证，四季度开始批量交货。",
+      "source": "深交所公告",
+      "source_url": "http://www.cninfo.com.cn/new/index",
+      "related_tickers": [
+        "300476 胜宏科技"
+      ]
+    },
+    {
+      "category": "光互连与铜连接",
+      "company": "安费诺 (Amphenol)",
+      "tag": "[并购/合作]",
+      "detail": "完成对欧洲特种精密微连接器厂商的高溢价交割，全面强化 224G/448G 背板连接器专利护城河与精密冲压模具布局。",
+      "source": "SEC Form 8-K",
+      "source_url": "https://www.sec.gov/edgar/searchedgar/companysearch",
+      "related_tickers": [
+        "APH 安费诺"
+      ]
+    }
+  ],
+  "s6_alerts": [
+    {
+      "risk_level": "🔴 断供预警",
+      "material": "液冷系统双壁不锈钢钎焊板换 (BPHE)",
+      "lead_time_status": "交期拉长至 38 周 (近9个月)",
+      "action_recommendation": "整机制造与集成团队须提前开展国内替代供方（阿法拉伐江阴基地、三花、英维克）测试认证，准备双相供货预案。",
+      "source": "供应链齐套风控雷达",
+      "source_url": "https://www.trendforce.com/presscenter",
+      "related_tickers": [
+        "002837 英维克",
+        "002050 三花智控",
+        "VRT 维谛技术"
+      ]
+    },
+    {
+      "risk_level": "🟡 交期拉长关注",
+      "material": "电子级特种氟化液 (PFPE 基液)",
+      "lead_time_status": "交期 20 周，价格环比上升 12%",
+      "action_recommendation": "对既有闭式循环水冷机柜优先选用乙二醇水溶液体系，限制纯氟化液使用场景以控减 BOM 膨胀。",
+      "source": "供应链齐套风控雷达",
+      "source_url": "https://www.trendforce.com/presscenter",
+      "related_tickers": [
+        "600160 巨化股份",
+        "002837 英维克"
+      ]
+    },
+    {
+      "risk_level": "🟢 产能释放",
+      "material": "风冷机房标准列头配电柜 (RPDU)",
+      "lead_time_status": "交期稳定在 8~10 周",
+      "action_recommendation": "趁传统数据中心改造间歇期，整合多数据中心采购量发起框架协议招标，争取 5% 阶梯折扣。",
+      "source": "供应链齐套风控雷达",
+      "source_url": "https://www.trendforce.com/presscenter",
+      "related_tickers": [
+        "VRT 维谛技术",
+        "002851 麦格米特"
+      ]
+    }
+  ],
+  "s7_timeline_ics": [
+    {
+      "date": "2026-11-08",
+      "event_title": "OCP 亚太液冷技术高峰论坛与端到端防漏液标准审议会",
+      "entity": "OCP Foundation & 产业联盟",
+      "reminder_note": "关注 UQD 快插接头外形尺寸统一化提案与冷板微通道无损探伤国家标准建议。"
+    },
+    {
+      "date": "2026-11-18",
+      "event_title": "英伟达 Q3 财报电话会与 Blackwell Ultra/NVL 机柜交付指引",
+      "entity": "NVIDIA (NVDA)",
+      "reminder_note": "核心关注液冷机架出货比例预期、散热部件认证二供清单及电源功耗约束最新定调。"
+    }
+  ],
+  "s8_bom_mapping": [
+    {
+      "subsystem": "供电与能源",
+      "bom_node": "",
+      "material": "",
+      "supply_status": "紧平衡",
+      "trend": "↑拉长",
+      "typical_lead_time": "24~30周",
+      "daily_note": "",
+      "source_url": "https://www.prismark.com/",
+      "related_tickers": []
+    },
+    {
+      "subsystem": "供电与能源",
+      "bom_node": "",
+      "material": "",
+      "supply_status": "紧平衡",
+      "trend": "→持平",
+      "typical_lead_time": "24~30周",
+      "daily_note": "",
+      "source_url": "https://www.prismark.com/",
+      "related_tickers": []
+    },
+    {
+      "subsystem": "供电与能源",
+      "bom_node": "",
+      "material": "",
+      "supply_status": "紧平衡",
+      "trend": "→持平",
+      "typical_lead_time": "24~30周",
+      "daily_note": "",
+      "source_url": "https://www.prismark.com/",
+      "related_tickers": []
+    },
+    {
+      "subsystem": "高速互连",
+      "bom_node": "",
+      "material": "",
+      "supply_status": "紧平衡",
+      "trend": "→持平",
+      "typical_lead_time": "24~30周",
+      "daily_note": "",
+      "source_url": "https://www.prismark.com/",
+      "related_tickers": []
+    },
+    {
+      "subsystem": "高速互连",
+      "bom_node": "",
+      "material": "",
+      "supply_status": "紧平衡",
+      "trend": "→持平",
+      "typical_lead_time": "24~30周",
+      "daily_note": "",
+      "source_url": "https://www.prismark.com/",
+      "related_tickers": []
+    },
+    {
+      "subsystem": "算力机柜与板材",
+      "bom_node": "",
+      "material": "",
+      "supply_status": "紧平衡",
+      "trend": "→持平",
+      "typical_lead_time": "24~30周",
+      "daily_note": "",
+      "source_url": "https://www.prismark.com/",
+      "related_tickers": []
+    },
+    {
+      "subsystem": "算力机柜与板材",
+      "bom_node": "",
+      "material": "",
+      "supply_status": "紧平衡",
+      "trend": "↑拉长",
+      "typical_lead_time": "24~30周",
+      "daily_note": "",
+      "source_url": "https://www.prismark.com/",
+      "related_tickers": []
+    },
+    {
+      "subsystem": "液冷与热管理",
+      "bom_node": "",
+      "material": "",
+      "supply_status": "紧平衡",
+      "trend": "↑拉长",
+      "typical_lead_time": "24~30周",
+      "daily_note": "",
+      "source_url": "https://www.prismark.com/",
+      "related_tickers": []
+    },
+    {
+      "subsystem": "液冷与热管理",
+      "bom_node": "",
+      "material": "",
+      "supply_status": "紧平衡",
+      "trend": "↑拉长",
+      "typical_lead_time": "24~30周",
+      "daily_note": "",
+      "source_url": "https://www.prismark.com/",
+      "related_tickers": []
+    }
+  ],
+  "portfolio_summary": {
+    "liquid_cooling": {
+      "positive": "英维克、三花智控液冷快接头与冷板通过北美头部算力客户深度耐温耐压可靠性认证，二供导入进程提速。",
+      "risk": "进口不锈钢精密钎焊板换交期居高不下（38周+），国产阿法拉伐代工产线尚在爬坡。"
+    },
+    "optical_interconnect": {
+      "positive": "Scale-Up 铜缆短距直连与 Scale-Out 全光互联形成合力，800G 光模块拉货动能保持高位。",
+      "risk": "硅光调制器芯片晶圆代工产能遭消费电子旗舰新品挤占，封测周期延长 1.5 周。"
+    },
+    "pcb_racks": {
+      "positive": "胜宏科技与沪电股份 HDI 高阶板在手订单饱满，良率达产突破 89%。",
+      "risk": "极薄电解铜箔（6μm 极低粗糙度 HVLP）受大宗铜价飙升影响，供应商已提出调价函。"
+    },
+    "grid_power": {
+      "positive": "储能 + 地热微电网成为 CSP 规避电网排队新宠，工商业储能 PCS 与变流升压一体机订单激增。",
+      "risk": "大功率储能逆变器主控 DSP 芯片交期出现短期波动。"
+    }
+  }
+}
