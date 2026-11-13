@@ -5,8 +5,15 @@
     <link>https://silent-master.github.io/aidc-intel/</link>
     <description>AI 数据中心物理基建、算力机柜、供电配电、高速互连、液冷温控每日供应链情报。面向采购、供应链管理及硬件工程团队。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 12 Nov 2026 07:38:24 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 13 Nov 2026 07:09:16 GMT</lastBuildDate>
     <atom:link href="https://silent-master.github.io/aidc-intel/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>【AIDC情报 2026-11-13】高多层PCB与HDI板产能卡颈 · 工业富联与广达抢食台光M8与生益覆铜板配额 · 亚马逊AWS追加80亿美元扩建弗吉尼亚算力群</title>
+      <link>https://silent-master.github.io/aidc-intel/#date=2026-11-13</link>
+      <guid isPermaLink="true">https://silent-master.github.io/aidc-intel/#date=2026-11-13</guid>
+      <description>&lt;p&gt;&lt;strong&gt;头条快讯：&lt;/strong&gt;高多层PCB与HDI板产能卡颈 · 工业富联与广达抢食台光M8与生益覆铜板配额 · 亚马逊AWS追加80亿美元扩建弗吉尼亚算力群&lt;/p&gt;&lt;h4&gt;核心头条拆解：&lt;/h4&gt;&lt;p&gt;&lt;strong&gt;36~44 层极高多层板 (VHLC) 压合良率面临考验，M8 级覆铜板配额被头部两家 ODM 包揽&lt;/strong&gt;&lt;br&gt;AI 算力加速交换背板层数急剧攀升至 40 层以上，信号阻抗控制公差收紧至 ±5%。极高层数带来的内层涨缩与热应力使得小厂压合良率暴跌至 65% 以下。全球 M8 级覆铜板两大寡头台光电子与生益科技的当月配额已被鸿海（工业富联）与广达锁定逾 80%，中小服务器厂拿板交期突破 32 周。&lt;/p&gt;&lt;p&gt;&lt;strong&gt;工业富联 (Foxconn/FII) 墨西哥与台湾机柜总装线满产，NVL 系列机柜直通率跨越 90%&lt;/strong&gt;&lt;br&gt;工业富联位于墨西哥瓜达拉哈拉的超级算力总装工厂完成第二条高自动化装配线调试，NVL72 机柜系统级集成一次直通率（First Pass Yield）由年中的 82% 提升至 91.2%。日产能攀升至 16 套完整机柜，全速冲刺北美 CSP 交付目标。【厂商口径】&lt;/p&gt;&lt;h4&gt;齐套预警与采购建议：&lt;/h4&gt;&lt;ul&gt;&lt;li&gt;[🔴 断供预警] 40层+ PCB 特种耐高温微型钻针与导向套: PCB 制造工程团队严格管控钻针研磨复用次数，提前向台湾尖点与国内优质刀具厂下达年度买断储备。 (交期: 交期拉长至 30 周以上，原厂配额告急)&lt;/li&gt;&lt;li&gt;[🟡 交期拉长关注] M8/M9 级特种极低损耗覆铜板 (CCL): 整机 ODM 推动终端算力客户签署季度价格保护条款，同时加速推进生益科技与联茂二供导入进度。 (交期: 交期 32 周，板材原厂传出下月调价 5%~8%)&lt;/li&gt;&lt;li&gt;[🟢 产能释放] 标准 12~16 层通用存储与网卡 PCB 板: 在通用主板与周边配套辅板上发起竞争性谈判，向供应商索取 10% 左右的采购让利空间。 (交期: 交期 4~6 周，产能供给严重过剩)&lt;/li&gt;&lt;/ul&gt;</description>
+      <pubDate>Fri, 13 Nov 2026 00:30:00 GMT</pubDate>
+    </item>
     <item>
       <title>【AIDC情报 2026-11-12】液冷CDU钎焊板换二供争夺升级 · 谷歌与巴菲特旗下BHE共建1.2GW地热与储能算力微网 · 英维克三花加速切入北美AVL</title>
       <link>https://silent-master.github.io/aidc-intel/#date=2026-11-12</link>
@@ -97,13 +104,6 @@
       <guid isPermaLink="true">https://silent-master.github.io/aidc-intel/#date=2026-10-31</guid>
       <description>&lt;p&gt;&lt;strong&gt;头条快讯：&lt;/strong&gt;算力机架HVDC高压直流变革加速 · 甲骨文计划兴建1GW级SMR核能智算中心 · 沃尔核材安费诺224G高速无源铜缆产能锁单&lt;/p&gt;&lt;h4&gt;核心头条拆解：&lt;/h4&gt;&lt;p&gt;&lt;strong&gt;算力机柜全面转向 400V/800V 高压直流 (HVDC)，高倍率 BBU 电芯与超容模组全线紧俏&lt;/strong&gt;&lt;br&gt;单个机架功率达 120kW-140kW，传统 12V 铜排压降损耗过大，全面倒逼算力机柜供电母线向 400V/800V HVDC 演进。为此配套的高倍率（10C以上）短时脉冲放电锂电电芯与超级电容模组成为抢购核心，宁德时代、亿纬锂能与松下产线排产已至 2027H1，现货市场溢价达 18%。&lt;/p&gt;&lt;p&gt;&lt;strong&gt;224Gbps 高速无源铜缆 (DAC) 锁单潮涌，安费诺与沃尔核材特种发泡芯线订单排满&lt;/strong&gt;&lt;br&gt;针对机柜内部短距点对点互连（Scale-Up 网络），高频高速无源铜缆（DAC）凭借零功耗与高可靠性依然是 NVL 架构绝对首选。全球安费诺、沃尔核材等核心厂商的特种化学发泡聚四氟乙烯 (ePTFE) 绝缘芯线产能被大客户联合长单锁定逾 85%，单机柜铜缆用量超 5000 根。&lt;/p&gt;&lt;h4&gt;齐套预警与采购建议：&lt;/h4&gt;&lt;ul&gt;&lt;li&gt;[🔴 断供预警] 高倍率 10C 脉冲放电 BBU 锂电电芯: 电源与整机团队必须在方案设计初期将 BBU 电芯规格双源化（兼容宁德与亿纬），提前 6 个月向电芯厂打款锁定配额。 (交期: 交期拉长至 24~28 周)&lt;/li&gt;&lt;li&gt;[🟡 涨价关注] 机架用特种高纯度无氧铜母排 (Busbar): 借助期货套期保值工具锁定半年度铜原料成本，规避大宗价格剧烈震荡带来的毛利侵蚀。 (交期: 交期 14 周，受铜价传导单价上涨 5%)&lt;/li&gt;&lt;li&gt;[🟢 议价窗口] 低压断路器与标准低频连接线束: 在通用线束与外围连接线品类上集中采购招标，压低辅助配件的整体采购支出。 (交期: 交期缩短至 4~6 周，社会库存充足)&lt;/li&gt;&lt;/ul&gt;</description>
       <pubDate>Sat, 31 Oct 2026 00:30:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>【AIDC情报 2026-10-30】高多层PCB与HDI板产能卡颈 · 工业富联与广达抢食台光M8与生益覆铜板配额 · 亚马逊AWS追加80亿美元扩建弗吉尼亚算力群</title>
-      <link>https://silent-master.github.io/aidc-intel/#date=2026-10-30</link>
-      <guid isPermaLink="true">https://silent-master.github.io/aidc-intel/#date=2026-10-30</guid>
-      <description>&lt;p&gt;&lt;strong&gt;头条快讯：&lt;/strong&gt;高多层PCB与HDI板产能卡颈 · 工业富联与广达抢食台光M8与生益覆铜板配额 · 亚马逊AWS追加80亿美元扩建弗吉尼亚算力群&lt;/p&gt;&lt;h4&gt;核心头条拆解：&lt;/h4&gt;&lt;p&gt;&lt;strong&gt;36~44 层极高多层板 (VHLC) 压合良率面临考验，M8 级覆铜板配额被头部两家 ODM 包揽&lt;/strong&gt;&lt;br&gt;AI 算力加速交换背板层数急剧攀升至 40 层以上，信号阻抗控制公差收紧至 ±5%。极高层数带来的内层涨缩与热应力使得小厂压合良率暴跌至 65% 以下。全球 M8 级覆铜板两大寡头台光电子与生益科技的当月配额已被鸿海（工业富联）与广达锁定逾 80%，中小服务器厂拿板交期突破 32 周。&lt;/p&gt;&lt;p&gt;&lt;strong&gt;工业富联 (Foxconn/FII) 墨西哥与台湾机柜总装线满产，NVL 系列机柜直通率跨越 90%&lt;/strong&gt;&lt;br&gt;工业富联位于墨西哥瓜达拉哈拉的超级算力总装工厂完成第二条高自动化装配线调试，NVL72 机柜系统级集成一次直通率（First Pass Yield）由年中的 82% 提升至 91.2%。日产能攀升至 16 套完整机柜，全速冲刺北美 CSP 交付目标。【厂商口径】&lt;/p&gt;&lt;h4&gt;齐套预警与采购建议：&lt;/h4&gt;&lt;ul&gt;&lt;li&gt;[🔴 断供预警] 40层+ PCB 特种耐高温微型钻针与导向套: PCB 制造工程团队严格管控钻针研磨复用次数，提前向台湾尖点与国内优质刀具厂下达年度买断储备。 (交期: 交期拉长至 30 周以上，原厂配额告急)&lt;/li&gt;&lt;li&gt;[🟡 涨价关注] M8/M9 级特种极低损耗覆铜板 (CCL): 整机 ODM 推动终端算力客户签署季度价格保护条款，同时加速推进生益科技与联茂二供导入进度。 (交期: 交期 32 周，板材原厂传出下月调价 5%~8%)&lt;/li&gt;&lt;li&gt;[🟢 议价窗口] 标准 12~16 层通用存储与网卡 PCB 板: 在通用主板与周边配套辅板上发起竞争性谈判，向供应商索取 10% 左右的采购让利空间。 (交期: 交期 4~6 周，产能供给严重过剩)&lt;/li&gt;&lt;/ul&gt;</description>
-      <pubDate>Fri, 30 Oct 2026 00:30:00 GMT</pubDate>
     </item>
   </channel>
 </rss>

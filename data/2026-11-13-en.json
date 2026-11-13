@@ -1,0 +1,426 @@
+{
+  "meta": {
+    "date": "2026-11-13",
+    "schema_version": "v1.0",
+    "source_briefing": "briefs/2026-11-13-aidc-hardware-morning-briefing.md",
+    "note": "224Gbps 高速总线催化 36 层以上 HLC 板材需求指数级爆发；工业富联墨西哥与台湾厂区加速扩充组装线应对积压订单。"
+  },
+  "s2_headlines": [
+    {
+      "id": "evt-20261030-01",
+      "title": "36~44 层极高多层板 (VHLC) 压合良率面临考验，M8 级覆铜板配额被头部两家 ODM 包揽",
+      "severity": "HIGH",
+      "heat": 92,
+      "summary": "AI 算力加速交换背板层数急剧攀升至 40 层以上，信号阻抗控制公差收紧至 ±5%。极高层数带来的内层涨缩与热应力使得小厂压合良率暴跌至 65% 以下。全球 M8 级覆铜板两大寡头台光电子与生益科技的当月配额已被鸿海（工业富联）与广达锁定逾 80%，中小服务器厂拿板交期突破 32 周。",
+      "key_takeaway": "40层+极高多层板压合良率形成天然护城河，龙头代工与覆铜板寡头优势显著放大。",
+      "numbers": [
+        "压合层数达 36~44层",
+        "小厂良率跌破 65%",
+        "头部两大ODM包揽 >80% 覆铜板配额"
+      ],
+      "transmission_chain": {
+        "source_driver": "224Gbps 信号速率严防反射与损耗，推动交换背板走向超多层与超薄芯板架构",
+        "midstream_impact": "多层对位、真空热压合机与特种钻针损耗成倍增加，综合报废成本陡增",
+        "terminal_mapping": "具备高良率成熟量产经验的沪电股份、胜宏科技与台光电子独享高毛利红利，二线板厂难以切入核心主板"
+      },
+      "bom_impact_path": [
+        "服务器硬件底座",
+        "算力机柜高阶背板",
+        "M8/M9 超低损耗覆铜板 (CCL)",
+        "极高层数 PCB (40L+)"
+      ],
+      "delivery_forecast": {
+        "short_term": "四季度算力加速背板交期继续延长至 30~34 周，现货价格稳中有升。",
+        "mid_term": "推动台丰 (TUC) 与国内生益科技更高阶材料体系加快全球客户端 qualification 认证。"
+      },
+      "related_tickers": [
+        "601138 工业富联",
+        "002463 沪电股份",
+        "300476 胜宏科技",
+        "600183 生益科技",
+        "2383.TW 台光电子"
+      ],
+      "sources": [
+        {
+          "outlet": "Prismark PCB Industry Review",
+          "date": "2026-10-29",
+          "url": "https://www.prismark.com/",
+          "first_party": false
+        },
+        {
+          "outlet": "TrendForce Server Hardware Tracker",
+          "date": "2026-10-28",
+          "url": "https://www.trendforce.com/",
+          "first_party": false
+        }
+      ]
+    },
+    {
+      "id": "evt-20261030-02",
+      "title": "工业富联 (Foxconn/FII) 墨西哥与台湾机柜总装线满产，NVL 系列机柜直通率跨越 90%",
+      "severity": "MEDIUM",
+      "heat": 89,
+      "summary": "工业富联位于墨西哥瓜达拉哈拉的超级算力总装工厂完成第二条高自动化装配线调试，NVL72 机柜系统级集成一次直通率（First Pass Yield）由年中的 82% 提升至 91.2%。日产能攀升至 16 套完整机柜，全速冲刺北美 CSP 交付目标。【厂商口径】",
+      "key_takeaway": "海外制造核心基地直通率越过关键分水岭，整机交付确定性显著加固。",
+      "numbers": [
+        "一次直通率 91.2%",
+        "日产能 16套整机柜",
+        "在手交付订单积压超 1200套"
+      ],
+      "transmission_chain": {
+        "source_driver": "CSP 客户对下半年整机柜交付时间表施加严厉违约考核",
+        "midstream_impact": "工业富联导入数字孪生与全自动机械臂盲插工装，大幅压降人工装配误差",
+        "terminal_mapping": "巩固在 Blackwell 及后续演进机架中绝对领跑的代工份额，打消市场对大批量交付质量的疑虑"
+      },
+      "bom_impact_path": [
+        "算力整机柜",
+        "总装测试生产线",
+        "盲插液冷管线套件",
+        "高压母线母排排产"
+      ],
+      "delivery_forecast": {
+        "short_term": "四季度整机出货量预计环比提升 45%，海外营收贡献大幅走高。",
+        "mid_term": "进一步虹吸二线代工厂（如超微等）的部分溢出客户订单。"
+      },
+      "related_tickers": [
+        "601138 工业富联",
+        "SMCI 超微电脑",
+        "2382.TW 广达"
+      ],
+      "sources": [
+        {
+          "outlet": "DigiTimes Hardware Supply Chain",
+          "date": "2026-10-29",
+          "url": "https://www.digitimes.com/",
+          "first_party": false
+        },
+        {
+          "outlet": "公司官方投资者关系交流纪要",
+          "date": "2026-10-28",
+          "url": "http://www.cninfo.com.cn/new/index",
+          "first_party": true
+        }
+      ]
+    }
+  ],
+  "daily_report": {
+    "date": "2026-11-13",
+    "title": "AIDC Hardware & Physical Infrastructure Intelligence Briefing",
+    "headline": "高多层PCB与HDI板产能卡颈 · 工业富联与广达抢食台光M8与生益覆铜板配额 · 亚马逊AWS追加80亿美元扩建弗吉尼亚算力群",
+    "hotspot_count": 2,
+    "warning_count": 5
+  },
+  "s1_capex_dynamics": [
+    {
+      "date": "2026-11-13",
+      "title": "亚马逊 AWS 宣布追加 80 亿美元扩建北弗吉尼亚与俄亥俄智算园区",
+      "fact": "AWS 官方公布新一轮基建扩建计划，将在未来 18 个月内新增 5 座超级数据中心，主要部署自家 Trainium3 与 Blackwell NVL 系列算力集群，配套电力需求超 1.5GW。【官方新闻稿】",
+      "impact": "高阶 PCB、高速铜互连与大容量变压器设备订单集中释放，供应链能见度直接延伸至 2027 年。",
+      "source": "Amazon Press Release / SEC 10-Q",
+      "source_url": "https://www.sec.gov/edgar/searchedgar/companysearch",
+      "related_tickers": [
+        "AMZN 亚马逊",
+        "601138 工业富联",
+        "002463 沪电股份",
+        "688676 金盘科技"
+      ]
+    },
+    {
+      "date": "2026-11-13",
+      "title": "沙特阿美携手 PIF 设立 Hummingbird 智算集群，首期采购超 10 万张计算卡机柜",
+      "fact": "沙特公共投资基金 (PIF) 联合沙特阿美宣布启动 Hummingbird 国家算力计划，首期锁定超 10 万张先进 AI 加速卡机柜，总投资逾 120 亿美元，首批交付指定工业富联与广达联合供货。",
+      "impact": "中东土豪客户以充沛现金流全额锁定高阶硬件产能，使得全球算力机柜供应进一步处于卖方市场。",
+      "source": "Arab News / Bloomberg",
+      "source_url": "https://www.bloomberg.com/",
+      "related_tickers": [
+        "601138 工业富联",
+        "2382.TW 广达"
+      ]
+    },
+    {
+      "date": "2026-11-13",
+      "title": "国家电网发布新一代算力枢纽特高压配套工程规划，总投资突破 380 亿元",
+      "fact": "国网公司印发落实“东数西算”特高压输变电工程行动指南，规划建设 4 条±800kV 特高压直流通道，定向将西北风光绿电直送京津冀与长三角算力集聚区。",
+      "impact": "特高压换流变压器、换流阀与高压直流套管迎来万亿级电网基建红利放量。",
+      "source": "国家电网官方公告",
+      "source_url": "http://www.sgcc.com.cn/",
+      "related_tickers": [
+        "600406 国电南瑞",
+        "601179 中国西电",
+        "688676 金盘科技"
+      ]
+    }
+  ],
+  "s3_bottlenecks": [
+    {
+      "category": "板材与载板",
+      "bottleneck_item": "超硬质特种碳化钨微型钻针 (0.15mm以下)",
+      "supplier_monopoly": "尖点科技, 佑能 (Union Tool)",
+      "lead_time_weeks": "28~32周",
+      "lock_in_ratio": "87.0%",
+      "analysis": "40层+ PCB 微小孔深径比极大，钻针磨损率上升 4 倍，特种纳米涂层钻针严重缺货。",
+      "source": "Circuit World Journal",
+      "source_url": "https://www.emerald.com/insight/publication/issn/0305-6120",
+      "related_tickers": [
+        "002463 沪电股份",
+        "300476 胜宏科技"
+      ]
+    },
+    {
+      "category": "供电与配电",
+      "bottleneck_item": "大电流低电阻固态断路器 (SSCB)",
+      "supplier_monopoly": "ABB, 施耐德电气, 西门子",
+      "lead_time_weeks": "46~52周",
+      "lock_in_ratio": "90.0%",
+      "analysis": "400V/800V 直流机架短路电流上升极快，机械断路器响应过慢，固态断路器核心碳化硅模组产能受限。",
+      "source": "IEEE Power Electronics Society",
+      "source_url": "https://www.ieee-pels.org/",
+      "related_tickers": [
+        "688676 金盘科技",
+        "002851 麦格米特"
+      ]
+    }
+  ],
+  "s4_cross_industry": [
+    {
+      "domain": "半导体设备",
+      "material": "高精度多光束激光直接成像设备 (LDI)",
+      "price_trend": "设备单价超过 120 万美元且需排队 1 年",
+      "transmission": "先进封装与高多层板双双抢夺高解析度曝光光源设备，奥宝科技与大族激光订单排期至 2027 年。",
+      "impact_mag": "新扩建 PCB 产线达产节奏受制于光刻设备到位时间",
+      "source_url": "https://www.semi.org/"
+    },
+    {
+      "domain": "工业金属",
+      "material": "特种锡银铜 (SAC305) 低温免洗无铅焊膏",
+      "price_trend": "白银现货大涨带动特种焊料单价上涨 8.5%",
+      "transmission": "贵金属大宗商品牛市直接推升回流焊与波峰焊关键耗材成本，板卡 SMT 制程综合加工费水涨船高。",
+      "impact_mag": "高阶板卡代工每平方米原料辅料成本增加 15 美元",
+      "source_url": "https://www.lbma.org.uk/"
+    },
+    {
+      "domain": "地缘合规",
+      "material": "北美海关双重用途高速计算硬件查验 (CBP Audit)",
+      "price_trend": "通关滞留周期延长 3~5 天",
+      "transmission": "美边境海关强化对墨西哥入境整机柜内光学模块及安全芯片的编码一致性实物查验。",
+      "impact_mag": "跨国整机制造物流需增加 1 周的安全提前量",
+      "source_url": "https://www.cbp.gov/"
+    }
+  ],
+  "s5_suppliers": [
+    {
+      "category": "算力机柜、ODM 与 PCB",
+      "company": "生益科技 (600183)",
+      "tag": "[扩产/投产]",
+      "detail": "东莞松山湖极低损耗覆铜板与特种石英布压合新产线正式投料试车，M7/M8 级产能释放增加 35%，有力补充国内高端板材供给。",
+      "source": "上交所信息披露",
+      "source_url": "https://www.sse.com.cn/",
+      "related_tickers": [
+        "600183 生益科技"
+      ]
+    },
+    {
+      "category": "算力机柜、ODM 与 PCB",
+      "company": "工业富联 (601138)",
+      "tag": "[财报/指引]",
+      "detail": "前三季度 AI 服务器营业收入同比剧增超 150%，云服务商客户定制算力机柜出货占比跃升至 45%，毛利水平环比持续改善。",
+      "source": "公司官方三季报",
+      "source_url": "http://www.cninfo.com.cn/new/index",
+      "related_tickers": [
+        "601138 工业富联"
+      ]
+    },
+    {
+      "category": "光互连与铜连接",
+      "company": "中际旭创 (300308)",
+      "tag": "[良率/交期]",
+      "detail": "四季度 800G 光模块单月出货量稳步跨过 70 万只台阶，硅光版本占比提升至 32%，客户整体退换货不良率低于 200 PPM。",
+      "source": "投资者调研纪要",
+      "source_url": "http://irm.cninfo.com.cn/",
+      "related_tickers": [
+        "300308 中际旭创"
+      ]
+    },
+    {
+      "category": "供电与配电",
+      "company": "麦格米特 (002851)",
+      "tag": "[新品/进AVL]",
+      "detail": "新一代针对 AI 算力机架的 5.5kW 超高能效服务器电源 (CRPS) 获得北美头部芯片厂商参考设计推荐，导入全球核心供应链。",
+      "source": "深交所官方公告",
+      "source_url": "http://www.cninfo.com.cn/new/index",
+      "related_tickers": [
+        "002851 麦格米特"
+      ]
+    }
+  ],
+  "s6_alerts": [
+    {
+      "risk_level": "🔴 断供预警",
+      "material": "40层+ PCB 特种耐高温微型钻针与导向套",
+      "lead_time_status": "交期拉长至 30 周以上，原厂配额告急",
+      "action_recommendation": "PCB 制造工程团队严格管控钻针研磨复用次数，提前向台湾尖点与国内优质刀具厂下达年度买断储备。",
+      "source": "供应链齐套风控雷达",
+      "source_url": "https://www.trendforce.com/presscenter",
+      "related_tickers": [
+        "002463 沪电股份",
+        "300476 胜宏科技"
+      ]
+    },
+    {
+      "risk_level": "🟡 交期拉长关注",
+      "material": "M8/M9 级特种极低损耗覆铜板 (CCL)",
+      "lead_time_status": "交期 32 周，板材原厂传出下月调价 5%~8%",
+      "action_recommendation": "整机 ODM 推动终端算力客户签署季度价格保护条款，同时加速推进生益科技与联茂二供导入进度。",
+      "source": "供应链齐套风控雷达",
+      "source_url": "https://www.trendforce.com/presscenter",
+      "related_tickers": [
+        "600183 生益科技",
+        "2383.TW 台光电子"
+      ]
+    },
+    {
+      "risk_level": "🟢 产能释放",
+      "material": "标准 12~16 层通用存储与网卡 PCB 板",
+      "lead_time_status": "交期 4~6 周，产能供给严重过剩",
+      "action_recommendation": "在通用主板与周边配套辅板上发起竞争性谈判，向供应商索取 10% 左右的采购让利空间。",
+      "source": "供应链齐套风控雷达",
+      "source_url": "https://www.trendforce.com/presscenter",
+      "related_tickers": [
+        "002463 沪电股份"
+      ]
+    }
+  ],
+  "s7_timeline_ics": [
+    {
+      "date": "2026-11-10",
+      "event_title": "TPCA Show 2026 台湾电路板国际展会与 AI 高多层板前瞻峰会",
+      "entity": "台湾电路板协会 (TPCA)",
+      "reminder_note": "关注台光电子、生益科技最新 Low-Dk 无玻纤布覆铜板发布及 224G 眼图测试方案。"
+    },
+    {
+      "date": "2026-11-20",
+      "event_title": "工业富联全球算力制造供应链合作伙伴大会",
+      "entity": "工业富联 (601138)",
+      "reminder_note": "聚焦墨西哥与越南二期扩产规划、机柜直通率最新口径以及 2027 年度供应商评级结果。"
+    }
+  ],
+  "s8_bom_mapping": [
+    {
+      "subsystem": "供电与能源",
+      "bom_node": "",
+      "material": "",
+      "supply_status": "紧平衡",
+      "trend": "↑拉长",
+      "typical_lead_time": "24~30周",
+      "daily_note": "",
+      "source_url": "https://www.prismark.com/",
+      "related_tickers": []
+    },
+    {
+      "subsystem": "供电与能源",
+      "bom_node": "",
+      "material": "",
+      "supply_status": "紧平衡",
+      "trend": "→持平",
+      "typical_lead_time": "24~30周",
+      "daily_note": "",
+      "source_url": "https://www.prismark.com/",
+      "related_tickers": []
+    },
+    {
+      "subsystem": "供电与能源",
+      "bom_node": "",
+      "material": "",
+      "supply_status": "紧平衡",
+      "trend": "→持平",
+      "typical_lead_time": "24~30周",
+      "daily_note": "",
+      "source_url": "https://www.prismark.com/",
+      "related_tickers": []
+    },
+    {
+      "subsystem": "高速互连",
+      "bom_node": "",
+      "material": "",
+      "supply_status": "紧平衡",
+      "trend": "→持平",
+      "typical_lead_time": "24~30周",
+      "daily_note": "",
+      "source_url": "https://www.prismark.com/",
+      "related_tickers": []
+    },
+    {
+      "subsystem": "高速互连",
+      "bom_node": "",
+      "material": "",
+      "supply_status": "紧平衡",
+      "trend": "→持平",
+      "typical_lead_time": "24~30周",
+      "daily_note": "",
+      "source_url": "https://www.prismark.com/",
+      "related_tickers": []
+    },
+    {
+      "subsystem": "算力机柜与板材",
+      "bom_node": "",
+      "material": "",
+      "supply_status": "紧平衡",
+      "trend": "→持平",
+      "typical_lead_time": "24~30周",
+      "daily_note": "",
+      "source_url": "https://www.prismark.com/",
+      "related_tickers": []
+    },
+    {
+      "subsystem": "算力机柜与板材",
+      "bom_node": "",
+      "material": "",
+      "supply_status": "紧平衡",
+      "trend": "↑拉长",
+      "typical_lead_time": "24~30周",
+      "daily_note": "",
+      "source_url": "https://www.prismark.com/",
+      "related_tickers": []
+    },
+    {
+      "subsystem": "液冷与热管理",
+      "bom_node": "",
+      "material": "",
+      "supply_status": "紧平衡",
+      "trend": "↑拉长",
+      "typical_lead_time": "24~30周",
+      "daily_note": "",
+      "source_url": "https://www.prismark.com/",
+      "related_tickers": []
+    },
+    {
+      "subsystem": "液冷与热管理",
+      "bom_node": "",
+      "material": "",
+      "supply_status": "紧平衡",
+      "trend": "→持平",
+      "typical_lead_time": "24~30周",
+      "daily_note": "",
+      "source_url": "https://www.prismark.com/",
+      "related_tickers": []
+    }
+  ],
+  "portfolio_summary": {
+    "liquid_cooling": {
+      "positive": "超高算力机柜散热从选配变为标配，整机柜水冷板采购单价维持高位。",
+      "risk": "快接头材质镀层在高温工况下耐磨测试偶见不合格，原厂质量管控趋严。"
+    },
+    "optical_interconnect": {
+      "positive": "机柜内与跨机架交换机全量导入 800G/1.6T 端口，中际旭创单季度出货量创下历史新高。",
+      "risk": "MPO 高密度光纤连接器陶瓷插芯产能被欧美汽车与光纤到户订单挤压。"
+    },
+    "pcb_racks": {
+      "positive": "沪电股份、胜宏科技获北美头部算力原厂算力主板与交换板核心份额，产线 24 小时满负荷运转。",
+      "risk": "Low-Dk 玻纤布与石英布供应紧张直接导致压合交期拉长，二线 PCB 厂原料采购成本大幅上涨。"
+    },
+    "grid_power": {
+      "positive": "北美智算园区变压器直采长单加速落地，金盘科技特种干式变压器出海订单排产已排至 2027 年。",
+      "risk": "高压真空断路器关键零组件出现季节性缺货。"
+    }
+  }
+}
