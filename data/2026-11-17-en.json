@@ -1,0 +1,40 @@
+{
+  "meta": {
+    "date": "2026-11-17",
+    "schema_version": "v1.0",
+    "source_briefing": "briefs/2026-11-17-aidc-hardware-morning-briefing.md"
+  },
+  "s2_headlines": [],
+  "daily_report": {
+    "date": "2026-11-17",
+    "title": "AIDC 智算基础设施与硬件供应链情报早报",
+    "headline": "AIDC 智算基础设施供应链动态",
+    "hotspot_count": 0,
+    "warning_count": 5
+  },
+  "s1_capex_dynamics": [],
+  "s3_bottlenecks": [],
+  "s4_cross_industry": [],
+  "s5_suppliers": [],
+  "s6_alerts": [],
+  "s7_timeline_ics": [],
+  "s8_bom_mapping": [],
+  "portfolio_summary": {
+    "liquid_cooling": {
+      "tailwinds": "Tier-1 CSP 针对 140kW+ 超高密单机柜集群规模化部署，推动精密钎焊 CDU 与闭式水水回路换热系统采购配额上修 25%【厂商口径】。",
+      "risks": "不锈钢快速断开接头 (UQD) 内部特种 EPDM 密封件由于耐高温氟化液测试周期拉长，高精车削件交期维持在 24~28 周高位。"
+    },
+    "optical_copper_interconnect": {
+      "tailwinds": "1.6T OSFP-XD/2x800G 光模块进入北美超大规模云厂商主网采购放量期，Lumentum、Coherent 等头部 EML 光芯片外包封测排产率达 98%。",
+      "risks": "发泡氟树脂（FEP）受特种精细氟化工配额管控，高频高速 AEC/DAC 224Gbps 内部跳线极细同轴芯线良率爬坡放缓，面临短缺惩罚。"
+    },
+    "racks_pcb": {
+      "tailwinds": "下一代 GPU 算力底座全面切入 Ultra-Low Loss (M8/M9 等级) 覆铜板，国内头部高多层板 (HLC) 厂商二供导入测试进入验证收尾期。",
+      "risks": "日东纺 (Nittobo) 极细玻纤布 (Low-Dk/Low-Df) 配额被头部 CSP 签订的 2 年长协长单 (LTA) 深度锁定，中小 ODM 厂商拿货交期已拉长至 36 周。"
+    },
+    "power_grid_transformers": {
+      "tailwinds": "主权 AI 与欧美大型园区加快 230kV/500kV 变电站自建步伐，干式变压器与箱变出海订单交期溢价率提升 15%~20%。",
+      "risks": "高牌号取向硅钢 (GOES) 产能向传统特高压电网与风光电站倾斜，大容量油浸式升压变压器交付等待周期创纪录达到 110~130 周。"
+    }
+  }
+}
