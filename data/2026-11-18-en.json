@@ -1,0 +1,40 @@
+{
+  "meta": {
+    "date": "2026-11-18",
+    "schema_version": "v1.0",
+    "source_briefing": "briefs/2026-11-18-aidc-hardware-morning-briefing.md"
+  },
+  "s2_headlines": [],
+  "daily_report": {
+    "date": "2026-11-18",
+    "title": "AIDC 智算基础设施与硬件供应链情报早报",
+    "headline": "AIDC 智算基础设施供应链动态",
+    "hotspot_count": 0,
+    "warning_count": 5
+  },
+  "s1_capex_dynamics": [],
+  "s3_bottlenecks": [],
+  "s4_cross_industry": [],
+  "s5_suppliers": [],
+  "s6_alerts": [],
+  "s7_timeline_ics": [],
+  "s8_bom_mapping": [],
+  "portfolio_summary": {
+    "liquid_cooling": {
+      "tailwinds": "Tier-1 CSP加速验证单柜130kW+纯液冷微模块，CDU冗余架构渗透率提升拉动精密钎焊板换需求增长25%【厂商口径】。",
+      "supply_risks": "不锈钢盲插快换接头（UQD）公头精密公差加工良率爬坡迟缓，氟橡胶密封圈耐冷媒老化测试认证周期拉长至16周。"
+    },
+    "optical_and_copper_interconnect": {
+      "tailwinds": "224Gbps SerDes技术全面下沉至柜内互连，AEC有源铜缆在机架内跨交换机布线渗透率突破40%。",
+      "supply_risks": "InP基板与CW DFB激光器阵列晶圆外延良率维持在68%低位，1.6T光收发核心光学芯片短缺拖累出货齐套率。"
+    },
+    "cabinet_and_pcb": {
+      "tailwinds": "下一代Rubin架构主板预研导入M8等级高频覆铜板，头部CCL厂Q4扩产释放，Low-Dk玻纤布二供验证提速。",
+      "supply_risks": "高多层板（HLC 32层+）与高阶HDI叠孔结构热应变控制要求苛刻，板厂整体层压成品良率卡在74%~77%区间。"
+    },
+    "power_and_transformer_export": {
+      "tailwinds": "欧洲主权AI数据中心加速离网燃机配储方案落地，国内220kV及以下环氧树脂浇注干式变压器出海订单排期至2027Q3。",
+      "supply_risks": "北美特高压变压器进口合规穿透审查加剧，取向硅钢（GOES）高牌号材料全球排产饱和，关税与海运周期带来双重延期敞口。"
+    }
+  }
+}
