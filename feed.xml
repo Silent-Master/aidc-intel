@@ -5,8 +5,15 @@
     <link>https://silent-master.github.io/aidc-intel/</link>
     <description>AI 数据中心物理基建、算力机柜、供电配电、高速互连、液冷温控每日供应链情报。面向采购、供应链管理及硬件工程团队。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 20 Nov 2026 07:42:22 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 21 Nov 2026 07:41:30 GMT</lastBuildDate>
     <atom:link href="https://silent-master.github.io/aidc-intel/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>【AIDC情报 2026-11-21】1.6T光模块硅光芯片与InP晶圆配额争夺加剧 · 微软与Constellation锁定20年核电直供协议 · 旭创与新易盛泰国工厂良率攀升至92%</title>
+      <link>https://silent-master.github.io/aidc-intel/#date=2026-11-21</link>
+      <guid isPermaLink="true">https://silent-master.github.io/aidc-intel/#date=2026-11-21</guid>
+      <description>&lt;p&gt;&lt;strong&gt;头条快讯：&lt;/strong&gt;1.6T光模块硅光芯片与InP晶圆配额争夺加剧 · 微软与Constellation锁定20年核电直供协议 · 旭创与新易盛泰国工厂良率攀升至92%&lt;/p&gt;&lt;h4&gt;核心头条拆解：&lt;/h4&gt;&lt;p&gt;&lt;strong&gt;1.6T 硅光芯片核心大功率连续波 (CW) 光源产能告急，Lumentum 与 Coherent 配额锁死&lt;/strong&gt;&lt;br&gt;随着 1.6T 光模块全面转向 SiPh (硅光) 与薄膜铌酸锂架构，外部外挂大功率 CW 激光器（100mW+）成为系统核心瓶颈。全球两大主要外延供应商 Lumentum 与 Coherent 产能已被北美两大算力主厂包揽 90% 以上，现货市场外购加价幅度突破 30%。&lt;/p&gt;&lt;p&gt;&lt;strong&gt;中际旭创与新易盛泰国保税工厂二期达产，1.6T/800G 综合良品率突破 92%&lt;/strong&gt;&lt;br&gt;国内光模块双雄位于泰国春武里及罗勇府的海外高阶智造基地全面通过北美核心 CSP 原厂审计认证。自动化高精贴片与耦合工序成熟，800G LPO 与 1.6T DR8 产线综合良品率稳定跨过 92% 关口，为规避原产地关税提供充足缓冲地带。【厂商口径】&lt;/p&gt;&lt;h4&gt;齐套预警与采购建议：&lt;/h4&gt;&lt;ul&gt;&lt;li&gt;[🔴 断供预警] 外挂大功率 CW 连续波激光光源 (70mW-100mW): 采销团队须至少提前 9 个月锁定 2027 年提货 Forecast，优先引入国产长飞、源杰半导体备选验证。 (交期: 拉长至 40~44 周 (环比 +4周))&lt;/li&gt;&lt;li&gt;[🟡 交期拉长关注] M8/M9 高速覆铜板所需极低损耗石英布: 整机厂推动客户对台丰 (TUC) 与生益科技二供板材下发 ECN 工程变更许可，分散单一信源依赖。 (交期: 交期 34 周，现货加价幅度维持 30% 左右)&lt;/li&gt;&lt;li&gt;[🟢 产能释放] 标准 400G SR4/DR4 光模块及普通光纤跳线: 利用通用物料供需宽松窗口，向下游封测与跳线加工厂发起 8%~12% 的季度价格回溯谈判。 (交期: 交期缩短至 6~8 周，产能供给充裕)&lt;/li&gt;&lt;/ul&gt;</description>
+      <pubDate>Sat, 21 Nov 2026 00:30:00 GMT</pubDate>
+    </item>
     <item>
       <title>【AIDC情报 2026-11-20】变压器交期突破120周大关！日东纺Low-Dk石英布现货溢价达31.8% · 北美四大CSP 2027年CapEx上修至3200亿美元 · 维谛Vertiv Q3财报前瞻与液冷CDU订单积压追踪</title>
       <link>https://silent-master.github.io/aidc-intel/#date=2026-11-20</link>
@@ -97,13 +104,6 @@
       <guid isPermaLink="true">https://silent-master.github.io/aidc-intel/#date=2026-11-08</guid>
       <description>&lt;p&gt;&lt;strong&gt;头条快讯：&lt;/strong&gt;高多层PCB与HDI板产能卡颈 · 工业富联与广达抢食台光M8与生益覆铜板配额 · 亚马逊AWS追加80亿美元扩建弗吉尼亚算力群&lt;/p&gt;&lt;h4&gt;核心头条拆解：&lt;/h4&gt;&lt;p&gt;&lt;strong&gt;36~44 层极高多层板 (VHLC) 压合良率面临考验，M8 级覆铜板配额被头部两家 ODM 包揽&lt;/strong&gt;&lt;br&gt;AI 算力加速交换背板层数急剧攀升至 40 层以上，信号阻抗控制公差收紧至 ±5%。极高层数带来的内层涨缩与热应力使得小厂压合良率暴跌至 65% 以下。全球 M8 级覆铜板两大寡头台光电子与生益科技的当月配额已被鸿海（工业富联）与广达锁定逾 80%，中小服务器厂拿板交期突破 32 周。&lt;/p&gt;&lt;p&gt;&lt;strong&gt;工业富联 (Foxconn/FII) 墨西哥与台湾机柜总装线满产，NVL 系列机柜直通率跨越 90%&lt;/strong&gt;&lt;br&gt;工业富联位于墨西哥瓜达拉哈拉的超级算力总装工厂完成第二条高自动化装配线调试，NVL72 机柜系统级集成一次直通率（First Pass Yield）由年中的 82% 提升至 91.2%。日产能攀升至 16 套完整机柜，全速冲刺北美 CSP 交付目标。【厂商口径】&lt;/p&gt;&lt;h4&gt;齐套预警与采购建议：&lt;/h4&gt;&lt;ul&gt;&lt;li&gt;[🔴 断供预警] 40层+ PCB 特种耐高温微型钻针与导向套: PCB 制造工程团队严格管控钻针研磨复用次数，提前向台湾尖点与国内优质刀具厂下达年度买断储备。 (交期: 交期拉长至 30 周以上，原厂配额告急)&lt;/li&gt;&lt;li&gt;[🟡 交期拉长关注] M8/M9 级特种极低损耗覆铜板 (CCL): 整机 ODM 推动终端算力客户签署季度价格保护条款，同时加速推进生益科技与联茂二供导入进度。 (交期: 交期 32 周，板材原厂传出下月调价 5%~8%)&lt;/li&gt;&lt;li&gt;[🟢 产能释放] 标准 12~16 层通用存储与网卡 PCB 板: 在通用主板与周边配套辅板上发起竞争性谈判，向供应商索取 10% 左右的采购让利空间。 (交期: 交期 4~6 周，产能供给严重过剩)&lt;/li&gt;&lt;/ul&gt;</description>
       <pubDate>Sun, 08 Nov 2026 00:30:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>【AIDC情报 2026-11-07】</title>
-      <link>https://silent-master.github.io/aidc-intel/#date=2026-11-07</link>
-      <guid isPermaLink="true">https://silent-master.github.io/aidc-intel/#date=2026-11-07</guid>
-      <description>&lt;p&gt;&lt;strong&gt;头条快讯：&lt;/strong&gt;&lt;/p&gt;&lt;h4&gt;核心头条拆解：&lt;/h4&gt;&lt;p&gt;&lt;strong&gt;&lt;/strong&gt;&lt;br&gt;&lt;/p&gt;</description>
-      <pubDate>Sat, 07 Nov 2026 00:30:00 GMT</pubDate>
     </item>
   </channel>
 </rss>
